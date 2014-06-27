@@ -1,46 +1,56 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Jeremy Tuloup by jtuloup</title>
+---
+layout: main
+title: Hi!
+priority: 1
+---
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Jeremy Tuloup</h1>
-        <p></p>
+<div class="row">
 
+  <div class="col-md-8 col-xs-6">
 
-        <p class="view"><a href="https://github.com/jtuloup">View My GitHub Profile</a></p>
+    <p>
+      I'm <strong>Jeremy</strong>, from France, currently living in Sweden. <br>
+    </p>
+    <p>
+      I do <strong> web and backend programming </strong> at <strong> Ubisoft Massive </strong> in Malmö Sweden, on the brand new <a href="http://www.justdancenow.com/">Just Dance Now</a> game.
+    </p>
+  </div>
 
-      </header>
-      <section>
-        <h3>
-<a name="jtuloupgithubio" class="anchor" href="#jtuloupgithubio"><span class="octicon octicon-link"></span></a>jtuloup.github.io</h3>
-      </section>
-      <footer>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+  <div class="col-md-4 col-xs-6 social">
+    <div class="pull-right">
+      <a href="https://github.com/jtuloup"><i class="fa fa-github-square fa-4x"></i></a>
+      <a href="https://twitter.com/jtuloup"><i class="fa fa-twitter-square fa-4x"></i></a>
+      <a href="http://www.linkedin.com/in/jtuloup"><i class="fa fa-linkedin-square fa-4x"></i></a>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-51952511-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+  </div>
 
-  </body>
-</html>
+</div>
+
+<div class="row">
+
+  <div class="col-md-12 col-xs-12">
+
+    <p>
+      This website is about what I like to do as a hobby: <a href="/gameJams.html">Game jams</a>, <a href="/misc.html"> fun projects and hacks</a>, and <a href="/blog.html">general thoughts</a> about programming and experiments.
+    </p>
+
+    <p>
+      Enjoy.
+    </p>
+
+  </div>
+
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-12 col-xs-12">
+    {% for post in site.posts limit: 5 %}
+    <h3>
+      <small> {{ post.date | date: '%B %d, %Y'}} </small> &ndash;  <a href="{{ post.url }}">{{ post.title }}</a>
+    </h3>
+    {% endfor %}
+  </div>
+
+</div>

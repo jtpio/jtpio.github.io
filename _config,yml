@@ -1,0 +1,5 @@
+name: JTP
+markdown: redcarpet
+pygments: true
+permalink: /:year/:month/:day/:title.html
+paginate: 5
