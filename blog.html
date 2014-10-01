@@ -6,6 +6,6 @@ priority: 3
 
 {% for post in site.posts limit: 5 %}
 <h2>
-	<small> {{ post.date | date: '%B %d, %Y'}} </small> &ndash; <a href="{{ post.url }}">{{ post.title }}</a>
+	<a href="{{ post.url }}">{{ post.title }}</a> &ndash; <small> {{ post.date | date: '%B %d, %Y'}} </small>
 </h2>
 {% endfor %}
