@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>JTP - Analyzing Malmö Language Exchange Meetup</title>
+
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/yeti/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div id="top" class="container">
+
+    <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">JTP</a>
+        </div>
+        <div class="navbar-collapse navbar-responsive-collapse collapse" style="height: 1px;">
+          <ul class="nav navbar-nav">
+            
+              
+                
+              
+                
+              
+                
+                  
+                    <li><a href="/index.html">Hi</a></li>
+                  
+                
+              
+                
+              
+            
+              
+                
+              
+                
+                  
+                    <li><a href="/gameJams.html">Game Jams</a></li>
+                  
+                
+              
+                
+              
+                
+                  
+                    <li><a href="/misc.html">Projects</a></li>
+                  
+                
+              
+            
+              
+                
+                  
+                    <li><a href="/blog.html">Blog</a></li>
+                  
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="row">
+
+        <div class="col-md-12 col-xs-18 col-sm-12">
+      	  <h2> <strong> Analyzing Malmö Language Exchange Meetup </strong> &ndash; October 22, 2014 </h2>
+<h4>
+
+	<span class="label label-default">data</span>
+
+	<span class="label label-default">scraping</span>
+
+	<span class="label label-default">nlp</span>
+
+</h4>
+<p>
+  <a href="http://meetup.com">Meetup</a> is a wonderful platform. It makes it super easy to find groups of people sharing common interests, and it also provides an API! <br />
+</p>
+
+<p>
+  I have been several times to the <a href="http://www.meetup.com/intercambio3">Language Exchange group</a> events in Malmö. This is a group bringing people together so they can practice languages. There are events for a lot of languages: swedish, portuguese, spanish and more. And it's always a good opportunity to meet new people from all around the world. <br />
+</p>
+
+<p>
+  To join this group, some questions must be answered, and one of them is: <strong>What is your mother tongue?</strong><br />
+  This is basically the data I used to create the language distribution.<br />
+</p>
+
+<h3>Links</h3>
+
+<p class="bigger">
+  Visualization: <a href="http://malmolanguage.jtp.io">malmolanguage.jtp.io</a>
+</p>
+
+<p>
+  The rest of the post focuses <strong> only on some specific parts </strong> of the code, that you can find on github:<br />
+  <a href="https://github.com/jtpio/meetup-malmo-language">https://github.com/jtpio/meetup-malmo-language</a>
+</p>
+
+<h3>Using the Meetup API</h3>
+
+<p>
+  The API documentation can be found here: <a href="http://www.meetup.com/meetup_api">http://www.meetup.com/meetup_api</a> <br />
+
+  In the code, we define variables for that meetup group, as well as the meetup API key that is placed in an environment variable. Here we use "/2/profiles" as the URL path to retrieve the profile details, since they contain the answers to the question.
+</p>
+
+<p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">malmo</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;question&#39;</span><span class="o">:</span> <span class="mi">2187832</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="o">:</span> <span class="s1">&#39;intercambio3&#39;</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">MEETUP_KEY</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MEETUP_KEY</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">QUESTION_ID</span> <span class="o">=</span> <span class="nx">malmo</span><span class="p">.</span><span class="nx">question</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">urlObj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">protocol</span><span class="o">:</span> <span class="s1">&#39;https&#39;</span><span class="p">,</span>
+    <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;api.meetup.com&#39;</span><span class="p">,</span>
+    <span class="nx">pathname</span><span class="o">:</span> <span class="s1">&#39;/2/profiles&#39;</span><span class="p">,</span>
+    <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">group_urlname</span><span class="o">:</span> <span class="nx">malmo</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span>
+        <span class="nx">sign</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">key</span><span class="o">:</span> <span class="nx">MEETUP_KEY</span>
+    <span class="p">}</span>
+<span class="p">};</span></code></pre></div>
+
+</p>
+
+<p>
+  After getting the response, the answer for the question needs to be filtered and passed to the analyzer. Then if the response contains any cursor (the "next" property), use it to retrieve the next data.
+</p>
+
+<p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">results</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">ans</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answers</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ans</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">ans</span><span class="p">.</span><span class="nx">question_id</span> <span class="o">===</span> <span class="nx">QUESTION_ID</span><span class="p">;</span>
+    <span class="p">})[</span><span class="mi">0</span><span class="p">];</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">ans</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">analyzer</span><span class="p">.</span><span class="nx">extractLanguage</span><span class="p">(</span><span class="nx">ans</span><span class="p">.</span><span class="nx">answer</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;next&#39;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">next</span> <span class="o">!==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">crawl</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">next</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">analyzer</span><span class="p">.</span><span class="nx">printResults</span><span class="p">();</span>
+<span class="p">}</span></code></pre></div>
+
+</p>
+
+<h3> Analyzing the data with node-natural</h3>
+
+<p>
+  Once the answer is retrieved, the next part is to extract one or several languages from it. <br />
+  The problem is that some people answer that question using a plain sentence, or mispelling words ... Doing a dictionary lookup against a list of languages is not enough in that situation. <br />
+  Fortunately, Natural (<a href="https://github.com/NaturalNode/natural">https://github.com/NaturalNode/natural</a>) comes as a handy tool, as it makes it possible to tokenize the answer using natural language techniques. The two useful features used for this application are the <strong>tokenization</strong> and the <strong>JaroWinklerDistance distance</strong>. <br />
+  The first step is to sanitize the data to get a proper array of tokens.
+</p>
+
+<p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;lodash&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">tokens</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">uniq</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">tokenizer</span><span class="p">.</span><span class="nx">tokenize</span><span class="p">(</span><span class="nx">str</span><span class="p">),</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">_normalize</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
+<span class="p">}));</span></code></pre></div>
+
+</p>
+
+<p>
+  Then, for each token, increment the counter for that token if the language is found in the dictionary. It means that in this case the token is a language.
+</p>
+
+<p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">tokens</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">dictEN</span><span class="p">[</span><span class="nx">t</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">res</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">res</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nx">m</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span></code></pre></div>
+
+</p>
+
+<p>
+  If the number of matches is 0, it means that we couldn't find any language in that sequence of tokens. Maybe the language has been mispelled? This is where the <strong>JaroWinklerDistance distance</strong> becomes useful. It is used to evaluate how different two strings are. We use it to compare each token to the available language, if there is one token close to a language, we can assume that the member wanted to type that language. The <em>DISTANCE_THRESHOLD</em> constant was arbitrarily chosen after some testing.
+</p>
+
+<p>
+
+<div class="highlight"><pre><code class="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// no match</span>
+    <span class="nx">tokens</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">lang</span> <span class="k">in</span> <span class="nx">dictEN</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">dist</span> <span class="o">=</span> <span class="nx">natural</span><span class="p">.</span><span class="nx">JaroWinklerDistance</span><span class="p">(</span><span class="nx">lang</span><span class="p">,</span> <span class="nx">t</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">dist</span> <span class="o">&gt;</span> <span class="nx">DISTANCE_THRESHOLD</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">res</span><span class="p">[</span><span class="nx">lang</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">res</span><span class="p">[</span><span class="nx">lang</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="nx">m</span><span class="o">++</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span> <span class="c1">// stop for this language</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span></code></pre></div>
+
+</p>
+
+<p>
+Finally, we keep track of the sentences giving no answer, as well as the number of people who mentionned more than one language as the mother tongue, just as simple stats.
+</p>
+
+<p>
+
+<div class="highlight"><pre><code class="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">unknown</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">bilinguals</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+</p>
+
+<h3>Displaying the data</h3>
+
+<p>
+The visualization is done using <strong>d3</strong>. Please have a look at the source code for more details.
+</p>
+
+<h3>Conclusion</h3>
+
+<p>In this post, I presented a way for retrieving and analyzing answers from Meetup profiles. This is of course very dependent on the Meetup group structure and questions asked to the members. This method can be used for other groups, but will need manual modifications for the question id and group url name.</p>
+
+
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+    var disqus_shortname = 'jtzp4'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+
+      </div>
+
+      <div class="row col-md-12 col-xs-18 col-sm-12">
+        <p><small>By <a href="#top">Jeremy Tuloup</a> &ndash; 2014 &ndash; Theme by <a href="http://bootswatch.com/">bootswatch</a> </small></p>
+      </div>
+
+    </div> <!-- /container -->
+
+  	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-51952511-1");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+
+  </body>
+</html>
+
+
+

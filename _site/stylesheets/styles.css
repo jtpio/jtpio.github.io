@@ -1,6 +1,7 @@
 body {
   font-size: 15px;
   margin: auto;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .social a {
@@ -46,4 +47,8 @@ body {
 
 ul a {
   word-wrap: break-word;
+}
+
+.bigger {
+  font-size: 20px;
 }
