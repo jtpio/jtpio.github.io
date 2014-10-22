@@ -4,7 +4,7 @@ title:  "Analyzing Malmö Language Exchange Meetup"
 date:   2014-10-22 21:00:00
 categories:
 - data
-- scraping
+- node
 - NLP
 ---
 

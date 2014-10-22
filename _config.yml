@@ -1,5 +1,5 @@
 name: JTP
 markdown: kramdown
-pygments: true
+highlighter: pygments
 permalink: /:year/:month/:day/:title.html
 paginate: 5
