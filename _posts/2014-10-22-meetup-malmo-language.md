@@ -160,6 +160,12 @@ if (m === 0) {
 The visualization is done using <strong>d3</strong>. Please have a look at the source code for more details.
 </p>
 
+<p class="media-container">
+  <img src="{{ site.url }}/res/malmolanguage.png">
+</p>
+
 <h3>Conclusion</h3>
 
+<p>
 In this post, I presented a way for retrieving and analyzing answers from Meetup profiles. This is of course very dependent on the Meetup group structure and questions asked to the members. This method can be used for other groups, but will need manual modifications for the question id and group url name.
+</p>

@@ -26,7 +26,7 @@
 
     <div id="top" class="container">
 
-    <div class="navbar navbar-default">
+      <div class="navbar navbar-default">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
             <span class="icon-bar"></span>
@@ -172,7 +172,11 @@
 	<span class="label label-default">nlp</span>
 
 </h4>
-<p>
+
+<div class="container">
+	<div class="row">
+        <div class="col-md-12 col-xs-18 col-sm-12">
+      		<p>
   <a href="http://meetup.com">Meetup</a> is a wonderful platform. It makes it super easy to find groups of people sharing common interests, and it also provides an API! <br />
 </p>
 
@@ -323,10 +327,19 @@ Finally, we keep track of the sentences giving no answer, as well as the number 
 The visualization is done using <strong>d3</strong>. Please have a look at the source code for more details.
 </p>
 
+<p class="media-container">
+  <img src="/res/malmolanguage.png" />
+</p>
+
 <h3>Conclusion</h3>
 
-<p>In this post, I presented a way for retrieving and analyzing answers from Meetup profiles. This is of course very dependent on the Meetup group structure and questions asked to the members. This method can be used for other groups, but will need manual modifications for the question id and group url name.</p>
+<p>
+In this post, I presented a way for retrieving and analyzing answers from Meetup profiles. This is of course very dependent on the Meetup group structure and questions asked to the members. This method can be used for other groups, but will need manual modifications for the question id and group url name.
+</p>
 
+    	</div>
+	</div>
+</div>
 
 <div id="disqus_thread"></div>
 
