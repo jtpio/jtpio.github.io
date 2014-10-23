@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Jeremy Tuloup (JTP)- Blog</title>
-		<description>Experiments, game jams, algorithms</description>
-		<link>http://www.jtp.io/blog.html</link>
-		<atom:link href="http://www.jtp.io/blog.html/feed.xml" rel="self" type="application/rss+xml" />
+		<title>Jeremy Tuloup [JTP]- Blog</title>
+		<description>Experiments, algorithms, data and game jams</description>
+		<link>http://www.jtp.io</link>
+		<atom:link href="http://www.jtp.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Analyzing Malmö Language Exchange Meetup</title>
@@ -160,7 +160,7 @@ The visualization is done using &lt;strong&gt;d3&lt;/strong&gt;. Please have a l
 &lt;/p&gt;
 
 &lt;p class=&quot;media-container&quot;&gt;
-  &lt;img src=&quot;http://www.jtp.io/blog.html/res/malmolanguage.png&quot; /&gt;
+  &lt;img src=&quot;http://www.jtp.io/res/malmolanguage.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;
@@ -174,8 +174,8 @@ In this post, I presented a way for retrieving and analyzing answers from Meetup
 &lt;/p&gt;
 </description>
 				<pubDate>Wed, 22 Oct 2014 23:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/blog.html/2014/10/22/meetup-malmo-language.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/blog.html/2014/10/22/meetup-malmo-language.html</guid>
+				<link>http://www.jtp.io/2014/10/22/meetup-malmo-language.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2014/10/22/meetup-malmo-language.html</guid>
 			</item>
 		
 			<item>
@@ -205,8 +205,8 @@ Any question, please let me know!
 &lt;/p&gt;
 </description>
 				<pubDate>Tue, 14 Oct 2014 23:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/blog.html/2014/10/14/malmo-milen-post-analysis.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/blog.html/2014/10/14/malmo-milen-post-analysis.html</guid>
+				<link>http://www.jtp.io/2014/10/14/malmo-milen-post-analysis.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2014/10/14/malmo-milen-post-analysis.html</guid>
 			</item>
 		
 			<item>
@@ -273,8 +273,8 @@ This was mostly a reason for me to seize Go differences, as I come with a node.j
 &lt;/p&gt;
 </description>
 				<pubDate>Sun, 05 Oct 2014 02:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/blog.html/2014/10/05/rewriting-game-backend-go.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/blog.html/2014/10/05/rewriting-game-backend-go.html</guid>
+				<link>http://www.jtp.io/2014/10/05/rewriting-game-backend-go.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2014/10/05/rewriting-game-backend-go.html</guid>
 			</item>
 		
 			<item>
@@ -357,8 +357,8 @@ Next time!
 &lt;/p&gt;
 </description>
 				<pubDate>Fri, 27 Jun 2014 03:30:00 +0200</pubDate>
-				<link>http://www.jtp.io/blog.html/2014/06/27/malmo-milen-pre-analysis.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/blog.html/2014/06/27/malmo-milen-pre-analysis.html</guid>
+				<link>http://www.jtp.io/2014/06/27/malmo-milen-pre-analysis.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2014/06/27/malmo-milen-pre-analysis.html</guid>
 			</item>
 		
 			<item>
@@ -376,8 +376,8 @@ Next time!
 &lt;/p&gt;
 </description>
 				<pubDate>Fri, 27 Jun 2014 02:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/blog.html/2014/06/27/hi.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/blog.html/2014/06/27/hi.html</guid>
+				<link>http://www.jtp.io/2014/06/27/hi.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2014/06/27/hi.html</guid>
 			</item>
 		
 	</channel>
