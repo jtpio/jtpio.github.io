@@ -1,4 +1,6 @@
-name: JTP
+name: "Jeremy Tuloup [JTP]- Blog"
+description: "Experiments, algorithms, data and game jams"
+url: http://www.jtp.io/blog.html
 markdown: kramdown
 highlighter: pygments
 permalink: /:year/:month/:day/:title.html
