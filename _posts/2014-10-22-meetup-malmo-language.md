@@ -18,7 +18,7 @@ categories:
 
 <p>
   To join this group, some questions must be answered, and one of them is: <strong>What is your mother tongue?</strong><br>
-  This is basically the data I used to create the language distribution.<br>
+  To that question, the members usually answer in English with just a few words, like "Swedish" or "I am a native French". Since I want to know what language the members speak nativally and create the language distribution, I focused the analysis on that question.<br>
 </p>
 
 <h3>Links</h3>
@@ -35,7 +35,7 @@ categories:
 <h3>Using the Meetup API</h3>
 
 <p>
-  The API documentation can be found here: <a href="http://www.meetup.com/meetup_api">http://www.meetup.com/meetup_api</a> <br>
+  Instead of browsing hundreds of profiles manually, there exists a better tool for that task: the Meetup API. The documentation can be found here: <a href="http://www.meetup.com/meetup_api">http://www.meetup.com/meetup_api</a> <br>
 
   In the code, we define variables for that meetup group, as well as the meetup API key that is placed in an environment variable. Here we use "/2/profiles" as the URL path to retrieve the profile details, since they contain the answers to the question.
 </p>
@@ -60,7 +60,7 @@ var urlObj = {
 </p>
 
 <p>
-  After getting the response, the answer for the question needs to be filtered and passed to the analyzer. Then if the response contains any cursor (the "next" property), use it to retrieve the next data.
+  After getting the response, the answer for the question needs to be filtered and passed to the analyzer. Then if the response contains any cursor (the "next" property), use it to retrieve the next data (apparently Meetup limits the number of results to 200 per page, even though there is no limit set in the request).
 </p>
 
 <p>
@@ -83,7 +83,7 @@ if (res.meta.hasOwnProperty('next') && res.meta.next !== '') {
 {%endhighlight%}
 </p>
 
-<h3> Analyzing the data with node-natural</h3>
+<h3> Analyzing the data with the node module Natural</h3>
 
 <p>
   Once the answer is retrieved, the next part is to extract one or several languages from it. <br>
@@ -164,8 +164,12 @@ The visualization is done using <strong>d3</strong>. Please have a look at the s
   <img src="{{ site.url }}/res/malmolanguage.png">
 </p>
 
+<p>
+What we can notice is that the number of <em>unknown</em> is still acceptable, 64 / 721 = ~9%, but some of them are correct languages, except that they are written in Swedish ...
+</p>
+
 <h3>Conclusion</h3>
 
 <p>
-In this post, I presented a way for retrieving and analyzing answers from Meetup profiles. This is of course very dependent on the Meetup group structure and questions asked to the members. This method can be used for other groups, but will need manual modifications for the question id and group url name.
+In this post, I presented a way for retrieving and analyzing answers from Meetup profiles. This is of course very dependent on the Meetup group structure and the questions asked to the members. This method can be used for other groups, but will need manual modifications for the question id and group url name.
 </p>
