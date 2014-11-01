@@ -159,9 +159,9 @@ Finally, we keep track of the sentences giving no answer, as well as the number 
 The visualization is done using &lt;strong&gt;d3&lt;/strong&gt;. Please have a look at the source code for more details.
 &lt;/p&gt;
 
-&lt;p class=&quot;media-container&quot;&gt;
-  &lt;img src=&quot;http://www.jtp.io/res/malmolanguage.png&quot; /&gt;
-&lt;/p&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;img class=&quot;embed-responsive-item&quot; src=&quot;http://www.jtp.io/res/malmolanguage.png&quot; /&gt;
+&lt;/div&gt;
 
 &lt;p&gt;
 What we can notice is that the number of &lt;em&gt;unknown&lt;/em&gt; is still acceptable, 64 / 721 = ~9%, but some of them are correct languages, except that they are written in Swedish ...
@@ -347,9 +347,9 @@ The following illustrates how to visualize the distribution on a nice graph.
 Which plots the following graph:
 &lt;/p&gt;
 
-&lt;p class=&quot;media-container&quot;&gt;
-  &lt;img src=&quot;/res/ipython/malmomilen-pre-start-group.png&quot; /&gt;
-&lt;/p&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;img class=&quot;embed-responsive-item&quot; src=&quot;http://www.jtp.io/res/ipython/malmomilen-pre-start-group.png&quot; /&gt;
+&lt;/div&gt;
 
 &lt;p&gt;
 Now that the race is finished and results are out, I really want to play with the available data and make it say something. &lt;br /&gt;

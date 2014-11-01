@@ -29,22 +29,6 @@ body {
   color: white;
 }
 
-.media-container {
-  position:relative;
-  padding-bottom:56.25%;
-  padding-top:30px;
-  overflow:hidden;
-  height: 0;
-}
-
-.media-container iframe, .media-container object, .media-container embed, .media-container img {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-}
-
 ul a {
   word-wrap: break-word;
 }

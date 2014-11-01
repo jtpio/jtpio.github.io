@@ -160,9 +160,9 @@ if (m === 0) {
 The visualization is done using <strong>d3</strong>. Please have a look at the source code for more details.
 </p>
 
-<p class="media-container">
-  <img src="{{ site.url }}/res/malmolanguage.png">
-</p>
+<div class="embed-responsive embed-responsive-16by9">
+  <img class="embed-responsive-item" src="{{ site.url }}/res/malmolanguage.png">
+</div>
 
 <p>
 What we can notice is that the number of <em>unknown</em> is still acceptable, 64 / 721 = ~9%, but some of them are correct languages, except that they are written in Swedish ...

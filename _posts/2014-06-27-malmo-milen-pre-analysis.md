@@ -78,9 +78,9 @@ plt.show()
 Which plots the following graph:
 </p>
 
-<p class="media-container">
-  <img src="/res/ipython/malmomilen-pre-start-group.png">
-</p>
+<div class="embed-responsive embed-responsive-16by9">
+  <img class="embed-responsive-item" src="{{ site.url }}/res/ipython/malmomilen-pre-start-group.png">
+</div>
 
 <p>
 Now that the race is finished and results are out, I really want to play with the available data and make it say something. <br>
