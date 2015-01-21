@@ -30,10 +30,10 @@ categories:
   Here is a quick summary of the points I think are the most important for the preparation and on site:
 </p>
 <ul>
-  <li> Check your hardware and make sure your computer can survive a 48 hour jam</li>
+  <li> Check your hardware and make sure your computer can survive a 48 hours jam</li>
   <li> Check your programs and tools (Game Creation tools, IDEs, Audio, Graphics) </li>
   <li> Balance your team: programmers, artists, sound designer ... </li>
-  <li> Get a prototype working quickly. Start small and iterate </li>
+  <li> Get a prototype working quickly, start small and iterate </li>
   <li> Sleep, at least Friday night </li>
   <li> Keep a bottle of water / redbull and some snacks in case of starvation </li>
   <li> <strong> Keep it simple </strong> </li>
@@ -59,7 +59,7 @@ categories:
 </p>
 
 <p>
-  I gave myself two hours to come up with a small demo of "something VR". I ended up doing a quick 3D demo of a snowman jumping on blocks in the sky (inspired by <a href="https://play.google.com/store/apps/details?id=com.gtomee.eatthatsnow">Eat That Snow</a> obviously) that is working pretty well with the cardboard.
+  I gave myself two hours to come up with a small demo of "something VR". I ended up doing a quick 3D demo of a snowman jumping on blocks in the sky (inspired by <a href="https://play.google.com/store/apps/details?id=com.gtomee.eatthatsnow">Eat That Snow</a> obviously), that is working pretty well with the cardboard.
 </p>
 
 <div class="embed-responsive embed-responsive-16by9">
@@ -70,5 +70,5 @@ categories:
 
 <p>
   Now is time to rest before the long weekend. <br>
-  If you take part of the jam, have fun!
+  If you are going to jam as well, have fun!
 </p>
