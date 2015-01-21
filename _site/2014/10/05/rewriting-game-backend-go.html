@@ -55,6 +55,12 @@
               
                 
               
+                
+                  
+                    <li><a href="/page2/index.html">Hi</a></li>
+                  
+                
+              
             
               
                 
@@ -75,6 +81,8 @@
                   
                 
               
+                
+              
             
               
                 
@@ -91,31 +99,11 @@
               
                 
               
-            
-              
-                
-              
-                
-              
-                
-              
-                
-              
                 
               
             
               
                 
-              
-                
-              
-                
-              
-                
-              
-                
-              
-            
               
                 
               
@@ -139,16 +127,6 @@
               
                 
               
-            
-              
-                
-              
-                
-              
-                
-              
-                
-              
                 
               
             
@@ -163,7 +141,53 @@
               
                 
               
+                
+              
             
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
               
                 
               
@@ -193,10 +217,7 @@
 
 </h4>
 
-<div class="container">
-	<div class="row">
-        <div class="col-md-12 col-xs-18 col-sm-12">
-      		<p>
+<p>
   A few month ago at a game jam, we (me and my team) made a multiplayer web-based game with the help of the library <a href="https://github.com/greggman/HappyFunTimes"> HappyFunTimes </a>. <br />
   Using HappyFunTimes was great, because we had the network part up and running very quickly, so we were able to put more time on the gameplay. But HappyFunTimes has one drawback: there can only be one session of the game on the same local network (which is totally fine in the context of a game jam). <br />
 </p>
@@ -220,7 +241,7 @@ The entire server code fits in less than 350 lines of code. Go is simple and cle
 One of the parts I got tricked by is the naming convention for variables and functions. I knew that in a module, a function name has to start with a capital letter in order for the function to be exported and be available from an other module. But this is also applied to the fields in structures: a field starting with a capital letter is public whereas starting with a lowercase letter will make it private.
 
 
-<div class="highlight"><pre><code class="go"><span class="kd">type</span> <span class="nx">command</span> <span class="kd">struct</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">command</span> <span class="kd">struct</span> <span class="p">{</span>
   <span class="nx">Cmd</span>      <span class="kt">string</span>                 <span class="c1">// public</span>
   <span class="nx">PlayerID</span> <span class="kt">uint32</span>                 <span class="c1">// public</span>
   <span class="nx">data</span>     <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span> <span class="c1">// private</span>
@@ -234,7 +255,7 @@ One of the parts I got tricked by is the naming convention for variables and fun
 
 <p>
 
-<div class="highlight"><pre><code class="go"><span class="kd">type</span> <span class="nx">command</span> <span class="kd">struct</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">command</span> <span class="kd">struct</span> <span class="p">{</span>
   <span class="nx">Cmd</span>      <span class="kt">string</span>                 <span class="s">`json:&quot;cmd&quot;`</span>
   <span class="nx">PlayerID</span> <span class="kt">uint32</span>                 <span class="s">`json:&quot;playerID&quot;`</span>
   <span class="nx">Data</span>     <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span> <span class="s">`json:&quot;data&quot;`</span>
@@ -257,9 +278,6 @@ Twin fusion is now quite stable. The idea is to polish it a bit more, especially
 This was mostly a reason for me to seize Go differences, as I come with a node.js background. In the end it was a good exercise.
 </p>
 
-    	</div>
-	</div>
-</div>
 
 <div id="disqus_thread"></div>
 
