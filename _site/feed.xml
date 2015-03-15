@@ -7,6 +7,17 @@
 		<atom:link href="http://www.jtp.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>JS1K 2015 postmortem</title>
+				<description>&lt;p&gt;
+
+&lt;/p&gt;
+</description>
+				<pubDate>Sun, 08 Mar 2015 12:56:33 +0100</pubDate>
+				<link>http://www.jtp.io/2015/03/08/2015-03-20-js1k-2015-postmortem.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2015/03/08/2015-03-20-js1k-2015-postmortem.html</guid>
+			</item>
+		
+			<item>
 				<title>Preparing for the Global Game Jam 2015</title>
 				<description>&lt;p&gt;
   It&#39;s this time of the year again! The &lt;a href=&quot;http://globalgamejam.org/&quot; title=&quot;Global Game Jam 2015&quot;&gt;Global Game Jam&lt;/a&gt; is happening this weekend everywhere in the world. &lt;br /&gt;
