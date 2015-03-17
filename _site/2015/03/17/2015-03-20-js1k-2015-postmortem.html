@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="alternate" type="application/rss+xml" title="Jeremy Tuloup [JTP]- Blog" href="http://www.jtp.io/feed.xml">
+
+    <title>Jeremy Tuloup - JS1K 2015 postmortem</title>
+
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/yeti/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div id="top" class="container">
+
+      <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">JTP</a>
+        </div>
+        <div class="navbar-collapse navbar-responsive-collapse collapse" style="height: 1px;">
+          <ul class="nav navbar-nav">
+            
+              
+                
+              
+                
+              
+                
+              
+                
+                  
+                    <li><a href="/index.html">Hi</a></li>
+                  
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+                  
+                    <li><a href="/gameJams.html">Game Jams</a></li>
+                  
+                
+              
+                
+              
+                
+                  
+                    <li><a href="/misc.html">Projects</a></li>
+                  
+                
+              
+            
+              
+                
+                  
+                    <li><a href="/blog.html">Blog</a></li>
+                  
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="row">
+
+        <div class="col-md-12 col-xs-18 col-sm-12">
+      	  <h2> <strong> JS1K 2015 postmortem </strong> &ndash; March 17, 2015 </h2>
+<h4>
+
+	<span class="label label-default">javascript</span>
+
+	<span class="label label-default">webgl</span>
+
+	<span class="label label-default">demo</span>
+
+</h4>
+
+<h1 id="tldr">TL;DR</h1>
+
+<p>Name: <strong>The Hub</strong></p>
+
+<p>Demo entry: <a href="http://js1k.com/2179">http://js1k.com/2179</a></p>
+
+<p>Source code: <a href="https://github.com/jtpio/js1k-2015">https://github.com/jtpio/js1k-2015</a></p>
+
+<p><img class="center" alt="The Hub" src="/res/js1k_2015/16_lights_off.png" /></p>
+
+<p>If you want to know more about the making of this demo, keep reading.</p>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+  <li><a href="#part-1">Joining the competition</a></li>
+  <li><a href="#part-2">Inspiration</a></li>
+  <li><a href="#part-3">Workflow</a></li>
+  <li><a href="#part-4">Timelapse</a></li>
+  <li><a href="#part-5">Implementation</a></li>
+  <li><a href="#part-6">Wrapping up</a></li>
+</ul>
+
+<h1 id="joining-the-competition-a-idpart-1a">Joining the competition <a id="part-1"></a></h1>
+
+<p>This year I decided to enter of the <a href="http://js1k.com">JS1K</a> online competition (size limit of 1024 bytes of pure JS).</p>
+
+<p>I had joined the party 2 years ago and did something in 2D (<a href="http://js1k.com/1344">http://js1k.com/1344</a>)</p>
+
+<p>The new rules for this year allowed the use of WebGL, which was good because I had a list of new stuff I wanted to <strong>learn</strong>:</p>
+
+<ul>
+  <li>Do something concrete in 3D</li>
+  <li>In WebGL</li>
+  <li>Learn more about shader programming</li>
+  <li>Implement a raymarching algorithm</li>
+  <li>Implement a cartoony effect (toon shading)</li>
+</ul>
+
+<p>The theme was <strong>Hype Train</strong>. After a few days of wandering and research for inspiration, I decided to go for a demo that will consist of a <strong>raymarched</strong> scene of trains, continuously moving, rendered with a <strong>toon shading</strong> effect.</p>
+
+<h2 id="inspiration-a-idpart-2a">Inspiration <a id="part-2"></a></h2>
+
+<p>I wanted to do something with futuristic trains, or at least related to futuristic transportation, but not necessarily realistic.</p>
+
+<p>In the beginning I wanted to have a transparent tube with trains / objects moving inside the tube, like the Futurama transport tubes or the first picture below. I dropped the idea quickly because of the potential complexity of doing transparency.</p>
+
+<p><img class="center" src="//i2.cdn.turner.com/cnnnext/dam/assets/130717103845-tube-transport-2-horizontal-large-gallery.jpg" />
+Source: <a href="http://i2.cdn.turner.com/cnnnext/dam/assets/130717103845-tube-transport-2-horizontal-large-gallery.jpg">http://i2.cdn.turner.com/cnnnext/dam/assets/130717103845-tube-transport-2-horizontal-large-gallery.jpg</a></p>
+
+<p><img class="center" src="//fc04.deviantart.net/fs50/f/2009/315/2/2/Vinean_Maglev_Train_by_UweG.jpg" />
+Source: <a href="http://fc04.deviantart.net/fs50/f/2009/315/2/2/Vinean_Maglev_Train_by_UweG.jpg">http://fc04.deviantart.net/fs50/f/2009/315/2/2/Vinean_Maglev_Train_by_UweG.jpg</a></p>
+
+<p><img class="center" src="//photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg" />
+Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg</a></p>
+
+<h2 id="workflow-a-idpart-3a">Workflow <a id="part-3"></a></h2>
+
+<p>I made the demo in basically two weeks, working mostly during the evenings. The time constraints were pretty tough because at the time the contest was supposed to only last one month, and I would also be away (and away from keyboard) the last week of February. It was essential to have good tools and a good flow.</p>
+
+<p>I got things started with this very useful JS1K boilerplate: <a href="https://gist.github.com/gre/9364718">https://gist.github.com/gre/9364718</a>.</p>
+
+<p>To be sure that my demo will work in the final skim, I extended this boilerplate to automate it even more:</p>
+
+<ol>
+  <li>The shader is mainly developed on shadertoy, to have a quick feedback and prototyping</li>
+  <li>I copy/paste the code from shadertoy to a local file</li>
+  <li>The shader source code is processed by a replacement tool to rename the global variables used on shadertoy (iGlobalTime to T, iResolution to res). Then it is minified with <a href="http://www.ctrl-alt-test.fr/?page_id=7">shader minifer</a></li>
+  <li>The minified shader source is copied to the main Javascript code and stored as a variable (string)</li>
+  <li>UglifyJS minifies the code</li>
+  <li>jscrush crushes the code</li>
+  <li>The crushed code is inserted in a <em>script</em> tag in the shim.html file and exported as index.html</li>
+  <li>Open the index.html in a web browser</li>
+</ol>
+
+<p><img class="center" src="/res/js1k_2015/flow.png" /></p>
+
+<p>I also used Trello to organize ideas and progress.</p>
+
+<p><img class="center" src="/res/js1k_2015/trello_dashboard.png" /></p>
+
+<h2 id="timelapse-a-idpart-4a">Timelapse <a id="part-4"></a></h2>
+
+<p>Because it’s always fun to visualize, here is a quick timelapse of how things changed over time.</p>
+
+<h3 id="render-basic-stuff-to-be-more-familiar-with-raymarching">Render basic stuff to be more familiar with raymarching</h3>
+<p><img class="center" src="/res/js1k_2015/1_ray_march.png" /></p>
+
+<h3 id="then-some-colors-and-lighting-inspired-by-iq-primitives-shaderhttpswwwshadertoycomviewxds3zn">Then some colors and lighting inspired by <a href="https://www.shadertoy.com/view/Xds3zN">iq primitives shader</a></h3>
+<p><img class="center" src="/res/js1k_2015/1_ray_march_colors.png" /></p>
+
+<h3 id="toon-shading-is-implemented">Toon shading is implemented</h3>
+<p><img class="center" src="/res/js1k_2015/3_cell_shading.png" /></p>
+
+<h3 id="does-it-look-better-with-a-ground-hmm-no">Does it look better with a ground? Hmm no.</h3>
+<p><img class="center" src="/res/js1k_2015/4_trying_new_colors.png" /></p>
+
+<h3 id="different-tracks-and-colors">Different tracks and colors</h3>
+<p><img class="center" src="/res/js1k_2015/5_several_tracks.png" /></p>
+
+<h3 id="vertical-trains-dark-theme">Vertical trains, dark theme</h3>
+<p><img class="center" src="/res/js1k_2015/6_different_orientations.png" /></p>
+
+<h3 id="camera-tweaks-1">Camera tweaks 1</h3>
+<p><img class="center" src="/res/js1k_2015/9_three_trakcs.png" /></p>
+
+<h3 id="camera-tweaks-2">Camera tweaks 2</h3>
+<p><img class="center" src="/res/js1k_2015/11_getting_there2.png" /></p>
+
+<h3 id="positioning-of-the-tracks">Positioning of the tracks</h3>
+<p><img class="center" src="/res/js1k_2015/12_getting_there_screenshot.png" /></p>
+
+<h3 id="started-the-manual-size-optimization">Started the manual size optimization</h3>
+
+<p>You can notice that I dropped the “squared” shapes for something more round, in the form of a cylinder. The function used to generate this is indeed way shorter in the latter case.
+<img class="center" src="/res/js1k_2015/13_downgrading_1088B.png" /></p>
+
+<h3 id="light-work">Light work</h3>
+
+<p>The source light is positioned higher, but and as you can see there is no ambient occlusion :(
+<img class="center" src="/res/js1k_2015/14_1042_viz.png" /></p>
+
+<h3 id="colors-changing-over-time">Colors changing over time</h3>
+
+<p>This was actually a very cheap improvement in terms of code size
+<img class="center" src="/res/js1k_2015/16_lights_off.png" /></p>
+
+<h2 id="implementation-a-idpart-5a">Implementation <a id="part-5"></a></h2>
+
+<p>The demo consists of one shader (vertex + fragment) displayed full screen. The fragment and vertex shaders are loaded with a tiny piece of WebGL code, mainly inspired by the awesome work of <strong>½-bit Cheese</strong> on <a href="http://www.pouet.net/prod.php?which=61667">HBC-00012: Kornell Box</a>.</p>
+
+<p>Here is the WebGL code without the shaders. I managed to save a few bytes by re-using variable names used in the shader code (for example <em>x</em>) in the following WebGL code, so it compresses better.</p>
+
+<p>Constants are replaces by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// shorten the functions</span>
+<span class="k">for</span><span class="p">(</span><span class="nx">x</span> <span class="k">in</span> <span class="nx">g</span><span class="p">)</span>
+  <span class="nx">g</span><span class="p">[</span><span class="nx">x</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^..|[A-V]/g</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">=</span><span class="nx">g</span><span class="p">[</span><span class="nx">x</span><span class="p">];</span>
+
+<span class="kd">with</span><span class="p">(</span><span class="nx">g</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">x</span><span class="o">=</span><span class="nx">crP</span><span class="p">(</span><span class="nx">y</span><span class="o">=</span><span class="nx">v</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span><span class="nx">y</span><span class="p">;</span><span class="nx">coS</span><span class="p">(</span><span class="nx">n</span><span class="p">),</span><span class="nx">atS</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">n</span><span class="p">))</span>
+        <span class="nx">shS</span><span class="p">(</span><span class="nx">n</span><span class="o">=</span><span class="nx">crS</span><span class="p">(</span><span class="mi">35634</span><span class="o">-</span><span class="nx">y</span><span class="p">),</span>
+
+        <span class="o">--</span><span class="nx">y</span><span class="o">?</span>
+        <span class="c1">// insert fragment shader</span>
+        <span class="o">:</span>
+        <span class="c1">// insert vertex shader</span>
+        <span class="p">);</span>
+
+    <span class="nx">veAP</span><span class="p">(</span><span class="nx">enVAA</span><span class="p">(</span><span class="nx">biB</span><span class="p">(</span><span class="mi">34962</span><span class="p">,</span><span class="nx">crB</span><span class="p">())),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5126</span><span class="p">,</span> <span class="nx">liP</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">usP</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span>
+        <span class="nx">buD</span><span class="p">(</span><span class="mi">34962</span><span class="p">,</span><span class="k">new</span> <span class="nx">Float32Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span><span class="mi">35044</span><span class="p">)</span>
+        <span class="p">);</span>
+
+    <span class="nx">setInterval</span><span class="p">(</span>
+        <span class="s1">&#39;g.drA(4,g.uniform1f(g.geUL(x,&quot;T&quot;),v+=.01),3)&#39;</span><span class="p">,</span>
+        <span class="mi">33</span><span class="p">)</span>
+<span class="p">};</span></code></pre></div>
+
+<p>The first two lines map all the function names from the webgl context to shorter function names. You can visualize the mapping in a developer console:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">));</span>
+<span class="kd">var</span> <span class="nx">g</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;webgl&#39;</span><span class="p">)</span>
+
+<span class="k">for</span><span class="p">(</span><span class="nx">x</span> <span class="k">in</span> <span class="nx">g</span><span class="p">)</span>
+  <span class="nx">g</span><span class="p">[</span><span class="nx">x</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^..|[A-V]/g</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)]</span><span class="o">=</span><span class="nx">g</span><span class="p">[</span><span class="nx">x</span><span class="p">];</span></code></pre></div>
+
+<p>Exploring the webgl context (variable g) will give something like this:</p>
+
+<p><img class="center" src="/res/js1k_2015/webgl_map.png" /></p>
+
+<p>It’s pretty short, but it is roughly the equivalent of this:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">vs</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="nx">fs</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+<span class="nx">p</span> <span class="o">=</span> <span class="nx">g</span><span class="p">.</span><span class="nx">createProgram</span><span class="p">();</span>
+<span class="nx">shader</span> <span class="o">=</span> <span class="nx">g</span><span class="p">.</span><span class="nx">createShader</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">VERTEX_SHADER</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">shaderSource</span><span class="p">(</span><span class="nx">shader</span><span class="p">,</span> <span class="nx">vs</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">compileShader</span><span class="p">(</span><span class="nx">shader</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">attachShader</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">shader</span><span class="p">);</span>
+<span class="nx">shader</span> <span class="o">=</span> <span class="nx">g</span><span class="p">.</span><span class="nx">createShader</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">FRAGMENT_SHADER</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">shaderSource</span><span class="p">(</span><span class="nx">shader</span><span class="p">,</span> <span class="nx">fs</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">compileShader</span><span class="p">(</span><span class="nx">shader</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">attachShader</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">shader</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">linkProgram</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">useProgram</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+
+<span class="nx">pLocation</span> <span class="o">=</span> <span class="nx">g</span><span class="p">.</span><span class="nx">getAttribLocation</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="s2">&quot;p&quot;</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">bindBuffer</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span><span class="nx">g</span><span class="p">.</span><span class="nx">createBuffer</span><span class="p">());</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">bufferData</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span><span class="k">new</span> <span class="nx">Float32Array</span><span class="p">(</span>
+  <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+   <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span><span class="nx">g</span><span class="p">.</span><span class="nx">STATIC_DRAW</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">enableVertexAttribArray</span><span class="p">(</span><span class="nx">pLocation</span><span class="p">);</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">vertexAttribPointer</span><span class="p">(</span><span class="nx">pLocation</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nx">g</span><span class="p">.</span><span class="nx">FLOAT</span><span class="p">,</span><span class="kc">false</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="nx">tLocation</span> <span class="o">=</span> <span class="nx">g</span><span class="p">.</span><span class="nx">getUniformLocation</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="s1">&#39;iGlobalTime&#39;</span><span class="p">);</span>
+
+<span class="nx">initTime</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+
+<span class="p">(</span><span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+  <span class="nx">g</span><span class="p">.</span><span class="nx">uniform1f</span><span class="p">(</span><span class="nx">tLocation</span><span class="p">,(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="o">-</span><span class="nx">initTime</span><span class="p">)</span><span class="o">*</span><span class="mf">0.001</span><span class="p">);</span>
+  <span class="nx">g</span><span class="p">.</span><span class="nx">drawArrays</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">TRIANGLES</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
+  <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">draw</span><span class="p">);</span>
+<span class="p">})();</span></code></pre></div>
+
+<h3 id="original-shader-source-code">Original shader source code</h3>
+
+<p>The fragment shader used before the minification, with comments.</p>
+
+<div class="highlight"><pre><code class="language-glsl" data-lang="glsl"><span class="k">uniform</span> <span class="k">float</span> <span class="n">T</span><span class="p">;</span>
+
+<span class="c1">// union</span>
+<span class="k">vec2</span> <span class="n">opU</span><span class="p">(</span> <span class="k">vec2</span> <span class="n">d1</span><span class="p">,</span> <span class="k">vec2</span> <span class="n">d2</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">d1</span><span class="p">.</span><span class="n">x</span><span class="o">&lt;</span><span class="n">d2</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="o">?</span> <span class="n">d1</span> <span class="o">:</span> <span class="n">d2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// rotate pos around y</span>
+<span class="k">vec3</span> <span class="n">rotate</span> <span class="p">(</span><span class="k">vec3</span> <span class="n">pos</span><span class="p">,</span> <span class="k">float</span> <span class="n">angle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">mat3</span> <span class="n">m</span> <span class="o">=</span> <span class="k">mat3</span><span class="p">(</span>
+        <span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span>
+        <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+    <span class="p">);</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">pos</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// the train that is moving along the tracks</span>
+<span class="k">vec2</span> <span class="n">train</span> <span class="p">(</span><span class="k">vec3</span> <span class="n">pos</span><span class="p">,</span> <span class="k">float</span> <span class="n">yPos</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">vec3</span> <span class="n">t</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span>
+
+    <span class="c1">// y offset</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">yPos</span><span class="p">;</span>
+    <span class="c1">// moving train</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">z</span> <span class="o">+=</span> <span class="o">-</span><span class="mf">40.0</span> <span class="o">+</span> <span class="n">mod</span><span class="p">(</span><span class="n">iGlobalTime</span> <span class="o">*</span> <span class="n">yPos</span> <span class="o">*</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">);</span>
+
+    <span class="c1">// a function for a capped cylinder is used to represent the train</span>
+    <span class="k">return</span> <span class="n">abs</span><span class="p">(</span><span class="k">vec2</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">xy</span><span class="p">),</span> <span class="n">t</span><span class="p">.</span><span class="n">z</span><span class="p">))</span> <span class="o">-</span> <span class="k">vec2</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">float</span> <span class="n">track</span> <span class="p">(</span><span class="k">vec3</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// a track is an infinite cylinder</span>
+    <span class="k">return</span> <span class="n">length</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">yx</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// distance function for the raymarching</span>
+<span class="k">vec2</span> <span class="n">map</span><span class="p">(</span><span class="k">vec3</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">vec2</span> <span class="n">res</span> <span class="o">=</span> <span class="k">vec2</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>
+    <span class="c1">// this iteration will spawn 5 tracks, rotated around the y axis and with a different y position</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">float</span> <span class="n">i</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mf">11.1</span><span class="p">;</span> <span class="n">i</span><span class="o">+=</span><span class="mf">2.2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// this rotation gives the illusion that the camera is rotating, whereas it is actually the tracks that are rotating.</span>
+        <span class="k">vec3</span> <span class="n">rotated</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">iGlobalTime</span><span class="p">);</span>
+        <span class="k">vec3</span> <span class="n">trackPos</span> <span class="o">=</span> <span class="n">rotated</span><span class="p">;</span>
+        <span class="n">trackPos</span><span class="p">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="k">float</span> <span class="n">trackDist</span> <span class="o">=</span> <span class="n">track</span><span class="p">(</span><span class="n">trackPos</span><span class="p">);</span>
+
+        <span class="k">vec2</span> <span class="n">d</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">rotated</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="c1">// take the union of all the objects in the scene to find out if something has been hit or not</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">opU</span><span class="p">(</span>
+                <span class="n">res</span><span class="p">,</span> <span class="c1">// previous</span>
+                <span class="n">opU</span><span class="p">(</span>
+                    <span class="n">opU</span><span class="p">(</span>
+                        <span class="k">vec2</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">d</span><span class="p">.</span><span class="n">y</span><span class="p">),</span><span class="mf">0.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">length</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)),</span> <span class="mi">38</span><span class="p">),</span>
+                        <span class="k">vec2</span><span class="p">(</span><span class="n">trackDist</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+                    <span class="c1">// the torus along the tube</span>
+                    <span class="k">vec2</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="k">vec2</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">trackPos</span><span class="p">.</span><span class="n">xy</span><span class="p">)</span><span class="o">-</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">mod</span><span class="p">(</span><span class="n">trackPos</span><span class="p">.</span><span class="n">z</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span><span class="o">-</span><span class="mf">2.0</span><span class="p">))</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+              <span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">void</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">float</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+
+    <span class="c1">// center everything</span>
+    <span class="k">vec2</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">gl_FragCoord</span><span class="p">.</span><span class="n">xy</span><span class="o">/</span><span class="n">iResolution</span><span class="p">.</span><span class="n">xy</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">;</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">*=</span> <span class="n">iResolution</span><span class="p">.</span><span class="n">x</span><span class="o">/</span><span class="n">iResolution</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+
+    <span class="k">vec3</span> <span class="n">origin</span> <span class="o">=</span> <span class="k">vec3</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">);</span>
+    <span class="k">vec3</span> <span class="n">dest</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+
+    <span class="c1">// raymarch</span>
+    <span class="k">float</span> <span class="n">res</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">int</span> <span class="n">i</span><span class="o">=</span><span class="mo">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">90</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">origin</span><span class="o">+</span><span class="n">dest</span><span class="o">*</span><span class="n">t</span><span class="p">).</span><span class="n">x</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">res</span> <span class="o">&lt;</span> <span class="mf">0.01</span> <span class="o">||</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mf">60.0</span> <span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+        <span class="n">t</span> <span class="o">+=</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="k">vec3</span> <span class="n">color</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">&gt;=</span> <span class="mf">60.0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// nothing was hit, render black</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="k">vec3</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// something was hit</span>
+        <span class="c1">// 1. Calculate the normal for the shading</span>
+        <span class="c1">// 2. Do the toon shading</span>
+        <span class="c1">// 3. Calculate the color at the point of contact</span>
+
+        <span class="k">vec3</span> <span class="n">eps</span> <span class="o">=</span> <span class="k">vec3</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mo">0</span><span class="p">,</span> <span class="mo">0</span><span class="p">);</span>
+        <span class="k">vec3</span> <span class="n">hit</span> <span class="o">=</span> <span class="n">origin</span><span class="o">+</span><span class="n">dest</span><span class="o">*</span><span class="n">t</span><span class="p">;</span>
+
+        <span class="c1">// calculate the normal</span>
+        <span class="k">vec3</span> <span class="n">normal</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span>
+            <span class="n">map</span><span class="p">(</span><span class="n">hit</span><span class="o">+</span><span class="n">eps</span><span class="p">.</span><span class="n">xyy</span><span class="p">).</span><span class="n">x</span> <span class="o">-</span> <span class="n">map</span><span class="p">(</span><span class="n">hit</span><span class="o">-</span><span class="n">eps</span><span class="p">.</span><span class="n">xyy</span><span class="p">).</span><span class="n">x</span><span class="p">,</span>
+            <span class="n">map</span><span class="p">(</span><span class="n">hit</span><span class="o">+</span><span class="n">eps</span><span class="p">.</span><span class="n">yxy</span><span class="p">).</span><span class="n">x</span> <span class="o">-</span> <span class="n">map</span><span class="p">(</span><span class="n">hit</span><span class="o">-</span><span class="n">eps</span><span class="p">.</span><span class="n">yxy</span><span class="p">).</span><span class="n">x</span><span class="p">,</span>
+            <span class="n">map</span><span class="p">(</span><span class="n">hit</span><span class="o">+</span><span class="n">eps</span><span class="p">.</span><span class="n">yyx</span><span class="p">).</span><span class="n">x</span> <span class="o">-</span> <span class="n">map</span><span class="p">(</span><span class="n">hit</span><span class="o">-</span><span class="n">eps</span><span class="p">.</span><span class="n">yyx</span><span class="p">).</span><span class="n">x</span> <span class="p">));</span>
+
+        <span class="c1">// toon shading</span>
+        <span class="k">vec3</span> <span class="n">light</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mo">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mo">0</span><span class="p">));</span>
+        <span class="k">float</span> <span class="n">df</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dot</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">light</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">df</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">)</span> <span class="n">df</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">df</span> <span class="o">&lt;</span> <span class="mf">0.3</span><span class="p">)</span> <span class="n">df</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">df</span> <span class="o">&lt;</span> <span class="mf">0.7</span><span class="p">)</span> <span class="n">df</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">;</span>
+        <span class="k">else</span> <span class="n">df</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="k">float</span> <span class="n">sf</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dot</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">light</span><span class="p">));</span>
+
+        <span class="n">color</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">iGlobalTime</span> <span class="o">+</span> <span class="k">vec3</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">map</span><span class="p">(</span><span class="n">hit</span><span class="p">).</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">df</span> <span class="o">+</span> <span class="n">step</span><span class="p">(</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">sf</span><span class="o">*</span><span class="n">sf</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="n">gl_FragColor</span> <span class="o">=</span> <span class="k">vec4</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+
+<span class="p">}</span></code></pre></div>
+
+<h3 id="minified-shader-source-code">Minified shader source code</h3>
+
+<p>It’s pretty hard to minify a shader manually. Most of the tricks that apply to Javascript as you can find in a classic JS1K compo don’t apply for GLSL.</p>
+
+<p>The main strategy I chose to follow was:</p>
+
+<ol>
+  <li><strong>Inline</strong> most of the functions.</li>
+  <li><strong>Duplicate</strong> code. This is sad because it had a big impact on the overall performance, but in the end it really helped to compress better.</li>
+  <li>Use <strong>manual tricks</strong> 2 digits numbers instead of 3 when possible.</li>
+</ol>
+
+<p>After a manual minification and a pass through shader-minifier, I ended up with the following shader code. It’s a lot of duplicated code, but it compresses better with jscrush, even though it might sound counter intuitive.</p>
+
+<div class="highlight"><pre><code class="language-glsl" data-lang="glsl"><span class="k">uniform</span> <span class="k">float</span> <span class="n">T</span><span class="p">;</span>
+<span class="k">vec2</span> <span class="n">v</span><span class="p">(</span><span class="k">vec2</span> <span class="n">x</span><span class="p">,</span><span class="k">vec2</span> <span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+ <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="o">&lt;</span><span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="o">?</span><span class="n">x</span><span class="o">:</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">vec2</span> <span class="n">v</span><span class="p">(</span><span class="k">vec3</span> <span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+ <span class="k">vec2</span> <span class="n">x</span><span class="o">=</span><span class="k">vec2</span><span class="p">(</span><span class="mf">1.</span><span class="p">);</span>
+ <span class="k">for</span><span class="p">(</span><span class="k">float</span> <span class="n">n</span><span class="o">=</span><span class="mf">1.</span><span class="p">;</span><span class="n">n</span><span class="o">&lt;</span><span class="mf">11.1</span><span class="p">;</span><span class="n">n</span><span class="o">+=</span><span class="mf">2.2</span><span class="p">)</span>
+   <span class="p">{</span>
+     <span class="k">vec2</span> <span class="n">c</span><span class="o">=</span><span class="n">abs</span><span class="p">(</span><span class="k">vec2</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="o">+</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="n">y</span><span class="p">.</span><span class="n">y</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">z</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="p">).</span><span class="n">xy</span><span class="p">),</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">z</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="o">-</span><span class="mf">40.</span><span class="o">+</span><span class="n">mod</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="mf">8.</span><span class="p">,</span><span class="mf">90.</span><span class="p">)))</span><span class="o">-</span><span class="k">vec2</span><span class="p">(</span><span class="mf">.7</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+     <span class="n">x</span><span class="o">=</span><span class="n">v</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="p">(</span><span class="n">v</span><span class="p">(</span><span class="k">vec2</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">),</span><span class="mf">0.</span><span class="p">)</span><span class="o">+</span><span class="n">length</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="mf">0.</span><span class="p">)),</span><span class="mi">38</span><span class="p">),</span><span class="k">vec2</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="o">+</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="n">y</span><span class="p">.</span><span class="n">y</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">z</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="p">).</span><span class="n">yx</span><span class="p">)</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span><span class="k">vec2</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="k">vec2</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="o">+</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="n">y</span><span class="p">.</span><span class="n">y</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">z</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="p">).</span><span class="n">xy</span><span class="p">)</span><span class="o">-</span><span class="mf">.9</span><span class="p">,</span><span class="n">mod</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">z</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="mf">4.</span><span class="p">)</span><span class="o">-</span><span class="mf">2.</span><span class="p">))</span><span class="o">-</span><span class="mf">.2</span><span class="p">,</span><span class="mi">5</span><span class="p">)));</span>
+   <span class="p">}</span>
+ <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">void</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+ <span class="k">float</span> <span class="n">n</span><span class="o">=</span><span class="mf">1.</span><span class="p">;</span>
+ <span class="k">vec2</span> <span class="n">y</span><span class="o">=</span><span class="mf">2.</span><span class="o">*</span><span class="n">gl_FragCoord</span><span class="p">.</span><span class="n">xy</span><span class="o">/</span><span class="n">R</span><span class="p">.</span><span class="n">xy</span><span class="o">-</span><span class="n">n</span><span class="p">;</span>
+ <span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="o">*=</span><span class="n">R</span><span class="p">.</span><span class="n">x</span><span class="o">/</span><span class="n">R</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+ <span class="k">for</span><span class="p">(</span><span class="k">int</span> <span class="n">x</span><span class="o">=</span><span class="mo">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">90</span><span class="p">;</span><span class="n">x</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+     <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="p">).</span><span class="n">x</span><span class="o">&lt;</span><span class="mf">.01</span><span class="o">||</span><span class="n">n</span><span class="o">&gt;</span><span class="mf">60.</span><span class="p">)</span>
+       <span class="k">break</span><span class="p">;</span>
+     <span class="n">n</span><span class="o">+=</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="p">).</span><span class="n">x</span><span class="p">;</span>
+   <span class="p">}</span>
+ <span class="k">vec3</span> <span class="n">x</span><span class="o">=</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">xyy</span><span class="p">).</span><span class="n">x</span><span class="o">-</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">xyy</span><span class="p">).</span><span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">yxy</span><span class="p">).</span><span class="n">x</span><span class="o">-</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">yxy</span><span class="p">).</span><span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">yyx</span><span class="p">).</span><span class="n">x</span><span class="o">-</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">yyx</span><span class="p">).</span><span class="n">x</span><span class="p">));</span>
+ <span class="n">gl_FragColor</span><span class="o">=</span><span class="k">vec4</span><span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mf">60.</span><span class="o">?</span><span class="mf">.5</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span><span class="mf">.1</span><span class="p">,</span><span class="mf">.5</span><span class="p">)</span><span class="o">*</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="p">).</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mo">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mo">0</span><span class="p">))))</span><span class="o">&lt;</span><span class="mf">.1</span><span class="o">?</span><span class="mf">.1</span><span class="o">:</span><span class="n">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mo">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mo">0</span><span class="p">))))</span><span class="o">&lt;</span><span class="mf">.3</span><span class="o">?</span><span class="mf">.3</span><span class="o">:</span><span class="n">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mo">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mo">0</span><span class="p">))))</span><span class="o">&lt;</span><span class="mf">.7</span><span class="o">?</span><span class="mf">.7</span><span class="o">:</span><span class="mf">1.</span><span class="p">)</span><span class="o">+</span><span class="n">step</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span><span class="n">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mo">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mo">0</span><span class="p">))))</span><span class="o">*</span><span class="n">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mo">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mo">0</span><span class="p">))))))</span><span class="o">:</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">),</span><span class="mf">1.</span><span class="p">);</span></code></pre></div>
+
+<p>In the end the original source code is maybe a bit big due to all the duplication, but it compresses well.</p>
+
+<p><img class="center" src="/res/js1k_2015/code_size.png" /></p>
+
+<h2 id="wrapping-up-a-idpart-6a">Wrapping up <a id="part-6"></a></h2>
+
+<p>TODO</p>
+
+
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+    var disqus_shortname = 'jtzp4'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+
+      </div>
+
+      <div class="row col-md-12 col-xs-18 col-sm-12">
+        <p><small>By <a href="#top">Jeremy Tuloup</a> &ndash; 2014 &ndash; Theme by <a href="http://bootswatch.com/">bootswatch</a> </small></p>
+      </div>
+
+    </div> <!-- /container -->
+
+  	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-51952511-1");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+
+  </body>
+</html>
+
+
+
