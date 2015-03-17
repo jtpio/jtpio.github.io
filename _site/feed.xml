@@ -36,7 +36,7 @@
 
 &lt;p&gt;I had joined the party 2 years ago and did something in 2D (&lt;a href=&quot;http://js1k.com/1344&quot;&gt;http://js1k.com/1344&lt;/a&gt;)&lt;/p&gt;
 
-&lt;p&gt;The new rules for this year allowed the use of WebGL, which was good because I had a list of new stuff I wanted to &lt;strong&gt;learn&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;The new rules for this year allowed the use of WebGL, which was good because I had a list of &lt;strong&gt;new stuff I wanted to learn&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Do something concrete in 3D&lt;/li&gt;
@@ -140,7 +140,7 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
 
 &lt;p&gt;Here is the WebGL code without the shaders. I managed to save a few bytes by re-using variable names used in the shader code (for example &lt;em&gt;x&lt;/em&gt;) in the following WebGL code, so it compresses better.&lt;/p&gt;
 
-&lt;p&gt;Constants are replaces by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader.&lt;/p&gt;
+&lt;p&gt;Constants are replaced by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// shorten the functions&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -165,7 +165,7 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
         &lt;span class=&quot;mi&quot;&gt;33&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;The first two lines map all the function names from the webgl context to shorter function names. You can visualize the mapping in a developer console:&lt;/p&gt;
+&lt;p&gt;The first two lines map all the function names from the webgl context to shorter function names. You can visualize the mapping by opening the developer console, creating a canvas an running the following:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;canvas&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;canvas&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;webgl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -386,11 +386,15 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
 
 &lt;h2 id=&quot;wrapping-up-a-idpart-6a&quot;&gt;Wrapping up &lt;a id=&quot;part-6&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;TODO&lt;/p&gt;
+&lt;p&gt;I entered the competition quite relaxed, considering it as a personal challenge rather than a real competition. In fact I could say it was my February 30 Day Challenge, so it somehow forced myself not to give up before the end!&lt;/p&gt;
+
+&lt;p&gt;It was very fun and I learned &lt;strong&gt;A LOT&lt;/strong&gt; of new stuff, especially regarding 3D graphics, the &lt;strong&gt;raymarching algorithm&lt;/strong&gt; and some &lt;strong&gt;shader programming&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;This also comes as a lesson for personal development. If you really want to learn something, it is very important to practise or to find an interesting project that will make you do stuff by yourself. It will be difficult, but that’s maybe the best way to remember things.&lt;/p&gt;
 </description>
-				<pubDate>Tue, 17 Mar 2015 01:20:49 +0100</pubDate>
-				<link>http://www.jtp.io/2015/03/17/js1k-2015-postmortem.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2015/03/17/js1k-2015-postmortem.html</guid>
+				<pubDate>Wed, 18 Mar 2015 00:46:51 +0100</pubDate>
+				<link>http://www.jtp.io/2015/03/18/js1k-2015-postmortem.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2015/03/18/js1k-2015-postmortem.html</guid>
 			</item>
 		
 			<item>

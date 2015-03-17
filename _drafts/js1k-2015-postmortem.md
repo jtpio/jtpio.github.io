@@ -33,7 +33,7 @@ This year I decided to enter of the [JS1K](http://js1k.com) online competition (
 
 I had joined the party 2 years ago and did something in 2D ([http://js1k.com/1344](http://js1k.com/1344))
 
-The new rules for this year allowed the use of WebGL, which was good because I had a list of new stuff I wanted to **learn**:
+The new rules for this year allowed the use of WebGL, which was good because I had a list of **new stuff I wanted to learn**:
 
 * Do something concrete in 3D
 * In WebGL
@@ -133,7 +133,7 @@ The demo consists of one shader (vertex + fragment) displayed full screen. The f
 
 Here is the WebGL code without the shaders. I managed to save a few bytes by re-using variable names used in the shader code (for example *x*) in the following WebGL code, so it compresses better.
 
-Constants are replaces by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader.
+Constants are replaced by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader.
 
 {% highlight js %}
 // shorten the functions
@@ -160,7 +160,7 @@ with(g){
 };
 {%endhighlight%}
 
-The first two lines map all the function names from the webgl context to shorter function names. You can visualize the mapping in a developer console:
+The first two lines map all the function names from the webgl context to shorter function names. You can visualize the mapping by opening the developer console, creating a canvas an running the following:
 
 {% highlight js %}
 document.body.appendChild(document.createElement('canvas'));
@@ -389,4 +389,8 @@ In the end the original source code is maybe a bit big due to all the duplicatio
 
 ## Wrapping up <a id="part-6"></a>
 
-TODO
+I entered the competition quite relaxed, considering it as a personal challenge rather than a real competition. In fact I could say it was my February 30 Day Challenge, so it somehow forced myself not to give up before the end!
+
+It was very fun and I learned **A LOT** of new stuff, especially regarding 3D graphics, the **raymarching algorithm** and some **shader programming**.
+
+This also comes as a lesson for personal development. If you really want to learn something, it is very important to practise or to find an interesting project that will make you do stuff by yourself. It will be difficult, but that's maybe the best way to remember things.

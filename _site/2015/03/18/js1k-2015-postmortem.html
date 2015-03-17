@@ -184,7 +184,7 @@
       <div class="row">
 
         <div class="col-md-12 col-xs-18 col-sm-12">
-      	  <h2> <strong> JS1K 2015 postmortem </strong> &ndash; March 17, 2015 </h2>
+      	  <h2> <strong> JS1K 2015 postmortem </strong> &ndash; March 18, 2015 </h2>
 <h4>
 
 	<span class="label label-default">javascript</span>
@@ -223,7 +223,7 @@
 
 <p>I had joined the party 2 years ago and did something in 2D (<a href="http://js1k.com/1344">http://js1k.com/1344</a>)</p>
 
-<p>The new rules for this year allowed the use of WebGL, which was good because I had a list of new stuff I wanted to <strong>learn</strong>:</p>
+<p>The new rules for this year allowed the use of WebGL, which was good because I had a list of <strong>new stuff I wanted to learn</strong>:</p>
 
 <ul>
   <li>Do something concrete in 3D</li>
@@ -327,7 +327,7 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
 
 <p>Here is the WebGL code without the shaders. I managed to save a few bytes by re-using variable names used in the shader code (for example <em>x</em>) in the following WebGL code, so it compresses better.</p>
 
-<p>Constants are replaces by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader.</p>
+<p>Constants are replaced by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader.</p>
 
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// shorten the functions</span>
 <span class="k">for</span><span class="p">(</span><span class="nx">x</span> <span class="k">in</span> <span class="nx">g</span><span class="p">)</span>
@@ -352,7 +352,7 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
         <span class="mi">33</span><span class="p">)</span>
 <span class="p">};</span></code></pre></div>
 
-<p>The first two lines map all the function names from the webgl context to shorter function names. You can visualize the mapping in a developer console:</p>
+<p>The first two lines map all the function names from the webgl context to shorter function names. You can visualize the mapping by opening the developer console, creating a canvas an running the following:</p>
 
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">));</span>
 <span class="kd">var</span> <span class="nx">g</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;webgl&#39;</span><span class="p">)</span>
@@ -573,7 +573,11 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
 
 <h2 id="wrapping-up-a-idpart-6a">Wrapping up <a id="part-6"></a></h2>
 
-<p>TODO</p>
+<p>I entered the competition quite relaxed, considering it as a personal challenge rather than a real competition. In fact I could say it was my February 30 Day Challenge, so it somehow forced myself not to give up before the end!</p>
+
+<p>It was very fun and I learned <strong>A LOT</strong> of new stuff, especially regarding 3D graphics, the <strong>raymarching algorithm</strong> and some <strong>shader programming</strong>.</p>
+
+<p>This also comes as a lesson for personal development. If you really want to learn something, it is very important to practise or to find an interesting project that will make you do stuff by yourself. It will be difficult, but that’s maybe the best way to remember things.</p>
 
 
 <div id="disqus_thread"></div>
