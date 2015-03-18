@@ -11,6 +11,8 @@ categories:
 
 Name: **The Hub**
 
+Live demo (low quality but runs better): [http://www.jtp.io/js1k-2015/](http://www.jtp.io/js1k-2015/)
+
 Demo entry: [http://js1k.com/2179](http://js1k.com/2179)
 
 Source code: [https://github.com/jtpio/js1k-2015](https://github.com/jtpio/js1k-2015)
