@@ -221,14 +221,14 @@
 
 <h1 id="joining-the-competition-a-idpart-1a">Joining the competition <a id="part-1"></a></h1>
 
-<p>This year I decided to enter of the <a href="http://js1k.com">JS1K</a> online competition (size limit of 1024 bytes of pure JS).</p>
+<p>This year I decided to enter the <a href="http://js1k.com">JS1K</a> online competition (make something less than 1024 bytes of pure JS).</p>
 
-<p>I had joined the party 2 years ago and did something in 2D (<a href="http://js1k.com/1344">http://js1k.com/1344</a>)</p>
+<p>I had joined the party two years ago and did something in 2D (<a href="http://js1k.com/1344">http://js1k.com/1344</a>)</p>
 
 <p>The new rules for this year allowed the use of WebGL, which was good because I had a list of <strong>new stuff I wanted to learn</strong>:</p>
 
 <ul>
-  <li>Do something concrete in 3D</li>
+  <li>Do something in 3D</li>
   <li>In WebGL</li>
   <li>Learn more about shader programming</li>
   <li>Implement a raymarching algorithm</li>
@@ -241,7 +241,7 @@
 
 <p>I wanted to do something with futuristic trains, or at least related to futuristic transportation, but not necessarily realistic.</p>
 
-<p>In the beginning I wanted to have a transparent tube with trains / objects moving inside the tube, like the Futurama transport tubes or the first picture below. I dropped the idea quickly because of the potential complexity of doing transparency.</p>
+<p>In the beginning I wanted to have a transparent tube with trains / objects moving inside the tube, like the Futurama transport tubes or the first picture below. But I dropped the idea quickly because of the potential complexity of doing transparency.</p>
 
 <p><img class="center" src="//i2.cdn.turner.com/cnnnext/dam/assets/130717103845-tube-transport-2-horizontal-large-gallery.jpg" />
 Source: <a href="http://i2.cdn.turner.com/cnnnext/dam/assets/130717103845-tube-transport-2-horizontal-large-gallery.jpg">http://i2.cdn.turner.com/cnnnext/dam/assets/130717103845-tube-transport-2-horizontal-large-gallery.jpg</a></p>
@@ -261,7 +261,7 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
 <p>To be sure that my demo will work in the final skim, I extended this boilerplate to automate it even more:</p>
 
 <ol>
-  <li>The shader is mainly developed on shadertoy, to have a quick feedback and prototyping</li>
+  <li>The shader is mainly developed on <a href="http://shadertoy.com">shadertoy</a>, to have a quick feedback and to prototype fast</li>
   <li>I copy/paste the code from shadertoy to a local file</li>
   <li>The shader source code is processed by a replacement tool to rename the global variables used on shadertoy (iGlobalTime to T, iResolution to res). Then it is minified with <a href="http://www.ctrl-alt-test.fr/?page_id=7">shader minifer</a></li>
   <li>The minified shader source is copied to the main Javascript code and stored as a variable (string)</li>
@@ -273,7 +273,7 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
 
 <p><img class="center" src="/res/js1k_2015/flow.png" /></p>
 
-<p>I also used Trello to organize ideas and progress.</p>
+<p>I also used a board on Trello to organize ideas and progress.</p>
 
 <p><img class="center" src="/res/js1k_2015/trello_dashboard.png" /></p>
 
@@ -315,21 +315,21 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
 
 <h3 id="light-work">Light work</h3>
 
-<p>The source light is positioned higher, but and as you can see there is no ambient occlusion :(
+<p>The source light is positioned higher. But as you can see there is no ambient occlusion :(
 <img class="center" src="/res/js1k_2015/14_1042_viz.png" /></p>
 
 <h3 id="colors-changing-over-time">Colors changing over time</h3>
 
-<p>This was actually a very cheap improvement in terms of code size
+<p>This was actually a very cheap improvement in terms of code size (just of few bytes).
 <img class="center" src="/res/js1k_2015/16_lights_off.png" /></p>
 
 <h2 id="implementation-a-idpart-5a">Implementation <a id="part-5"></a></h2>
 
 <p>The demo consists of one shader (vertex + fragment) displayed full screen. The fragment and vertex shaders are loaded with a tiny piece of WebGL code, mainly inspired by the awesome work of <strong>½-bit Cheese</strong> on <a href="http://www.pouet.net/prod.php?which=61667">HBC-00012: Kornell Box</a>.</p>
 
-<p>Here is the WebGL code without the shaders. I managed to save a few bytes by re-using variable names used in the shader code (for example <em>x</em>) in the following WebGL code, so it compresses better.</p>
+<p>Here is the WebGL code without the shaders. I managed to save a few bytes by re-using variable names used in the shader code (for example <em>x</em>) in the following WebGL code, so it compresses better. What I mean is that if you take the variable <em>x</em> below in the <em>for</em> loop, you can technically replace it by any other variable name. Since <em>x</em> was used a lot in the fragment shader code, I decided to use that, but it could also be <em>a</em>, <em>z</em>, <em>l</em> …</p>
 
-<p>Constants are replaced by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader.</p>
+<p>Constants like <em>g.FRAGMENT_SHADER</em> or <em>g.ARRAY_BUFFER</em> are replaced by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader, and the variable <em>y</em> decides which shader to load.</p>
 
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// shorten the functions</span>
 <span class="k">for</span><span class="p">(</span><span class="nx">x</span> <span class="k">in</span> <span class="nx">g</span><span class="p">)</span>
@@ -362,14 +362,14 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
 <span class="k">for</span><span class="p">(</span><span class="nx">x</span> <span class="k">in</span> <span class="nx">g</span><span class="p">)</span>
   <span class="nx">g</span><span class="p">[</span><span class="nx">x</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^..|[A-V]/g</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)]</span><span class="o">=</span><span class="nx">g</span><span class="p">[</span><span class="nx">x</span><span class="p">];</span></code></pre></div>
 
-<p>Exploring the webgl context (variable g) will give something like this:</p>
+<p>Exploring the webgl context (variable g) will give something like this, and will help to understand what <em>enVAA</em>, <em>biB</em> or <em>atS</em> actually mean:</p>
 
 <p><img class="center" src="/res/js1k_2015/webgl_map.png" /></p>
 
 <p>It’s pretty short, but it is roughly the equivalent of this:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">vs</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-<span class="nx">fs</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">vs</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span> <span class="c1">// insert vertex shader</span>
+<span class="nx">fs</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span> <span class="c1">// insert fragment shader</span>
 
 <span class="nx">p</span> <span class="o">=</span> <span class="nx">g</span><span class="p">.</span><span class="nx">createProgram</span><span class="p">();</span>
 <span class="nx">shader</span> <span class="o">=</span> <span class="nx">g</span><span class="p">.</span><span class="nx">createShader</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">VERTEX_SHADER</span><span class="p">);</span>
@@ -407,7 +407,7 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
 
 <h3 id="original-shader-source-code">Original shader source code</h3>
 
-<p>The fragment shader used before the minification, with comments.</p>
+<p>The fragment shader used before the minification, with comments, is quite verbose:</p>
 
 <div class="highlight"><pre><code class="language-glsl" data-lang="glsl"><span class="k">uniform</span> <span class="k">float</span> <span class="n">T</span><span class="p">;</span>
 
@@ -528,14 +528,14 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
 
 <h3 id="minified-shader-source-code">Minified shader source code</h3>
 
-<p>It’s pretty hard to minify a shader manually. Most of the tricks that apply to Javascript as you can find in a classic JS1K compo don’t apply for GLSL.</p>
+<p>It’s pretty hard to minify a shader manually. Most of the tricks that apply to Javascript as you can find in a classic JS1K compo don’t apply for GLSL. This is because GLSL is in fact a bit like C, variables need to be correctly defined with types for example.</p>
 
-<p>The main strategy I chose to follow was:</p>
+<p>The main strategy I chose to follow in order to reduce the size was to:</p>
 
 <ol>
   <li><strong>Inline</strong> most of the functions.</li>
   <li><strong>Duplicate</strong> code. This is sad because it had a big impact on the overall performance, but in the end it really helped to compress better.</li>
-  <li>Use <strong>manual tricks</strong> 2 digits numbers instead of 3 when possible.</li>
+  <li>Use <strong>manual tricks</strong>, for example approximate a three-digits number to a two-digits one when possible (100 -&gt; 99).</li>
 </ol>
 
 <p>After a manual minification and a pass through shader-minifier, I ended up with the following shader code. It’s a lot of duplicated code, but it compresses better with jscrush, even though it might sound counter intuitive.</p>
@@ -569,7 +569,7 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
  <span class="k">vec3</span> <span class="n">x</span><span class="o">=</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">xyy</span><span class="p">).</span><span class="n">x</span><span class="o">-</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">xyy</span><span class="p">).</span><span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">yxy</span><span class="p">).</span><span class="n">x</span><span class="o">-</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">yxy</span><span class="p">).</span><span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">yyx</span><span class="p">).</span><span class="n">x</span><span class="o">-</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mo">0</span><span class="p">,</span><span class="mo">0</span><span class="p">).</span><span class="n">yyx</span><span class="p">).</span><span class="n">x</span><span class="p">));</span>
  <span class="n">gl_FragColor</span><span class="o">=</span><span class="k">vec4</span><span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mf">60.</span><span class="o">?</span><span class="mf">.5</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="k">vec3</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span><span class="mf">.1</span><span class="p">,</span><span class="mf">.5</span><span class="p">)</span><span class="o">*</span><span class="n">v</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">n</span><span class="p">).</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mo">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mo">0</span><span class="p">))))</span><span class="o">&lt;</span><span class="mf">.1</span><span class="o">?</span><span class="mf">.1</span><span class="o">:</span><span class="n">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mo">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mo">0</span><span class="p">))))</span><span class="o">&lt;</span><span class="mf">.3</span><span class="o">?</span><span class="mf">.3</span><span class="o">:</span><span class="n">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mo">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mo">0</span><span class="p">))))</span><span class="o">&lt;</span><span class="mf">.7</span><span class="o">?</span><span class="mf">.7</span><span class="o">:</span><span class="mf">1.</span><span class="p">)</span><span class="o">+</span><span class="n">step</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span><span class="n">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mo">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mo">0</span><span class="p">))))</span><span class="o">*</span><span class="n">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">normalize</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mo">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mo">0</span><span class="p">))))))</span><span class="o">:</span><span class="k">vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">),</span><span class="mf">1.</span><span class="p">);</span></code></pre></div>
 
-<p>In the end the original source code is maybe a bit big due to all the duplication, but it compresses well.</p>
+<p>The original source code is maybe a bit big due to all the duplicated code, but it compresses well. Part of the flow was the recap of all the JS files sizes after compiling / compressing, which ended up being essential.</p>
 
 <p><img class="center" src="/res/js1k_2015/code_size.png" /></p>
 
@@ -579,7 +579,9 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
 
 <p>It was very fun and I learned <strong>A LOT</strong> of new stuff, especially regarding 3D graphics, the <strong>raymarching algorithm</strong> and some <strong>shader programming</strong>.</p>
 
-<p>This also comes as a lesson for personal development. If you really want to learn something, it is very important to practise or to find an interesting project that will make you do stuff by yourself. It will be difficult, but that’s maybe the best way to remember things.</p>
+<p>One possible regret that the overall performance is in the end a bit poor on old machines. The code duplication is one of the factors, but there are probably some other reasons.</p>
+
+<p>Hopefully this presentation gives enough insight into the making of the demo, or at least makes you want to do your own compo next time! If there is anything that I got wrong, or if you want more details about a specific part, please let me know.</p>
 
 
 <div id="disqus_thread"></div>

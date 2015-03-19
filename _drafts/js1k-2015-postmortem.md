@@ -31,13 +31,13 @@ If you want to know more about the making of this demo, keep reading.
 
 # Joining the competition <a id="part-1"></a>
 
-This year I decided to enter of the [JS1K](http://js1k.com) online competition (size limit of 1024 bytes of pure JS).
+This year I decided to enter the [JS1K](http://js1k.com) online competition (make something less than 1024 bytes of pure JS).
 
-I had joined the party 2 years ago and did something in 2D ([http://js1k.com/1344](http://js1k.com/1344))
+I had joined the party two years ago and did something in 2D ([http://js1k.com/1344](http://js1k.com/1344))
 
 The new rules for this year allowed the use of WebGL, which was good because I had a list of **new stuff I wanted to learn**:
 
-* Do something concrete in 3D
+* Do something in 3D
 * In WebGL
 * Learn more about shader programming
 * Implement a raymarching algorithm
@@ -49,7 +49,7 @@ The theme was **Hype Train**. After a few days of wandering and research for ins
 
 I wanted to do something with futuristic trains, or at least related to futuristic transportation, but not necessarily realistic.
 
-In the beginning I wanted to have a transparent tube with trains / objects moving inside the tube, like the Futurama transport tubes or the first picture below. I dropped the idea quickly because of the potential complexity of doing transparency.
+In the beginning I wanted to have a transparent tube with trains / objects moving inside the tube, like the Futurama transport tubes or the first picture below. But I dropped the idea quickly because of the potential complexity of doing transparency.
 
 <img class="center" src="//i2.cdn.turner.com/cnnnext/dam/assets/130717103845-tube-transport-2-horizontal-large-gallery.jpg">
 Source: [http://i2.cdn.turner.com/cnnnext/dam/assets/130717103845-tube-transport-2-horizontal-large-gallery.jpg](http://i2.cdn.turner.com/cnnnext/dam/assets/130717103845-tube-transport-2-horizontal-large-gallery.jpg)
@@ -68,7 +68,7 @@ I got things started with this very useful JS1K boilerplate: [https://gist.githu
 
 To be sure that my demo will work in the final skim, I extended this boilerplate to automate it even more:
 
-1. The shader is mainly developed on shadertoy, to have a quick feedback and prototyping
+1. The shader is mainly developed on [shadertoy](http://shadertoy.com), to have a quick feedback and to prototype fast
 2. I copy/paste the code from shadertoy to a local file
 3. The shader source code is processed by a replacement tool to rename the global variables used on shadertoy (iGlobalTime to T, iResolution to res). Then it is minified with [shader minifer](http://www.ctrl-alt-test.fr/?page_id=7)
 4. The minified shader source is copied to the main Javascript code and stored as a variable (string)
@@ -79,7 +79,7 @@ To be sure that my demo will work in the final skim, I extended this boilerplate
 
 <img class="center" src="/res/js1k_2015/flow.png">
 
-I also used Trello to organize ideas and progress.
+I also used a board on Trello to organize ideas and progress.
 
 <img class="center" src="/res/js1k_2015/trello_dashboard.png">
 
@@ -121,21 +121,21 @@ You can notice that I dropped the "squared" shapes for something more round, in 
 
 ### Light work
 
-The source light is positioned higher, but and as you can see there is no ambient occlusion :(
+The source light is positioned higher. But as you can see there is no ambient occlusion :(
 <img class="center" src="/res/js1k_2015/14_1042_viz.png">
 
 ### Colors changing over time
 
-This was actually a very cheap improvement in terms of code size
+This was actually a very cheap improvement in terms of code size (just of few bytes).
 <img class="center" src="/res/js1k_2015/16_lights_off.png">
 
 ## Implementation <a id="part-5"></a>
 
 The demo consists of one shader (vertex + fragment) displayed full screen. The fragment and vertex shaders are loaded with a tiny piece of WebGL code, mainly inspired by the awesome work of **½-bit Cheese** on [HBC-00012: Kornell Box](http://www.pouet.net/prod.php?which=61667).
 
-Here is the WebGL code without the shaders. I managed to save a few bytes by re-using variable names used in the shader code (for example *x*) in the following WebGL code, so it compresses better.
+Here is the WebGL code without the shaders. I managed to save a few bytes by re-using variable names used in the shader code (for example *x*) in the following WebGL code, so it compresses better. What I mean is that if you take the variable *x* below in the *for* loop, you can technically replace it by any other variable name. Since *x* was used a lot in the fragment shader code, I decided to use that, but it could also be *a*, *z*, *l* ...
 
-Constants are replaced by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader.
+Constants like *g.FRAGMENT_SHADER* or *g.ARRAY_BUFFER* are replaced by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader, and the variable *y* decides which shader to load.
 
 {% highlight js %}
 // shorten the functions
@@ -173,15 +173,15 @@ for(x in g)
 
 {%endhighlight%}
 
-Exploring the webgl context (variable g) will give something like this:
+Exploring the webgl context (variable g) will give something like this, and will help to understand what *enVAA*, *biB* or *atS* actually mean:
 
 <img class="center" src="/res/js1k_2015/webgl_map.png">
 
 It's pretty short, but it is roughly the equivalent of this:
 
 {% highlight js %}
-vs = '';
-fs = '';
+vs = ''; // insert vertex shader
+fs = ''; // insert fragment shader
 
 p = g.createProgram();
 shader = g.createShader(g.VERTEX_SHADER);
@@ -221,7 +221,7 @@ initTime = Date.now();
 
 ### Original shader source code
 
-The fragment shader used before the minification, with comments.
+The fragment shader used before the minification, with comments, is quite verbose:
 
 {% highlight glsl %}
 uniform float T;
@@ -344,13 +344,13 @@ void main()
 
 ### Minified shader source code
 
-It's pretty hard to minify a shader manually. Most of the tricks that apply to Javascript as you can find in a classic JS1K compo don't apply for GLSL.
+It's pretty hard to minify a shader manually. Most of the tricks that apply to Javascript as you can find in a classic JS1K compo don't apply for GLSL. This is because GLSL is in fact a bit like C, variables need to be correctly defined with types for example.
 
-The main strategy I chose to follow was:
+The main strategy I chose to follow in order to reduce the size was to:
 
 1. **Inline** most of the functions.
 2. **Duplicate** code. This is sad because it had a big impact on the overall performance, but in the end it really helped to compress better.
-3. Use **manual tricks** 2 digits numbers instead of 3 when possible.
+3. Use **manual tricks**, for example approximate a three-digits number to a two-digits one when possible (100 -> 99).
 
 After a manual minification and a pass through shader-minifier, I ended up with the following shader code. It's a lot of duplicated code, but it compresses better with jscrush, even though it might sound counter intuitive.
 
@@ -385,7 +385,7 @@ void main()
  gl_FragColor=vec4(n<60.?.5*sin(T+vec3(.1,.1,.5)*v(vec3(0.,-6,-10)+normalize(vec3(y,2))*n).y)*(1.+(max(0.,dot(x,normalize(vec3(0,1,0))))<.1?.1:max(0.,dot(x,normalize(vec3(0,1,0))))<.3?.3:max(0.,dot(x,normalize(vec3(0,1,0))))<.7?.7:1.)+step(.5,max(0.,dot(x,normalize(vec3(0,1,0))))*max(0.,dot(x,normalize(vec3(0,1,0)))))):vec3(0.),1.);
 {%endhighlight%}
 
-In the end the original source code is maybe a bit big due to all the duplication, but it compresses well.
+The original source code is maybe a bit big due to all the duplicated code, but it compresses well. Part of the flow was the recap of all the JS files sizes after compiling / compressing, which ended up being essential.
 
 <img class="center" src="/res/js1k_2015/code_size.png">
 
@@ -395,4 +395,6 @@ I entered the competition quite relaxed, considering it as a personal challenge 
 
 It was very fun and I learned **A LOT** of new stuff, especially regarding 3D graphics, the **raymarching algorithm** and some **shader programming**.
 
-This also comes as a lesson for personal development. If you really want to learn something, it is very important to practise or to find an interesting project that will make you do stuff by yourself. It will be difficult, but that's maybe the best way to remember things.
+One possible regret that the overall performance is in the end a bit poor on old machines. The code duplication is one of the factors, but there are probably some other reasons.
+
+Hopefully this presentation gives enough insight into the making of the demo, or at least makes you want to do your own compo next time! If there is anything that I got wrong, or if you want more details about a specific part, please let me know.
