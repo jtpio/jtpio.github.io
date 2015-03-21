@@ -14,7 +14,7 @@
 
 &lt;p&gt;Live demo (low quality but runs better): &lt;a href=&quot;http://www.jtp.io/js1k-2015/&quot;&gt;http://www.jtp.io/js1k-2015/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Demo entry: &lt;a href=&quot;http://js1k.com/2015-hypetrain/details/2179&quot;&gt;http://js1k.com/2015-hypetrain/details/2179&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Demo entry (requires a good graphics card) : &lt;a href=&quot;http://js1k.com/2015-hypetrain/details/2179&quot;&gt;http://js1k.com/2015-hypetrain/details/2179&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Source code: &lt;a href=&quot;https://github.com/jtpio/js1k-2015&quot;&gt;https://github.com/jtpio/js1k-2015&lt;/a&gt;&lt;/p&gt;
 
@@ -71,7 +71,7 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
 
 &lt;p&gt;I got things started with this very useful JS1K boilerplate: &lt;a href=&quot;https://gist.github.com/gre/9364718&quot;&gt;https://gist.github.com/gre/9364718&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;To be sure that my demo will work in the final skim, I extended this boilerplate to automate it even more:&lt;/p&gt;
+&lt;p&gt;To be sure that my demo will work in the final skim, I extended this boilerplate to automate it even more, and include the shader minification step.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;The shader is mainly developed on &lt;a href=&quot;http://shadertoy.com&quot;&gt;shadertoy&lt;/a&gt;, to have a quick feedback and to prototype fast&lt;/li&gt;
@@ -85,6 +85,8 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;/res/js1k_2015/flow.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I forked the gist mentioned above and extended it to fit my requirements: &lt;a href=&quot;https://gist.github.com/jtpio/547db4510c0bec05bed5&quot;&gt;https://gist.github.com/jtpio/547db4510c0bec05bed5&lt;/a&gt;. It is probably possible to improve it, so feel free to do so!&lt;/p&gt;
 
 &lt;p&gt;I also used a board on Trello to organize ideas and progress.&lt;/p&gt;
 
@@ -390,15 +392,15 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
 
 &lt;p&gt;I entered the competition quite relaxed, considering it as a personal challenge rather than a real competition. In fact I could say it was my February 30 Day Challenge, so it somehow forced myself not to give up before the end!&lt;/p&gt;
 
-&lt;p&gt;It was very fun and I learned &lt;strong&gt;A LOT&lt;/strong&gt; of new stuff, especially regarding 3D graphics, the &lt;strong&gt;raymarching algorithm&lt;/strong&gt; and some &lt;strong&gt;shader programming&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;It was very fun and I learned &lt;strong&gt;a lot&lt;/strong&gt; of new stuff, especially about 3D graphics, the &lt;strong&gt;raymarching algorithm&lt;/strong&gt; and some &lt;strong&gt;shader programming&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;One possible regret that the overall performance is in the end a bit poor on old machines. The code duplication is one of the factors, but there are probably some other reasons.&lt;/p&gt;
+&lt;p&gt;One possible regret is that the overall performance is a bit low. The code duplication is one of the factors, but there are probably some other reasons. Anyway, it is still possible to run the demo in a smaller window (less pixels) to reach a better framerate.&lt;/p&gt;
 
 &lt;p&gt;Hopefully this presentation gives enough insight into the making of the demo, or at least makes you want to do your own compo next time! If there is anything that I got wrong, or if you want more details about a specific part, please let me know.&lt;/p&gt;
 </description>
-				<pubDate>Thu, 19 Mar 2015 23:57:59 +0100</pubDate>
-				<link>http://www.jtp.io/2015/03/19/js1k-2015-postmortem.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2015/03/19/js1k-2015-postmortem.html</guid>
+				<pubDate>Sat, 21 Mar 2015 23:07:54 +0100</pubDate>
+				<link>http://www.jtp.io/2015/03/21/js1k-2015-postmortem.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2015/03/21/js1k-2015-postmortem.html</guid>
 			</item>
 		
 			<item>

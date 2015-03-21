@@ -13,7 +13,7 @@ Name: **The Hub**
 
 Live demo (low quality but runs better): [http://www.jtp.io/js1k-2015/](http://www.jtp.io/js1k-2015/)
 
-Demo entry: [http://js1k.com/2015-hypetrain/details/2179](http://js1k.com/2015-hypetrain/details/2179)
+Demo entry (requires a good graphics card) : [http://js1k.com/2015-hypetrain/details/2179](http://js1k.com/2015-hypetrain/details/2179)
 
 Source code: [https://github.com/jtpio/js1k-2015](https://github.com/jtpio/js1k-2015)
 
@@ -66,7 +66,7 @@ I made the demo in basically two weeks, working mostly during the evenings. The 
 
 I got things started with this very useful JS1K boilerplate: [https://gist.github.com/gre/9364718](https://gist.github.com/gre/9364718).
 
-To be sure that my demo will work in the final skim, I extended this boilerplate to automate it even more:
+To be sure that my demo will work in the final skim, I extended this boilerplate to automate it even more, and include the shader minification step.
 
 1. The shader is mainly developed on [shadertoy](http://shadertoy.com), to have a quick feedback and to prototype fast
 2. I copy/paste the code from shadertoy to a local file
@@ -78,6 +78,8 @@ To be sure that my demo will work in the final skim, I extended this boilerplate
 8. Open the index.html in a web browser
 
 <img class="center" src="/res/js1k_2015/flow.png">
+
+I forked the gist mentioned above and extended it to fit my requirements: [https://gist.github.com/jtpio/547db4510c0bec05bed5](https://gist.github.com/jtpio/547db4510c0bec05bed5). It is probably possible to improve it, so feel free to do so!
 
 I also used a board on Trello to organize ideas and progress.
 
@@ -393,8 +395,8 @@ The original source code is maybe a bit big due to all the duplicated code, but 
 
 I entered the competition quite relaxed, considering it as a personal challenge rather than a real competition. In fact I could say it was my February 30 Day Challenge, so it somehow forced myself not to give up before the end!
 
-It was very fun and I learned **A LOT** of new stuff, especially regarding 3D graphics, the **raymarching algorithm** and some **shader programming**.
+It was very fun and I learned **a lot** of new stuff, especially about 3D graphics, the **raymarching algorithm** and some **shader programming**.
 
-One possible regret that the overall performance is in the end a bit poor on old machines. The code duplication is one of the factors, but there are probably some other reasons.
+One possible regret is that the overall performance is a bit low. The code duplication is one of the factors, but there are probably some other reasons. Anyway, it is still possible to run the demo in a smaller window (less pixels) to reach a better framerate.
 
 Hopefully this presentation gives enough insight into the making of the demo, or at least makes you want to do your own compo next time! If there is anything that I got wrong, or if you want more details about a specific part, please let me know.
