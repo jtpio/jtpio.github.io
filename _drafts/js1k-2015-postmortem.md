@@ -70,11 +70,11 @@ To be sure that my demo will work in the final skim, I extended this boilerplate
 
 1. The shader is mainly developed on [shadertoy](http://shadertoy.com), to have a quick feedback and to prototype fast
 2. I copy/paste the code from shadertoy to a local file
-3. The shader source code is processed by a replacement tool to rename the global variables used on shadertoy (iGlobalTime to T, iResolution to res). Then it is minified with [shader minifer](http://www.ctrl-alt-test.fr/?page_id=7)
+3. The shader source code is processed by a replacement tool to rename the global variables used on shadertoy (iGlobalTime to T, iResolution to R). Then it is minified with [shader minifer](http://www.ctrl-alt-test.fr/?page_id=7)
 4. The minified shader source is copied to the main Javascript code and stored as a variable (string)
 5. UglifyJS minifies the code
 6. jscrush crushes the code
-7. The crushed code is inserted in a *script* tag in the shim.html file and exported as index.html
+7. The crushed code is inserted in a *script* tag in the shim.html file which produces an index.html file.
 8. Open the index.html in a web browser
 
 <img class="center" src="/res/js1k_2015/flow.png">

@@ -184,7 +184,7 @@
       <div class="row">
 
         <div class="col-md-12 col-xs-18 col-sm-12">
-      	  <h2> <strong> JS1K 2015 postmortem </strong> &ndash; March 21, 2015 </h2>
+      	  <h2> <strong> JS1K 2015 postmortem </strong> &ndash; March 22, 2015 </h2>
 <h4>
 
 	<span class="label label-default">javascript</span>
@@ -263,11 +263,11 @@ Source: <a href="http://photos1.blogger.com/blogger/1648/2486/1600/Tube.jpg">htt
 <ol>
   <li>The shader is mainly developed on <a href="http://shadertoy.com">shadertoy</a>, to have a quick feedback and to prototype fast</li>
   <li>I copy/paste the code from shadertoy to a local file</li>
-  <li>The shader source code is processed by a replacement tool to rename the global variables used on shadertoy (iGlobalTime to T, iResolution to res). Then it is minified with <a href="http://www.ctrl-alt-test.fr/?page_id=7">shader minifer</a></li>
+  <li>The shader source code is processed by a replacement tool to rename the global variables used on shadertoy (iGlobalTime to T, iResolution to R). Then it is minified with <a href="http://www.ctrl-alt-test.fr/?page_id=7">shader minifer</a></li>
   <li>The minified shader source is copied to the main Javascript code and stored as a variable (string)</li>
   <li>UglifyJS minifies the code</li>
   <li>jscrush crushes the code</li>
-  <li>The crushed code is inserted in a <em>script</em> tag in the shim.html file and exported as index.html</li>
+  <li>The crushed code is inserted in a <em>script</em> tag in the shim.html file which produces an index.html file.</li>
   <li>Open the index.html in a web browser</li>
 </ol>
 

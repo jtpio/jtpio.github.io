@@ -76,11 +76,11 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
 &lt;ol&gt;
   &lt;li&gt;The shader is mainly developed on &lt;a href=&quot;http://shadertoy.com&quot;&gt;shadertoy&lt;/a&gt;, to have a quick feedback and to prototype fast&lt;/li&gt;
   &lt;li&gt;I copy/paste the code from shadertoy to a local file&lt;/li&gt;
-  &lt;li&gt;The shader source code is processed by a replacement tool to rename the global variables used on shadertoy (iGlobalTime to T, iResolution to res). Then it is minified with &lt;a href=&quot;http://www.ctrl-alt-test.fr/?page_id=7&quot;&gt;shader minifer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The shader source code is processed by a replacement tool to rename the global variables used on shadertoy (iGlobalTime to T, iResolution to R). Then it is minified with &lt;a href=&quot;http://www.ctrl-alt-test.fr/?page_id=7&quot;&gt;shader minifer&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;The minified shader source is copied to the main Javascript code and stored as a variable (string)&lt;/li&gt;
   &lt;li&gt;UglifyJS minifies the code&lt;/li&gt;
   &lt;li&gt;jscrush crushes the code&lt;/li&gt;
-  &lt;li&gt;The crushed code is inserted in a &lt;em&gt;script&lt;/em&gt; tag in the shim.html file and exported as index.html&lt;/li&gt;
+  &lt;li&gt;The crushed code is inserted in a &lt;em&gt;script&lt;/em&gt; tag in the shim.html file which produces an index.html file.&lt;/li&gt;
   &lt;li&gt;Open the index.html in a web browser&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -398,9 +398,9 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
 
 &lt;p&gt;Hopefully this presentation gives enough insight into the making of the demo, or at least makes you want to do your own compo next time! If there is anything that I got wrong, or if you want more details about a specific part, please let me know.&lt;/p&gt;
 </description>
-				<pubDate>Sat, 21 Mar 2015 23:07:54 +0100</pubDate>
-				<link>http://www.jtp.io/2015/03/21/js1k-2015-postmortem.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2015/03/21/js1k-2015-postmortem.html</guid>
+				<pubDate>Sun, 22 Mar 2015 18:21:30 +0100</pubDate>
+				<link>http://www.jtp.io/2015/03/22/js1k-2015-postmortem.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2015/03/22/js1k-2015-postmortem.html</guid>
 			</item>
 		
 			<item>
