@@ -393,7 +393,7 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
 
 &lt;p&gt;To illustrate how effective the compression is and the strategy I decided to use, we can take an example of a shader code that “nicely” written, and one with code duplication.&lt;/p&gt;
 
-&lt;p&gt;Let’s use the &lt;a href=&quot;https://gist.github.com/jtpio/547db4510c0bec05bed5&quot;&gt;tool&lt;/a&gt; that mentioned above to minify / compress everything quickly.&lt;/p&gt;
+&lt;p&gt;Let’s use the &lt;a href=&quot;https://gist.github.com/jtpio/547db4510c0bec05bed5&quot;&gt;gist&lt;/a&gt; mentioned above to minify / compress everything quickly.&lt;/p&gt;
 
 &lt;p&gt;For the example, let’s take a short shader made by iq for his &lt;a href=&quot;https://www.youtube.com/watch?v=0ifChJ0nJfM&quot;&gt;formulanimation tutorial&lt;/a&gt;:&lt;/p&gt;
 
@@ -465,7 +465,7 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
   &lt;li&gt;All the &lt;a href=&quot;http://js1k.com&quot;&gt;JS1K demos&lt;/a&gt; for the ideas and tricks from past demos.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Mon, 23 Mar 2015 22:51:36 +0100</pubDate>
+				<pubDate>Mon, 23 Mar 2015 22:56:47 +0100</pubDate>
 				<link>http://www.jtp.io/2015/03/23/js1k-2015-postmortem.html</link>
 				<guid isPermaLink="true">http://www.jtp.io/2015/03/23/js1k-2015-postmortem.html</guid>
 			</item>

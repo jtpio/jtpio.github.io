@@ -396,7 +396,7 @@ The original source code is maybe a bit big due to all the duplicated code, but 
 
 To illustrate how effective the compression is and the strategy I decided to use, we can take an example of a shader code that "nicely" written, and one with code duplication.
 
-Let's use the [tool](https://gist.github.com/jtpio/547db4510c0bec05bed5) that mentioned above to minify / compress everything quickly.
+Let's use the [gist](https://gist.github.com/jtpio/547db4510c0bec05bed5) mentioned above to minify / compress everything quickly.
 
 For the example, let's take a short shader made by iq for his [formulanimation tutorial](https://www.youtube.com/watch?v=0ifChJ0nJfM):
 
