@@ -135,7 +135,7 @@ This was actually a very cheap improvement in terms of code size (just of few by
 
 The demo consists of one shader (vertex + fragment) displayed full screen. The fragment and vertex shaders are loaded with a tiny piece of WebGL code, mainly inspired by the awesome work of **½-bit Cheese** on [HBC-00012: Kornell Box](http://www.pouet.net/prod.php?which=61667).
 
-Here is the WebGL code without the shaders. I managed to save a few bytes by re-using variable names used in the shader code (for example *x*) in the following WebGL code, so it compresses better. What I mean is that if you take the variable *x* below in the *for* loop, you can technically replace it by any other variable name. Since *x* was used a lot in the fragment shader code, I decided to use that, but it could also be *a*, *z*, *l* ...
+Here is the WebGL code without the shaders. I managed to save a few bytes by re-using variable names used in the shader code (for example *x*) in the following WebGL code, so it compresses better. What I mean is that if you take the variable *x* below in the *for* loop, you can technically replace it by any other variable name. Since *x* was used a lot in the fragment shader code, I decided to use it again, but it could also be *a*, *z*, *l* ...
 
 Constants like *g.FRAGMENT_SHADER* or *g.ARRAY_BUFFER* are replaced by their numerical values. The for loop produces 2 iterations, one to setup the vertex shader and another one to setup the fragment shader, and the variable *y* decides which shader to load.
 
@@ -346,7 +346,7 @@ void main()
 
 ### Minified shader source code
 
-It's pretty hard to minify a shader manually. Most of the tricks that apply to Javascript as you can find in a classic JS1K compo don't apply for GLSL. This is because GLSL is in fact a bit like C, variables need to be correctly defined with types for example.
+It's pretty hard to minify a shader manually. Most of the tricks that apply to Javascript as you can find in a classic JS1K compo don't apply for GLSL. This is because GLSL is in fact a bit like the C language, variables need to be correctly defined with types and it has a strict syntax.
 
 The main strategy I chose to follow in order to reduce the size was to:
 
@@ -387,7 +387,7 @@ void main()
  gl_FragColor=vec4(n<60.?.5*sin(T+vec3(.1,.1,.5)*v(vec3(0.,-6,-10)+normalize(vec3(y,2))*n).y)*(1.+(max(0.,dot(x,normalize(vec3(0,1,0))))<.1?.1:max(0.,dot(x,normalize(vec3(0,1,0))))<.3?.3:max(0.,dot(x,normalize(vec3(0,1,0))))<.7?.7:1.)+step(.5,max(0.,dot(x,normalize(vec3(0,1,0))))*max(0.,dot(x,normalize(vec3(0,1,0)))))):vec3(0.),1.);
 {%endhighlight%}
 
-The original source code is maybe a bit big due to all the duplicated code, but it compresses well. Part of the flow was the recap of all the JS files sizes after compiling / compressing, which ended up being essential.
+The original source code is maybe a bit big due to all the duplicated code, but it compresses well. Part of the flow was the recap of all the JS files sizes after compiling / compressing, which ended up being essential to checl if a change was worth begin kept.
 
 <img class="center" src="/res/js1k_2015/code_size.png">
 
