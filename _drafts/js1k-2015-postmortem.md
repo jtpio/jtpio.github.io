@@ -11,7 +11,7 @@ categories:
 
 Name: **The Hub**
 
-Live demo (low quality but runs better): [http://www.jtp.io/js1k-2015/](http://www.jtp.io/js1k-2015/)
+**[RECOMMENDED]** Live demo (low quality but runs better): [http://www.jtp.io/js1k-2015/](http://www.jtp.io/js1k-2015/)
 
 Demo entry (requires a good graphics card) : [http://js1k.com/2015-hypetrain/details/2179](http://js1k.com/2015-hypetrain/details/2179)
 
@@ -28,6 +28,7 @@ If you want to know more about the making of this demo, keep reading.
   * [Timelapse](#part-4)
   * [Implementation](#part-5)
   * [Wrapping up](#part-6)
+  * [References](#part-7)
 
 # Joining the competition <a id="part-1"></a>
 
@@ -87,7 +88,7 @@ I also used a board on Trello to organize ideas and progress.
 
 ## Timelapse <a id="part-4"></a>
 
-Because it's always fun to visualize, here is a quick timelapse of how things changed over time.
+Because it's always fun to visualize, here is a quick timelapse to show how things changed over time.
 
 ### Render basic stuff to be more familiar with raymarching
 <img class="center" src="/res/js1k_2015/1_ray_march.png">
@@ -387,9 +388,60 @@ void main()
  gl_FragColor=vec4(n<60.?.5*sin(T+vec3(.1,.1,.5)*v(vec3(0.,-6,-10)+normalize(vec3(y,2))*n).y)*(1.+(max(0.,dot(x,normalize(vec3(0,1,0))))<.1?.1:max(0.,dot(x,normalize(vec3(0,1,0))))<.3?.3:max(0.,dot(x,normalize(vec3(0,1,0))))<.7?.7:1.)+step(.5,max(0.,dot(x,normalize(vec3(0,1,0))))*max(0.,dot(x,normalize(vec3(0,1,0)))))):vec3(0.),1.);
 {%endhighlight%}
 
+### Compression
+
 The original source code is maybe a bit big due to all the duplicated code, but it compresses well. Part of the flow was the recap of all the JS files sizes after compiling / compressing, which ended up being essential to checl if a change was worth begin kept.
 
 <img class="center" src="/res/js1k_2015/code_size.png">
+
+To illustrate how effective the compression is and the strategy I decided to use, we can take an example of a shader code that "nicely" written, and one with code duplication.
+
+Let's use the [tool](https://gist.github.com/jtpio/547db4510c0bec05bed5) that mentioned above to minify / compress everything quickly.
+
+For the example, let's take a short shader made by iq for his [formulanimation tutorial](https://www.youtube.com/watch?v=0ifChJ0nJfM):
+
+{% highlight glsl %}
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
+  vec2 p = fragCoord.xy / iResolution.xy;
+  vec2 q = p - vec2(0.33,0.7);
+
+  vec3 col = mix( vec3(1.0,0.3,0.0), vec3(1.0,0.8,0.3), sqrt(p.y) );
+
+  float r = 0.2 + 0.1*cos( atan(q.y,q.x)*10.0 + 20.0*q.x + 1.0);
+  col *= smoothstep( r, r+0.01, length( q ) );
+
+  r = 0.015;
+  r += 0.002*sin(120.0*q.y);
+  r += exp(-40.0*p.y);
+    col *= 1.0 - (1.0-smoothstep(r,r+0.002, abs(q.x-0.25*sin(2.0*q.y))))*(1.0-smoothstep(0.0,0.1,q.y));
+
+  fragColor = vec4(col,1.0);
+}
+{% endhighlight %}
+
+Running the tool on this shader (place the above code in the file [shader.fs](https://gist.github.com/jtpio/547db4510c0bec05bed5#file-shader-fs)): ``` npm run all ```
+
+<img class="center" src="/res/js1k_2015/code_size_example1.png">
+
+What if instead we group the terms of the variable *r* and *col* together (inline), so the code is transformed to this?
+
+{% highlight glsl %}
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
+  vec2 p = fragCoord.xy / iResolution.xy;
+  vec2 q = p - vec2(0.33,0.7);
+
+  vec3 col = mix( vec3(1.0,0.3,0.0), vec3(1.0,0.8,0.3), sqrt(p.y) ) * smoothstep( 0.2 + 0.1*cos( atan(q.y,q.x)*10.0 + 20.0*q.x + 1.0), 0.2 + 0.1*cos( atan(q.y,q.x)*10.0 + 20.0*q.x + 1.0)+0.01, length( q ) ) * (1.0 - (1.0-smoothstep(0.015 + 0.002*sin(120.0*q.y) + exp(-40.0*p.y),0.015 + 0.002*sin(120.0*q.y) + exp(-40.0*p.y)+0.002, abs(q.x-0.25*sin(2.0*q.y))))*(1.0-smoothstep(0.0,0.1,q.y)));
+
+  fragColor = vec4(col,1.0);
+}
+{% endhighlight %}
+
+Again, ``` npm run all ```:
+<img class="center" src="/res/js1k_2015/code_size_example2.png">
+
+The crushed code size has decreased by **11 bytes**, and the result is still the same. This case illustrates an example on how JSCrush takes advantage of duplicated code (pattern).
 
 ## Wrapping up <a id="part-6"></a>
 
@@ -399,4 +451,18 @@ It was very fun and I learned **a lot** of new stuff, especially about 3D graphi
 
 One possible regret is that the overall performance is a bit low. The code duplication is one of the factors, but there are probably some other reasons. Anyway, it is still possible to run the demo in a smaller window (less pixels) to reach a better framerate.
 
-Hopefully this presentation gives enough insight into the making of the demo, or at least makes you want to do your own compo next time! If there is anything that I got wrong, or if you want more details about a specific part, please let me know.
+Hopefully this recap gives enough insight into the making of the demo, or at least makes you want to do your own compo next time! If there is anything that I got wrong, or if you want more details about a specific part, please let me know.
+
+---
+
+## References <a id="part-7"></a>
+
+There are so many good resources on the subject that came to be super useful. Too many so here are just a few:
+
+- The demos mentioned in Paulo Falcao's JS1K compo: [http://js1k.com/2014-dragons/details/1868](http://js1k.com/2014-dragons/details/1868). These:
+  - HBC-00012: Kornell Box - http://www.pouet.net/prod.php?which=61667
+  - HBC-00013: Highway 4k - http://www.pouet.net/prod.php?which=61668
+- iq reference on distance functions: [http://iquilezles.org/www/articles/distfunctions/distfunctions.htm](http://iquilezles.org/www/articles/distfunctions/distfunctions.htm)
+- iq intro to raymarching: [http://www.iquilezles.org/www/articles/terrainmarching/terrainmarching.htm](http://www.iquilezles.org/www/articles/terrainmarching/terrainmarching.htm)
+- p01 resources on [p01.org](http://www.p01.org), especially for the trick for shortening webgl functions, and also for inspiration in general
+- All the [JS1K demos](http://js1k.com) for the ideas and tricks from past demos.
