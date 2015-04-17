@@ -7,6 +7,95 @@
 		<atom:link href="http://www.jtp.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Thoughts on Project Euler problem 57</title>
+				<description>&lt;p&gt;I haven’t visited the &lt;a href=&quot;https://projecteuler.net/&quot;&gt;Project Euler&lt;/a&gt; website for a while. But they recently announced new awards (trophies), for example the &lt;em&gt;Flawless Fifty&lt;/em&gt; for 50 consecutive problems (this one is done!) and &lt;em&gt;C for Commitment&lt;/em&gt; for solving the first 100 problems (feasible).&lt;/p&gt;
+
+&lt;p&gt;So I picked one of the problems I hadn’t done before just for fun: &lt;a href=&quot;https://projecteuler.net/problem=57&quot;&gt;Problem 57&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The statement is as follow:&lt;/p&gt;
+
+&lt;p&gt;It is possible to show that the square root of two can be expressed as an infinite continued fraction.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sqrt 2 = 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + ... }}} = 1.414213...&lt;/script&gt;
+
+&lt;p&gt;By expanding this for the first four iterations, we get:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; 1 + \frac{1}{2} = \frac{3}{2} = 1.5 &lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; 1 + \frac{1}{2 + \frac{1}{2}} = \frac{7}{5} = 1.4 &lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}} = \frac{17}{12} = 1.41666... &lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}} = \frac{41}{29} = 1.41379... &lt;/script&gt;
+
+&lt;p&gt;The next three expansions are 99/70, 239/169, and 577/408, but the eighth expansion, 1393/985, is the first example where the number of digits in the numerator exceeds the number of digits in the denominator.&lt;/p&gt;
+
+&lt;p&gt;In the first one-thousand expansions, how many fractions contain a numerator with more digits than denominator?&lt;/p&gt;
+
+&lt;h2 id=&quot;first-solution&quot;&gt;First solution&lt;/h2&gt;
+
+&lt;p&gt;I usually love using Python for solving these kind of problems, as the solution end up being simple to read and very elegant.&lt;/p&gt;
+
+&lt;p&gt;Python has support for fractions thanks to the &lt;code&gt;fractions&lt;/code&gt; package, so let’s use it!
+Putting the &lt;em&gt;1&lt;/em&gt; appart for now, we can see that the first term is &lt;script type=&quot;math/tex&quot;&gt; a_0 = \frac{1}{2} &lt;/script&gt;, and the second is &lt;script type=&quot;math/tex&quot;&gt; a_1 = \frac{1}{2 + \frac{1}{2}} &lt;/script&gt;, which is the same as &lt;script type=&quot;math/tex&quot;&gt; a_1 = \frac{1}{ 2 + a_0 } &lt;/script&gt;. Then by construction, &lt;script type=&quot;math/tex&quot;&gt; a_{n+1} = \frac{1}{2 + a_n} &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;With the fractions module, it is very easy to access the numerator and denominator.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;fractions&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fraction&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fraction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fraction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# don&amp;#39;t forget the first one&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numerator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;denominator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Running time on machine:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;real    0m0.462s
+user    0m0.457s
+sys     0m0.003s&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;improvement&quot;&gt;Improvement&lt;/h2&gt;
+&lt;p&gt;By analysing the pattern between the different (final) terms of the serie (&lt;script type=&quot;math/tex&quot;&gt; \frac{3}{2}, \frac{7}{5}, \frac{17}{12}... &lt;/script&gt;), we can notice that the numerators and denominators follow a simple relation (simultanous update):&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; next\_numerator = 2 * prev\_denominator + prev\_numerator &lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; next\_denominator = prev\_numerator + prev\_denominator &lt;/script&gt;
+
+&lt;p&gt;For instance, &lt;script type=&quot;math/tex&quot;&gt; 7 = 2*2 + 3 &lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt; 5 = 3 + 2 &lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Written in Python:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;real    0m0.036s
+user    0m0.030s
+sys     0m0.003s&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This ends up being a pretty good speed boost!&lt;/p&gt;
+
+&lt;h2 id=&quot;another-approach&quot;&gt;Another approach?&lt;/h2&gt;
+&lt;p&gt;I have been thinking of another approach to solve this problem, but could not come up with simpler code than the one mentioned above.&lt;/p&gt;
+
+&lt;p&gt;In both solutions, numbers get big pretty quickly and the calculations are made using big integers, which slows things down but seems to be inevitable.&lt;/p&gt;
+
+&lt;p&gt;Any idea? Feel free to share!&lt;/p&gt;
+</description>
+				<pubDate>Sat, 18 Apr 2015 00:00:00 +0200</pubDate>
+				<link>http://www.jtp.io/2015/04/18/project-euler-57.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2015/04/18/project-euler-57.html</guid>
+			</item>
+		
+			<item>
 				<title>JS1K 2015 postmortem</title>
 				<description>&lt;h1 id=&quot;tldr&quot;&gt;TL;DR&lt;/h1&gt;
 
