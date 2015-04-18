@@ -7,7 +7,7 @@
 
     <link rel="alternate" type="application/rss+xml" title="Jeremy Tuloup [JTP]- Blog" href="http://www.jtp.io/feed.xml">
 
-    <title>Jeremy Tuloup - Thoughts on Project Euler problem 57</title>
+    <title>JTP - Thoughts on Project Euler problem 57</title>
 
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 
@@ -223,7 +223,7 @@
 
 <h2 id="first-solution">First solution</h2>
 
-<p>I usually love using Python for solving these kind of problems, as the solution end up being simple to read and very elegant.</p>
+<p>I usually love using Python for solving these kind of problems, as the solution ends up being simple to read and very elegant.</p>
 
 <p>Python has support for fractions thanks to the <code>fractions</code> package, so let’s use it!
 Putting the <em>1</em> appart for now, we can see that the first term is <script type="math/tex"> a_0 = \frac{1}{2} </script>, and the second is <script type="math/tex"> a_1 = \frac{1}{2 + \frac{1}{2}} </script>, which is the same as <script type="math/tex"> a_1 = \frac{1}{ 2 + a_0 } </script>. Then by construction, <script type="math/tex"> a_{n+1} = \frac{1}{2 + a_n} </script></p>
@@ -248,7 +248,7 @@ user    0m0.457s
 sys     0m0.003s</code></pre></div>
 
 <h2 id="improvement">Improvement</h2>
-<p>By analysing the pattern between the different (final) terms of the serie (<script type="math/tex"> \frac{3}{2}, \frac{7}{5}, \frac{17}{12}... </script>), we can notice that the numerators and denominators follow a simple relation (simultanous update):</p>
+<p>By analysing the pattern between the different (final) terms of the serie (<script type="math/tex"> \frac{3}{2}, \frac{7}{5}, \frac{17}{12}... </script>), we can notice that the numerators and denominators follow a simple relation (simultaneous update):</p>
 
 <script type="math/tex; mode=display"> next\_numerator = 2 * prev\_denominator + prev\_numerator </script>
 
@@ -275,7 +275,7 @@ sys     0m0.003s</code></pre></div>
 <h2 id="another-approach">Another approach?</h2>
 <p>I have been thinking of another approach to solve this problem, but could not come up with simpler code than the one mentioned above.</p>
 
-<p>In both solutions, numbers get big pretty quickly and the calculations are made using big integers, which slows things down but seems to be inevitable.</p>
+<p>In both solutions, numbers get big pretty quickly and the calculations are made using big integers, which slows things down but at the same time seems to be inevitable.</p>
 
 <p>Any idea? Feel free to share!</p>
 

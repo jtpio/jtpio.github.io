@@ -34,7 +34,7 @@
 
 &lt;h2 id=&quot;first-solution&quot;&gt;First solution&lt;/h2&gt;
 
-&lt;p&gt;I usually love using Python for solving these kind of problems, as the solution end up being simple to read and very elegant.&lt;/p&gt;
+&lt;p&gt;I usually love using Python for solving these kind of problems, as the solution ends up being simple to read and very elegant.&lt;/p&gt;
 
 &lt;p&gt;Python has support for fractions thanks to the &lt;code&gt;fractions&lt;/code&gt; package, so let’s use it!
 Putting the &lt;em&gt;1&lt;/em&gt; appart for now, we can see that the first term is &lt;script type=&quot;math/tex&quot;&gt; a_0 = \frac{1}{2} &lt;/script&gt;, and the second is &lt;script type=&quot;math/tex&quot;&gt; a_1 = \frac{1}{2 + \frac{1}{2}} &lt;/script&gt;, which is the same as &lt;script type=&quot;math/tex&quot;&gt; a_1 = \frac{1}{ 2 + a_0 } &lt;/script&gt;. Then by construction, &lt;script type=&quot;math/tex&quot;&gt; a_{n+1} = \frac{1}{2 + a_n} &lt;/script&gt;&lt;/p&gt;
@@ -59,7 +59,7 @@ user    0m0.457s
 sys     0m0.003s&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;improvement&quot;&gt;Improvement&lt;/h2&gt;
-&lt;p&gt;By analysing the pattern between the different (final) terms of the serie (&lt;script type=&quot;math/tex&quot;&gt; \frac{3}{2}, \frac{7}{5}, \frac{17}{12}... &lt;/script&gt;), we can notice that the numerators and denominators follow a simple relation (simultanous update):&lt;/p&gt;
+&lt;p&gt;By analysing the pattern between the different (final) terms of the serie (&lt;script type=&quot;math/tex&quot;&gt; \frac{3}{2}, \frac{7}{5}, \frac{17}{12}... &lt;/script&gt;), we can notice that the numerators and denominators follow a simple relation (simultaneous update):&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt; next\_numerator = 2 * prev\_denominator + prev\_numerator &lt;/script&gt;
 
@@ -86,7 +86,7 @@ sys     0m0.003s&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;another-approach&quot;&gt;Another approach?&lt;/h2&gt;
 &lt;p&gt;I have been thinking of another approach to solve this problem, but could not come up with simpler code than the one mentioned above.&lt;/p&gt;
 
-&lt;p&gt;In both solutions, numbers get big pretty quickly and the calculations are made using big integers, which slows things down but seems to be inevitable.&lt;/p&gt;
+&lt;p&gt;In both solutions, numbers get big pretty quickly and the calculations are made using big integers, which slows things down but at the same time seems to be inevitable.&lt;/p&gt;
 
 &lt;p&gt;Any idea? Feel free to share!&lt;/p&gt;
 </description>
