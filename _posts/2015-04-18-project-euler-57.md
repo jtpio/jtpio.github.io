@@ -33,7 +33,7 @@ In the first one-thousand expansions, how many fractions contain a numerator wit
 
 ## First solution
 
-I usually love using Python for solving these kind of problems, as the solution end up being simple to read and very elegant.
+I usually love using Python for solving these kind of problems, as the solution ends up being simple to read and very elegant.
 
 Python has support for fractions thanks to the ```fractions``` package, so let's use it!
 Putting the *1* appart for now, we can see that the first term is $$ a_0 = \frac{1}{2} $$, and the second is $$ a_1 = \frac{1}{2 + \frac{1}{2}} $$, which is the same as $$ a_1 = \frac{1}{ 2 + a_0 } $$. Then by construction, $$ a_{n+1} = \frac{1}{2 + a_n} $$
@@ -61,7 +61,7 @@ sys     0m0.003s
 {% endhighlight %}
 
 ## Improvement
-By analysing the pattern between the different (final) terms of the serie ($$ \frac{3}{2}, \frac{7}{5}, \frac{17}{12}... $$), we can notice that the numerators and denominators follow a simple relation (simultanous update):
+By analysing the pattern between the different (final) terms of the serie ($$ \frac{3}{2}, \frac{7}{5}, \frac{17}{12}... $$), we can notice that the numerators and denominators follow a simple relation (simultaneous update):
 
 $$ next\_numerator = 2 * prev\_denominator + prev\_numerator $$
 
@@ -91,6 +91,6 @@ This ends up being a pretty good speed boost!
 ## Another approach?
 I have been thinking of another approach to solve this problem, but could not come up with simpler code than the one mentioned above.
 
-In both solutions, numbers get big pretty quickly and the calculations are made using big integers, which slows things down but seems to be inevitable.
+In both solutions, numbers get big pretty quickly and the calculations are made using big integers, which slows things down but at the same time seems to be inevitable.
 
 Any idea? Feel free to share!
