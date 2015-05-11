@@ -7,6 +7,41 @@
 		<atom:link href="http://www.jtp.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Finding out what I like using Trello - Part 1 </title>
+				<description>&lt;h2 id=&quot;part-1-visualizing-the-data&quot;&gt;Part 1: Visualizing the data&lt;/h2&gt;
+
+&lt;p&gt;I use Trello everyday to organize my personal life. I have been using it for more than a year, especially to log and organize articles and videos found on the Web.&lt;/p&gt;
+
+&lt;p&gt;Recently I have decided to compile a list of stats to learn more about myself, my reading habits and what I really like.&lt;/p&gt;
+
+&lt;p&gt;The first part of the analysis focuses on visualizing and understanding the data.&lt;/p&gt;
+
+&lt;p&gt;Everything is explained in the following iPython notebook. Go and check it out!&lt;/p&gt;
+
+&lt;p class=&quot;bigger&quot;&gt;
+	&lt;a href=&quot;http://nbviewer.ipython.org/github/jtpio/data-playground/blob/master/trello/personal-trello-stats.ipynb&quot;&gt;Finding out what I like using Trello - Part 1 (iPython notebook)&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
+
+&lt;p&gt;There is many more advanced things to do from here:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;More elaborated stats.&lt;/li&gt;
+  &lt;li&gt;Given a link, title and labels for an article, predict when I will read it.&lt;/li&gt;
+  &lt;li&gt;Cluster articles and links by similarity, as another way to visualize data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Those are just ideas at the present moment. I will share my next findings in a future “Part 2”!&lt;/p&gt;
+
+&lt;p&gt;Happy reading.&lt;/p&gt;
+</description>
+				<pubDate>Mon, 11 May 2015 00:00:00 +0200</pubDate>
+				<link>http://www.jtp.io/2015/05/11/trello-reading-stats.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2015/05/11/trello-reading-stats.html</guid>
+			</item>
+		
+			<item>
 				<title>Thoughts on Project Euler problem 57</title>
 				<description>&lt;p&gt;I haven’t visited the &lt;a href=&quot;https://projecteuler.net/&quot;&gt;Project Euler&lt;/a&gt; website for a while. But they recently announced new awards (trophies), for example the &lt;em&gt;Flawless Fifty&lt;/em&gt; for 50 consecutive problems (this one is done!) and &lt;em&gt;C for Commitment&lt;/em&gt; for solving the first 100 problems (feasible).&lt;/p&gt;
 
