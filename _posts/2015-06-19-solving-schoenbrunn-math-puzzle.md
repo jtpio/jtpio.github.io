@@ -15,7 +15,7 @@ In the garden, there are several mazes, like this:
 
 <img class="center" src="/res/schoenbrunn-math-puzzle/schoenbrunn_maze.jpg">
 
-In one of the mazes, there is a math puzzle, made of tiles that are put on the ground. It looks like this:
+In one of the mazes, there is a puzzle, made of tiles that are put on the ground. It looks like this:
 
 <img class="center" src="/res/schoenbrunn-math-puzzle/photo.jpg">
 
