@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="alternate" type="application/rss+xml" title="Jeremy Tuloup [JTP]- Blog" href="http://www.jtp.io/feed.xml">
+
+    <title>JTP - Solving the math puzzle of the Schönbrunn maze in Vienna</title>
+
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/yeti/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.css">
+    <style>
+      .MathJax_Preview { color: #888 }
+      .math_finished .MathJax_Preview { display: none }
+    </style>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="top" class="container">
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">JTP</a>
+  </div>
+  <div class="navbar-collapse navbar-responsive-collapse collapse" style="height: 1px;">
+    <ul class="nav navbar-nav">
+      
+        
+          
+        
+          
+        
+          
+        
+          
+            
+              <li><a href="/index.html">Hi</a></li>
+            
+          
+        
+          
+        
+      
+        
+          
+            
+              <li><a href="/blog.html">Blog</a></li>
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+            
+              <li><a href="/gameJams.html">Game Jams</a></li>
+            
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+              <li><a href="/misc.html">Projects</a></li>
+            
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 col-xs-18 col-sm-12">
+	  <h2> <strong> Solving the math puzzle of the Schönbrunn maze in Vienna </strong> &ndash; June 19, 2015 </h2>
+<h4>
+
+	<span class="label label-default">puzzle</span>
+
+	<span class="label label-default">math</span>
+
+	<span class="label label-default">programming</span>
+
+	<span class="label label-default">python</span>
+
+</h4>
+
+<h2 id="introduction">Introduction</h2>
+<p>There is a castle in Vienna called <a href="http://www.schoenbrunn.at/en.html">Schönbrunn</a>. You may have heard about it because it is quite famous thanks to the <a href="https://en.wikipedia.org/wiki/Empress_Elisabeth_of_Austria">Empress Elisabeth of Austria</a>, a.k.a princess Sisi.
+In the garden, there are several mazes, like this:</p>
+
+<p><img class="center" src="/res/schoenbrunn-math-puzzle/schoenbrunn_maze.jpg" /></p>
+
+<p>In one of the mazes, there is a math puzzle, made of tiles that are put on the ground. It looks like this:</p>
+
+<p><img class="center" src="/res/schoenbrunn-math-puzzle/photo.jpg" /></p>
+
+<p>It is a good brain teaser for tourists passing by, as they can even step on the tiles to find the solution.</p>
+
+<h2 id="rules">Rules</h2>
+<ul>
+  <li>There are two difficulties: <strong>normal and expert</strong>.</li>
+  <li>Start from the <strong>arrow</strong>. It means that the first tile to step on is the tile <em>+1</em>.</li>
+  <li>The number you step on indicates the number of steps you can take in any of the 4 directions: <strong>up, left, right, down</strong>. However, it is not possible to jump outside the grid (you should stay within the boundaries).</li>
+  <li>You jump from tile to tile until you reach the tile in the center, the <strong>O</strong>.</li>
+  <li>You can jump on a tile <strong>only once</strong>.</li>
+  <li><strong>Normal mode</strong>: reach the <strong>O</strong> in the center, ignoring the positive and negative signs.</li>
+  <li><strong>Expert mode</strong>: reach the <strong>O</strong> in the center, but the sum of the visited tiles must be <strong>equal to 0</strong> in the end.</li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<p>Here is a list of steps arbitrarely chosen to serve as an example:</p>
+
+<ol>
+  <li>Start on <em>+1</em>. We can move 1 step up, left or right, but not down because it is out of the grid.</li>
+  <li>Go right, on <em>-3</em>. From this tile, we can go up (<em>+3</em>) or left (<em>+4</em>)</li>
+  <li>Go left, on <em>+4</em>. From this tile we can go up (<em>+2</em>) or right (<em>+2</em>)</li>
+  <li>Go up, on <em>+2</em>. From this tile we can go down (<em>+1</em>) or right (<em>+4</em>)</li>
+  <li>…</li>
+</ol>
+
+<p><img class="center" src="/res/schoenbrunn-math-puzzle/example_4_steps.png" /></p>
+
+<hr />
+<hr />
+<hr />
+<hr />
+<div class="alert alert-warning bigger" role="alert">NOW IS TIME TO TRY TO SOLVE IT BY YOURSELF, if you want of course. In that case, do not scroll down!</div>
+
+<hr />
+<hr />
+<hr />
+<hr />
+
+<h2 id="solution">Solution</h2>
+
+<h3 id="by-hand">By hand</h3>
+<p>This puzzle is meant to be solved by hand (or by foot as it is possible to stand on the tiles). There might be different approaches to the problem.</p>
+
+<p>Let’s consider the top left corner (the tile <strong>+2</strong>) to be the origin of the grid, <strong>(0,0)</strong>.</p>
+
+<p>One possible solution is to approach it like for regular mazes: <strong>start from the end</strong>.
+For each tile, look around to see from what other tile we can reach the one we are currently standing on.
+Starting from the middle, there is only one tile that works: the -1 above. So the predecessor of the end tile (2, 2) is (2, 1).
+Then from (2, 1), the question is the same: how did we get there, from the top, bottom, left or right?</p>
+
+<ul>
+  <li>from the top: impossible, as the tile is 4 (too big)</li>
+  <li>from the bottom: impossible, as the tile are 1 (too small) or 3 (too big)</li>
+  <li>from the left: impossible, as the tiles are 3 and 3 (too big).</li>
+  <li>from the right: <strong>there is one candidate!</strong>, -2, because by jumping two tiles on the left from there (2, 3), we end up on our current (2, 1)</li>
+</ul>
+
+<p>Then the new current tile is (2, 3). Repeat the same logic.
+When there is more than one possibility, pick one and continue. If in the end it doesn’t work, go back to the point where you made the choice and try the next option (<a href="https://en.wikipedia.org/?title=Backtracking">backtracking</a>).</p>
+
+<p>By proceeding like this, you will eventually reach the end (actually the entrance).</p>
+
+<h3 id="with-a-program">With a program</h3>
+<p>We just saw how to solve it “manually”, but it is also possible to find the solution(s) with a program.</p>
+
+<p>The puzzle can be expressed as a graph problem, by defining a set of nodes and edges iterate through them.</p>
+
+<p>The idea is to use a similar approach as a <a href="https://en.wikipedia.org/wiki/Depth-first_search">DFS</a>, but not stopping at the first solution found. In that case, the sum could be different than 0. We want to find the best solution, that solves the <strong>expert mode</strong> in the least amount of steps.</p>
+
+<p>Here is a Python implementation with comments that gives an answer. I also turned it into a gist:
+<a href="https://gist.github.com/jtpio/f4175e0c38d2be4b44c9">https://gist.github.com/jtpio/f4175e0c38d2be4b44c9</a></p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># read the input from a file</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)]</span>
+<span class="n">sx</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)]</span>
+<span class="n">ex</span><span class="p">,</span> <span class="n">ey</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)]</span>
+
+<span class="c"># utilities to convert coordinates to vertex id and vice versa</span>
+<span class="k">def</span> <span class="nf">coord_to_id</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">i</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="n">j</span>
+
+<span class="k">def</span> <span class="nf">id_to_coord</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">//</span> <span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="c"># store the grid</span>
+<span class="n">g</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+
+<span class="c"># build the graph</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="c"># read how many steps can be taken</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">steps</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">coord_to_id</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+        <span class="c"># define the list of neighbors</span>
+        <span class="n">graph</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c"># from the current tile x, jump &quot;steps&quot; tile up, left, down, right</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">-</span> <span class="n">steps</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">graph</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coord_to_id</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">steps</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="n">steps</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">graph</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coord_to_id</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">steps</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">-</span> <span class="n">steps</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">graph</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coord_to_id</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="n">steps</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">+</span> <span class="n">steps</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">:</span>
+            <span class="n">graph</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coord_to_id</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="n">steps</span><span class="p">))</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">coord_to_id</span><span class="p">(</span><span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">coord_to_id</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">ey</span><span class="p">)</span>
+
+<span class="c"># store all the solutions</span>
+<span class="n">paths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c"># backtrack a solution</span>
+<span class="n">prev</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">prev</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="c"># called dfs, but is actually a complete search</span>
+<span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">end</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="n">a</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">prev</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+        <span class="n">paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+            <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="n">prev</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="c"># complete search: pretend this path was not explored</span>
+            <span class="c"># to consider it later</span>
+            <span class="n">visited</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+<span class="c"># search</span>
+<span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+<span class="n">dfs</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+<span class="c"># results</span>
+<span class="n">solutions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
+    <span class="n">tiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">id_to_coord</span><span class="p">(</span><span class="n">tile</span><span class="p">)</span> <span class="k">for</span> <span class="n">tile</span> <span class="ow">in</span> <span class="n">p</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">g</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tiles</span><span class="p">])</span>
+    <span class="c"># log all the solutions</span>
+    <span class="n">solutions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tiles</span><span class="p">),</span> <span class="n">tiles</span><span class="p">))</span>
+
+<span class="c"># find the best</span>
+<span class="n">best</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">solutions</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;The best solution is a sum of&#39;</span><span class="p">,</span> <span class="n">best</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">best</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#39;steps.&#39;</span><span class="p">)</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="s">&#39; -&gt; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;, tile &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">best</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span></code></pre></div>
+
+<p>Which outputs the solution:</p>
+
+<p><code>
+The best solution is a sum of 0 in 15 steps:
+(4, 2), tile 1 -&gt; (4, 1), tile -2 -&gt; (2, 1), tile -2 -&gt; (2, 3), tile -2 -&gt; (4, 3), tile -3 -&gt; (4, 0), tile 4 -&gt; (0, 0), tile 2 -&gt; (2, 0), tile 1 -&gt; (3, 0), tile -3 -&gt; (3, 3), tile 2 -&gt; (3, 1), tile 2 -&gt; (1, 1), tile 3 -&gt; (1, 4), tile -2 -&gt; (1, 2), tile -1 -&gt; (2, 2), tile 0
+</code></p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>The Schönbrunn maze puzzle is a fun brain teaser, yet quite simple.</p>
+
+<p>It can be a very good warmup puzzle for a typical <a href="http://www.mathsjam.com/">MathsJam</a> session for instance!</p>
+
+<p>We saw how to solve it in two ways, manually and with a program. The program runs fast because the size of the problem is rather small.</p>
+
+<p>A few questions open up from that:</p>
+
+<ul>
+  <li>Is this puzzle part of bigger family of puzzles? Does it have a name? It would be very interesting to know.</li>
+  <li>Is it possible to generate different configurations (input) that have a solution?</li>
+  <li>Are there versions of this puzzle with bigger boards?</li>
+</ul>
+
+<p>Feel free to share your thoughts.</p>
+
+<p>Hope you enjoyed it!</p>
+
+
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+    var disqus_shortname = 'jtzp4'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+  <div class="row col-md-12 col-xs-18 col-sm-12">
+    <p><small>By <a href="#top">Jeremy Tuloup</a> &ndash; 2015 &ndash; Theme by <a href="http://bootswatch.com/">bootswatch</a> </small></p>
+  </div>
+
+  </div> <!-- /container -->
+
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.2.0/katex.min.js"></script>
+
+  <script>
+    var scripts = document.getElementsByTagName("script");
+    for (var i = 0; i < scripts.length; i++) {
+      /* TODO: keep going after an individual parse error. */
+      var script = scripts[i];
+      if (script.type.match(/^math\/tex/)) {
+        var text = script.text === "" ? script.innerHTML : script.text;
+        var options = script.type.match(/mode\s*=\s*display/) ?
+                      {displayMode: true} : {};
+        script.insertAdjacentHTML("beforebegin",
+                                  katex.renderToString(text, options));
+      }
+    }
+    document.body.className += " math_finished";
+  </script>
+
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+
+  <script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("UA-51952511-1");
+      pageTracker._trackPageview();
+    } catch(err) {}
+  </script>
+
+  </body>
+</html>
