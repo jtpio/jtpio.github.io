@@ -13,11 +13,11 @@ categories:
 There is a castle in Vienna called [Schönbrunn](http://www.schoenbrunn.at/en.html). You may have heard about it because it is quite famous thanks to the [Empress Elisabeth of Austria](https://en.wikipedia.org/wiki/Empress_Elisabeth_of_Austria), a.k.a princess Sisi.
 In the garden, there are several mazes, like this:
 
-<img class="center" src="/res/schoenbrunn-math-puzzle/schoenbrunn_maze.jpg">
+<img class="center" src="/res/schoenbrunn-math-puzzle/schoenbrunn_maze.jpg" alt="picture_of_the_mazes">
 
 In one of the mazes, there is a puzzle, made of tiles that are put on the ground. It looks like this:
 
-<img class="center" src="/res/schoenbrunn-math-puzzle/photo.jpg">
+<img class="center" src="/res/schoenbrunn-math-puzzle/photo.jpg" alt="picture_of_the_puzzle">
 
 It is a good brain teaser for tourists passing by, as they can even step on the tiles to find the solution.
 
@@ -31,6 +31,10 @@ It is a good brain teaser for tourists passing by, as they can even step on the 
 - **Normal mode**: reach the **O** in the center, ignoring the positive and negative signs.
 - **Expert mode**: reach the **O** in the center, but the sum of the visited tiles must be **equal to 0** in the end.
 
+Here is a blank version of the puzzle, that you can print or copy on a piece of paper.
+
+<img class="center" src="/res/schoenbrunn-math-puzzle/blank.png" alt="blank_puzzle">
+
 ## Example
 
 Here is a list of steps arbitrarely chosen to serve as an example:
@@ -41,13 +45,13 @@ Here is a list of steps arbitrarely chosen to serve as an example:
 4. Go up, on *+2*. From this tile we can go down (*+1*) or right (*+4*)
 5. ...
 
-<img class="center" src="/res/schoenbrunn-math-puzzle/example_4_steps.png">
+<img class="center" src="/res/schoenbrunn-math-puzzle/example_4_steps.png" alt="example_4_steps">
 
 ---
 ---
 ---
 ---
-<div class="alert alert-warning bigger" role="alert">NOW IS TIME TO TRY TO SOLVE IT BY YOURSELF, if you want of course. In that case, do not scroll down!</div>
+<div class="alert alert-warning bigger" role="alert">NOW IS TIME TO TRY TO <a href="/res/schoenbrunn-math-puzzle/blank.png">SOLVE IT</a> BY YOURSELF, if you want of course. In that case, do not scroll down!</div>
 
 ---
 ---

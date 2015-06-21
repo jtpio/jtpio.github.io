@@ -12,11 +12,11 @@
 &lt;p&gt;There is a castle in Vienna called &lt;a href=&quot;http://www.schoenbrunn.at/en.html&quot;&gt;Schönbrunn&lt;/a&gt;. You may have heard about it because it is quite famous thanks to the &lt;a href=&quot;https://en.wikipedia.org/wiki/Empress_Elisabeth_of_Austria&quot;&gt;Empress Elisabeth of Austria&lt;/a&gt;, a.k.a princess Sisi.
 In the garden, there are several mazes, like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;/res/schoenbrunn-math-puzzle/schoenbrunn_maze.jpg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;/res/schoenbrunn-math-puzzle/schoenbrunn_maze.jpg&quot; alt=&quot;picture_of_the_mazes&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In one of the mazes, there is a puzzle, made of tiles that are put on the ground. It looks like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;/res/schoenbrunn-math-puzzle/photo.jpg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;/res/schoenbrunn-math-puzzle/photo.jpg&quot; alt=&quot;picture_of_the_puzzle&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;It is a good brain teaser for tourists passing by, as they can even step on the tiles to find the solution.&lt;/p&gt;
 
@@ -31,6 +31,10 @@ In the garden, there are several mazes, like this:&lt;/p&gt;
   &lt;li&gt;&lt;strong&gt;Expert mode&lt;/strong&gt;: reach the &lt;strong&gt;O&lt;/strong&gt; in the center, but the sum of the visited tiles must be &lt;strong&gt;equal to 0&lt;/strong&gt; in the end.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;Here is a blank version of the puzzle, that you can print or copy on a piece of paper.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;/res/schoenbrunn-math-puzzle/blank.png&quot; alt=&quot;blank_puzzle&quot; /&gt;&lt;/p&gt;
+
 &lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
 
 &lt;p&gt;Here is a list of steps arbitrarely chosen to serve as an example:&lt;/p&gt;
@@ -43,13 +47,13 @@ In the garden, there are several mazes, like this:&lt;/p&gt;
   &lt;li&gt;…&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;/res/schoenbrunn-math-puzzle/example_4_steps.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;/res/schoenbrunn-math-puzzle/example_4_steps.png&quot; alt=&quot;example_4_steps&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;hr /&gt;
 &lt;hr /&gt;
 &lt;hr /&gt;
-&lt;div class=&quot;alert alert-warning bigger&quot; role=&quot;alert&quot;&gt;NOW IS TIME TO TRY TO SOLVE IT BY YOURSELF, if you want of course. In that case, do not scroll down!&lt;/div&gt;
+&lt;div class=&quot;alert alert-warning bigger&quot; role=&quot;alert&quot;&gt;NOW IS TIME TO TRY TO &lt;a href=&quot;/res/schoenbrunn-math-puzzle/blank.png&quot;&gt;SOLVE IT&lt;/a&gt; BY YOURSELF, if you want of course. In that case, do not scroll down!&lt;/div&gt;
 
 &lt;hr /&gt;
 &lt;hr /&gt;
