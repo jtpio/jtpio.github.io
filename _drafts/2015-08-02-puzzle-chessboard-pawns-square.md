@@ -56,12 +56,20 @@ $$
 p_{square} = \frac{S}{\binom{n*m}{4}}
 $$
 
-### Counting the number of squares
-It is possible to visually express how to count the number of squares.
+### Counting the squares
+The following approach will follow more an intuitive way than a rigorous proof. The idea is to see what is happening and establish a formula based on observations.
 
-**INSERT A SEQUENCE OF DRAWINGS**
+Let's take an example. We start with a square located in the top-left corner of the chessboard, with a side equal to 5. 5 represents in that case the **number of tiles**, but and not the actual length (which is not important).
 
-Which yields the following formula:
+For each position of square, we move the four vertexes of the square by one unit on each edge. We can do that only 4 times since it is a square of side 5 (the 5th time is the same as the first). Each rotation generate a new square, tilted, which has a different side (but it doesn't matter).
+
+The next iteration is to move the one step on the right, and repeat. At the end of row, move one step down and repeat. Stop after reaching the end of the chessboard.
+
+All of these translations and rotations generate all the squares based on an **original square of side** 5. But there are many other squares of different side length. The smallest original square has a side of 2 and the largest 8. To count all the squares, the steps above must be repeated for a side length going from 2 to 8.
+
+<img class="center" alt="Problem statement" src="/res/puzzles/mjshout_2015_07/example_1.png">
+
+By using $$ n $$ for the width and $$ m $$ for the height, and $$ i $$ for the length of the side, we can rewrite it for the general case with one formula:
 
 $$
 S = \sum_{i=2}^{min(n,m)} (n-i+1)(m-i+1)(i-1)
@@ -88,19 +96,69 @@ $$ p_{square} = \frac{2}{(8^2-3)(8^2-2)} = \frac{1}{1891} \approx{0.0005288} \ap
 ### Verifying with a program
 Now that we have a formula valid for the general case, it would be interesting to experimentally verify its validity with the program.
 
-1. Define puzzle parameters n and m (8 and 8 for example)
-2. Put 4 pawns randomly on the board. The 4 pawns have to occupy different positions.
+1. Define the parameters n and m (8 and 8 for example)
+2. Put 4 pawns randomly on the board. The 4 pawns have to be place at different positions.
 3. Determine whether the pawns form a square or not. If yes, count that round as successful.
 4. Repeat from step 2, a lot of times.
-5. The probability is obtained by dividing the number of successful attempts (forming a square) by the number of iterations.
+5. The probability is obtained by dividing the number of successful attempts (forming a square) by the number of total iterations.
 
-## More
+This scenario can be easily implemented in Python.
 
-Add a 3D matplotlib graph plotting the equation for m and n from 2 to 1000 for example and look at the shape of the surface?
+{% highlight python %}
+import random
+from collections import Counter
+
+# The size of the board
+N = 8
+M = 8
+
+# One round consists of placing 4 pawns randomly on a board.
+def round():
+    points = []
+    while len(points) < 4:
+        p = random.randint(0,N-1), random.randint(0,M-1)
+        if p not in points:
+            points.append(p)
+
+
+    dists = []
+    for p in points:
+        for v in points:
+            if p != v:
+                dists.append((p[0]-v[0])**2 + (p[1]-v[1])**2)
+
+    c = list(Counter(dists))
+    # Square if there are exactly 2 different distances
+    # and one should be double the other (since we talk in squares
+    # and not actual ditances)
+    return len(c) == 2 and (c[1] == 2*c[0] or c[0] == 2*c[1])
+
+T, s = 1000000, 0
+# Repeat many times
+for i in range(T):
+    square = round()
+    s += 1 if square else 0
+
+print ('Probablity to form a square:', s / T)
+
+{% endhighlight %}
+
+Which outputs:
+
+{% highlight text %}
+Probablity to form a square: 0.000518
+{% endhighlight %}
+
+The value is pretty close to the calculated one. Of course it is not exactly equal, and running the program again would output a different value. But it is approximately equal, and it is a good way to verify that the **order of magnitude is good**.
 
 ## Conclusion
 Once again, nice puzzle, without having to be too complicated.
 Even though in the beginning I had no idea what probability to expect for a 8x8 chess board, I have to admit I am a bit surprised by how low the value is.
 
-However it is once again enjoyable to mix both pure math and computer science for fun.
-Some might say these kind of puzzles are completely useless. Yet I found them of interest. Ask someone: "What do you think is the chance of forming a square by placing four pawns randomly on a chess board?" It could be amusing to see if the predictions are close the real number or not.
+The formula says that the chances become smaller and smaller as $$ n $$ and $$ m $$ get bigger. This could be visualized by plotting a 3D representation of the formula and looking at the shape generated.
+
+Still, it is once again enjoyable to mix both pure math and computer science for fun.
+
+Some might say these kind of puzzles are completely useless. Yet I found them of interest.
+
+Ask someone: "What do you think is the chance of forming a square by placing four pawns randomly on a chess board?" It could be amusing to see if the predictions are close the real number or not.
