@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Puzzle: Pawns on a chessboard"
-date:   2015-08-02 15:00:00
+date:   2015-08-09 14:00:00
 categories:
 - puzzle
 - math
@@ -57,13 +57,13 @@ p_{square} = \frac{S}{\binom{n*m}{4}}
 $$
 
 ### Counting the squares
-The following approach will follow more an intuitive way than a rigorous proof. The idea is to see what is happening and establish a formula based on observations.
+The following approach will follow **more an intuitive way than a rigorous proof**. The idea is to see what is happening and to establish a formula based on observations.
 
-Let's take an example. We start with a square located in the top-left corner of the chessboard, with a side equal to 5. 5 represents in that case the **number of tiles**, but and not the actual length (which is not important).
+Let's take an example. We start with a square located in the top-left corner of the chessboard, with a "side" equal to 5 for example. 5 represents in that case the **number of tiles**, but and not the actual length (the length is not important).
 
-For each position of square, we move the four vertexes of the square by one unit on each edge. We can do that only 4 times since it is a square of side 5 (the 5th time is the same as the first). Each rotation generate a new square, tilted, which has a different side (but it doesn't matter).
+For each position of the square, we move the four vertexes of the square by one unit on each edge. We can do that only 4 times since it is a square of side 5. The 5th configuration is the same as the starting one. Each rotation generate a new square, tilted, which has a different side (but it doesn't matter).
 
-The next iteration is to move the one step on the right, and repeat. At the end of row, move one step down and repeat. Stop after reaching the end of the chessboard.
+The next iteration is to move one step to the right, and repeat. At the end of a row, move one step down and repeat. Stop after reaching the end of the chessboard.
 
 All of these translations and rotations generate all the squares based on an **original square of side** 5. But there are many other squares of different side length. The smallest original square has a side of 2 and the largest 8. To count all the squares, the steps above must be repeated for a side length going from 2 to 8.
 
@@ -74,6 +74,8 @@ By using $$ n $$ for the width and $$ m $$ for the height, and $$ i $$ for the l
 $$
 S = \sum_{i=2}^{min(n,m)} (n-i+1)(m-i+1)(i-1)
 $$
+
+The sum goes for $$ i $$ from $$ 2 $$ (not smaller otherwise we can't define a square), up to $$ min(n,m) $$. If $$ n > m $$ for example, the square of side $$ n $$ will be too big for the board, so the maximum size has to be the minimum of $$ n $$ and $$ m $$.
 
 With the help of [Wolfram Alpha](https://www.wolframalpha.com/), we can simplify the formula for both cases:
 
@@ -94,10 +96,10 @@ Applying for [n = 8](http://www.wolframalpha.com/input/?i=2%2F%28%28-3%2Bn%5E2%2
 $$ p_{square} = \frac{2}{(8^2-3)(8^2-2)} = \frac{1}{1891} \approx{0.0005288} \approx{0.053}\%   $$
 
 ### Verifying with a program
-Now that we have a formula valid for the general case, it would be interesting to experimentally verify its validity with the program.
+Now that we have a formula valid for the general case, it would be interesting to experimentally verify its validity with a program.
 
 1. Define the parameters n and m (8 and 8 for example)
-2. Put 4 pawns randomly on the board. The 4 pawns have to be place at different positions.
+2. Put 4 pawns randomly on the board. The 4 pawns have to be placed at different positions.
 3. Determine whether the pawns form a square or not. If yes, count that round as successful.
 4. Repeat from step 2, a lot of times.
 5. The probability is obtained by dividing the number of successful attempts (forming a square) by the number of total iterations.
@@ -149,7 +151,7 @@ Which outputs:
 Probablity to form a square: 0.000518
 {% endhighlight %}
 
-The value is pretty close to the calculated one. Of course it is not exactly equal, and running the program again would output a different value. But it is approximately equal, and it is a good way to verify that the **order of magnitude is good**.
+The value is pretty close to the calculated one. Of course it is not exactly equal, and running the program again would output a different value. But it is approximately equal, and it is a good way to verify that the **order of magnitude is good correct**.
 
 ## Conclusion
 Once again, nice puzzle, without having to be too complicated.
@@ -161,4 +163,5 @@ Still, it is once again enjoyable to mix both pure math and computer science for
 
 Some might say these kind of puzzles are completely useless. Yet I found them of interest.
 
-Ask someone: "What do you think is the chance of forming a square by placing four pawns randomly on a chess board?" It could be amusing to see if the predictions are close the real number or not.
+Ask someone: "What do you think is the chance of forming a square by placing four pawns randomly on a chess board?".
+It could be amusing to see if the predictions are close the real number or not.
