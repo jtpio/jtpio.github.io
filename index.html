@@ -5,52 +5,25 @@ priority: 1
 ---
 
 <div class="row">
+    <div class="col-md-12 col-xs-12">
+        <p>
+          I'm <strong>Jeremy Tuloup</strong>, from France, currently living in Sweden. <br>
+        </p>
+        <p>
+          I'm a <strong> backend developer </strong> at <strong> Ubisoft Massive </strong> in Malmö Sweden on <a href="http://www.justdancenow.com/">Just Dance Now</a>.
+        </p>
+        <p>
+          I like <strong>learning</strong>, <strong>computer science</strong>, <strong>experiments</strong>, <strong>math</strong>, and <strong>game jams</strong>.
+        </p>
 
-  <div class="col-md-8 col-xs-6">
-
-    <p>
-      I'm <strong>Jeremy Tuloup</strong>, from France, currently living in Sweden. <br>
-    </p>
-    <p>
-      I do <strong> web and backend programming </strong> at <strong> Ubisoft Massive </strong> in Malmö Sweden on <a href="http://www.justdancenow.com/">Just Dance Now</a>.
-    </p>
-  </div>
-
-  <div class="col-md-4 col-xs-6 social">
-    <div class="pull-right">
-      <a href="https://github.com/jtpio"><i class="fa fa-github-square fa-4x"></i></a>
-      <a href="https://twitter.com/jtpio"><i class="fa fa-twitter-square fa-4x"></i></a>
-      <a href="http://www.linkedin.com/in/jtuloup"><i class="fa fa-linkedin-square fa-4x"></i></a>
+        <div class="pull-left social">
+          <a href="//jtp.io/blog.html" title="Blog"><i class="fa fa-pencil-square fa-4x"></i></a>
+          <a href="//github.com/jtpio" title="Github"><i class="fa fa-github-square fa-4x"></i></a>
+          <a href="//twitter.com/jtpio" title="Twitter"><i class="fa fa-twitter-square fa-4x"></i></a>
+          <a href="//www.linkedin.com/in/jtuloup" title="LinkedIn"><i class="fa fa-linkedin-square fa-4x"></i></a>
+        </div>
     </div>
-  </div>
-
-</div>
-
-<div class="row">
-
-  <div class="col-md-12 col-xs-12">
-
-    <p>
-      This website focuses on the things I like to do as a hobby: game jams, fun projects, programming and experiments.
-    </p>
-
-    <p>
-      Enjoy.
-    </p>
-
-  </div>
 
 </div>
 
 <hr>
-
-<div class="row">
-  <div class="col-md-12 col-xs-12">
-    {% for post in site.posts %}
-    <h3>
-      <a href="{{ post.url }}">{{ post.title }}</a> &ndash; <small> {{ post.date | date: '%B %d, %Y'}} </small>
-    </h3>
-    {% endfor %}
-  </div>
-
-</div>
