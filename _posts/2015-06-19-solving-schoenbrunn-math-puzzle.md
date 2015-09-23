@@ -47,16 +47,7 @@ Here is a list of steps arbitrarely chosen to serve as an example:
 
 <img class="center" src="/res/schoenbrunn-math-puzzle/example_4_steps.png" alt="example_4_steps">
 
----
----
----
----
 <div class="alert alert-warning bigger" role="alert">NOW IS TIME TO TRY TO <a href="/res/schoenbrunn-math-puzzle/blank.png">SOLVE IT</a> BY YOURSELF, if you want of course. In that case, do not scroll down!</div>
-
----
----
----
----
 
 ## Solution
 
