@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tips to make a multiplayer game at a game jam"
+title:  "Tips to make a multiplayer game at a Game Jam"
 date:   2015-09-26 14:00:00
 categories:
 - game
@@ -40,7 +40,8 @@ The type of interactions is illustrated below.
 
 The key point in a game jam is to try to save as much time as possible when it comes to technical details. **Knowing the tech and the tools is crucial**.
 
-- More generally and as a prerequisite, make sure to use a familiar **game engine**. If you want to take the opportunity of the game jam to learn a new engine, take some days a few days before to at least grasp the cover the basics.
+- More generally and as a prerequisite, make sure to use a familiar **game engine**. In the game of web based games, my preference goes to [Phaser](//phaser.io)
+- If you want to take the opportunity of the game jam to learn a new engine, take some days a few days before to at least grasp the cover the basics.
 - Use a **networking framework** to cover the communication layer. Refer to the [next section](#what-to-use) for suggestions. You can also make your own tech before and bring it in your tool box.
 - The first implementation is to make sure the networking part is working as intended. It is specially important if the multiplayer aspect is at the core of the gameplay.
 
