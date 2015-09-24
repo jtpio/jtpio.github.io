@@ -43,7 +43,7 @@ It's always nice when other participants at a game jam want to try your game. Bu
 The key point in a game jam is to save as much time as possible. **Knowing the tech and the tools is crucial** to not waste time on technical details.
 
 - More generally and as a prerequisite, make sure to use a familiar **game engine**. For 2D web based games, my preference goes to [Phaser](//phaser.io).
-- If you want to take the opportunity of the game jam to learn a new engine, take some days a few days before to at least grasp the cover the basics.
+- If you want to take the opportunity of the game jam to learn a new engine, spend some days before to at least cover the basics.
 - Use a **networking framework** to cover the communication layer. Refer to the [next section](#what-to-use) for suggestions. You can also make your own tech before and bring it in your tool box.
 - Implement a minimal prototype. Start with the networking part, especially important if the multiplayer aspect is at the core of the gameplay.
 - Iterate and always keep the game playable. Use a version control system to be able to revert changes in case something goes wrong.
@@ -56,10 +56,10 @@ Check it out here: [github.com/greggman/HappyFunTimes](//github.com/greggman/Hap
 
 > HappyFunTimes is a system for playing party games that are meant to be played with a bunch of people in the same room and 1 ideally large display.
 
-I used HappyFunTimes once at a game jam. It helped us (the team) a lot to build the multiplayer game we wanted. However, we faced two difficulties:
+I used HappyFunTimes once at a game jam. It helped us (the team) a lot to build what we wanted. However, we faced two difficulties:
 
 1. We **spent quite some time to understand how everything works**, and there are so many files. We wanted to modify the framework just a little bit to fit our needs better.
-2. It only works on a local server. We wanted to share a link to the game after the jam, but it was impossible as everyone would have conflicted with each other (playing on the same instance).
+2. It only worked on a local server. We wanted to share a link to the game after the jam, but it was impossible as everyone would have conflicted with each other (playing on the same instance).
 
 These two points lead to the creation of jammer. See below.
 
@@ -69,8 +69,8 @@ Check it out here: [github.com/jtpio/jammer](//github.com/jtpio/jammer)
 
 Jammer is obviously inspired by HappyFunTimes, but with the following goals in mind:
 
-- It should be possible to put the game server and allow many players to connect to different game sessions simultaneously, without interferring with each other.
-- Everything should be kept at the strict minimum. Only the networking part is supported, but stays easy to interface with a game engine like Phaser for example.
+- It should be possible to **put the game online** and allow many players to connect to different game sessions simultaneously, without interferring with each other.
+- Everything should be kept at the **strict minimum**. Only the networking part is supported, but stays easy to interface with a game engine like Phaser for example.
 
 #### How it works
 
@@ -98,4 +98,10 @@ Made as a hobby project, a proof of concept to showcase **jammer**, [Squame](htt
 
 It was then [remastered](https://github.com/jtpio/squame/tree/master) and demoed at [DemoDag Malmo](https://twitter.com/demodag_malmo), allowing many more players to connect at the same time.
 
-## Conclusion
+## That's it
+
+That was some tips and recommendations, should you want to go for a multiplayer game at a game jam.
+
+It is also possible to use the same tech for something that is not game, a social experiment for example.
+
+Let me know if you have any question!
