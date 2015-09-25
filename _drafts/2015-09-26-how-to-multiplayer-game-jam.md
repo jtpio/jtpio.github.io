@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tips to make a web based multiplayer game at a Game Jam"
+title:  "Tips for making a web based multiplayer game at a Game Jam"
 date:   2015-09-26 14:00:00
 categories:
 - game
@@ -11,7 +11,7 @@ categories:
 
 ## At a Game Jam
 
-Suppose you go to a game jam and would like to create a multiplayer game. You talk about it with other people, and what you hear:
+Suppose you go to a game jam and you want to create a multiplayer game. You talk about this idea with other people, and what you hear:
 
 - "Multiplayer games are too difficult to make"
 - "You will waste time on technical details and won't be able to focus on the gameplay"
@@ -29,7 +29,7 @@ This post will give an insight on how to tackle this challenge.
 It's **web based**:
 
 - Written in **Javascript**
-- The only thing players want is access to a web browser
+- The only thing players need is access to a web browser
 - Which makes it very easy for the player to directly get in the game, jump in and out
 
 The type of interactions is illustrated below.
@@ -45,7 +45,7 @@ The key point in a game jam is to save as much time as possible. **Knowing the t
 - More generally and as a prerequisite, make sure to use a familiar **game engine**. For 2D web based games, my preference goes to [Phaser](//phaser.io).
 - If you want to take the opportunity of the game jam to learn a new engine, spend some days before to at least cover the basics.
 - Use a **networking framework** to cover the communication layer. Refer to the [next section](#what-to-use) for suggestions. You can also make your own tech before and bring it in your tool box.
-- Implement a minimal prototype. Start with the networking part, especially important if the multiplayer aspect is at the core of the gameplay.
+- Implement a minimal prototype. Start with the networking part, especially if the multiplayer aspect is at the core of the gameplay.
 - Iterate and always keep the game playable. Use a version control system to be able to revert changes in case something goes wrong.
 
 ## What networking framework to use? <a id="what-to-use"> </a>
@@ -58,8 +58,8 @@ Check it out here: [github.com/greggman/HappyFunTimes](//github.com/greggman/Hap
 
 I used HappyFunTimes once at a game jam. It helped us (the team) a lot to build what we wanted. However, we faced two difficulties:
 
-1. We **spent quite some time to understand how everything works**, and there are so many files. We wanted to modify the framework just a little bit to fit our needs better.
-2. It only worked on a local server. We wanted to share a link to the game after the jam, but it was impossible as everyone would have conflicted with each other (playing on the same instance).
+1. We **spent quite some time to understand how everything works**. We wanted to modify the framework just a little bit to fit our needs better, but got lost by the big amount of files.
+2. It only worked on a local network. We wanted to share a link to the game after the jam, but it was impossible as everyone would have conflicted with each other (playing on the same instance).
 
 These two points lead to the creation of jammer. See below.
 
@@ -70,7 +70,7 @@ Check it out here: [github.com/jtpio/jammer](//github.com/jtpio/jammer)
 Jammer is obviously inspired by HappyFunTimes, but with the following goals in mind:
 
 - It should be possible to **put the game online** and allow many players to connect to different game sessions simultaneously, without interferring with each other.
-- Everything should be kept at the **strict minimum**. Only the networking part is supported, but stays easy to interface with a game engine like Phaser for example.
+- Everything should be kept at the **strict minimum**. Only the networking part is supported, but it is easy to interface with a game engine like Phaser for example.
 
 #### How it works
 
@@ -102,6 +102,6 @@ It was then [remastered](https://github.com/jtpio/squame/tree/master) and demoed
 
 That was some tips and recommendations, should you want to go for a multiplayer game at a game jam.
 
-It is also possible to use the same tech for something that is not game, a social experiment for example.
+It is also possible to use the same tech for something that is not game, a cooperative experiment for example.
 
 Let me know if you have any question!
