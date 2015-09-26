@@ -28,25 +28,31 @@ This post will give an insight on how to tackle this challenge.
 
 It's **web based**:
 
-- Written in **Javascript**
-- The only thing players need is access to a web browser
-- Which makes it very easy for the player to directly get in the game, jump in and out
+- Written in **Javascript**.
+- The only thing players need is access to a **web browser**.
+- Which makes it relatively **easy** for the player to **get in the game**, jump in and out.
 
-The type of interactions is illustrated below.
+The types of interactions are illustrated below.
 
 <img class="center" src="/res/jammer/setup.png" alt="Jammer use case">
 
+The Main Screen also talks to the players to assign a color or update a state for example.
+
 It's always nice when other participants at a game jam want to try your game. But it should be easy to setup, without requiring thousands of steps. Being web based has the big advantage of **improving the accessibility**.
 
-## General Tips
+## Prepare the tools
 
 The key point in a game jam is to save as much time as possible. **Knowing the tech and the tools is crucial** to not waste time on technical details.
 
 - More generally and as a prerequisite, make sure to use a familiar **game engine**. For 2D web based games, my preference goes to [Phaser](//phaser.io).
 - If you want to take the opportunity of the game jam to learn a new engine, spend some days before to at least cover the basics.
-- Use a **networking framework** to cover the communication layer. Refer to the [next section](#what-to-use) for suggestions. You can also make your own tech before and bring it in your tool box.
-- Implement a minimal prototype. Start with the networking part, especially if the multiplayer aspect is at the core of the gameplay.
-- Iterate and always keep the game playable. Use a version control system to be able to revert changes in case something goes wrong.
+- Use a **networking framework** to cover the communication layer. Refer to the [next section](#what-to-use) for suggestions. You can also make your own tech before and bring it in your tool box. Again, come familiar with the framework.
+
+Then at the jam:
+
+- Start by implementing a minimal prototype first. Make sure that the networking part work as intended, by exchanging some dummy messages between the players and the main game. Thi is especially important if the multiplayer aspect is at the core of the gameplay.
+- Iterate and **always keep the game playable**.
+- Use a version control system to make it easy to try crazy things and concepts, still being able to revert the changes in case something goes wrong.
 
 ## What networking framework to use? <a id="what-to-use"> </a>
 
@@ -61,22 +67,24 @@ I used HappyFunTimes once at a game jam. It helped us (the team) a lot to build 
 1. We **spent quite some time to understand how everything works**. We wanted to modify the framework just a little bit to fit our needs better, but got lost by the big amount of files.
 2. It only worked on a local network. We wanted to share a link to the game after the jam, but it was impossible as everyone would have conflicted with each other (playing on the same instance).
 
-These two points lead to the creation of jammer. See below.
+These two points led to the creation of jammer. See below.
 
 ### Jammer
 
-Check it out here: [github.com/jtpio/jammer](//github.com/jtpio/jammer)
+Check it out here: [github.com/jtpio/jammer](//github.com/jtpio/jammer) (with documentation and examples)
 
 Jammer is obviously inspired by HappyFunTimes, but with the following goals in mind:
 
 - It should be possible to **put the game online** and allow many players to connect to different game sessions simultaneously, without interferring with each other.
 - Everything should be kept at the **strict minimum**. Only the networking part is supported, but it is easy to interface with a game engine like Phaser for example.
+- Get things done quickly.
+- Good for small projects like a game jam. Maybe too simple for a bigger project.
 
 #### How it works
 
 1. A server routes messages between players (phones) and the main shared screen. It is actually just a **simple relay**.
 2. The main game runs in the shared web browser (main screen), and phones are used as controllers.
-3. The all system is event-based. Listen to events to take actions.
+3. The system is event-based. Listen to events to take actions.
 
 ## Examples
 
@@ -86,7 +94,7 @@ Jammer is obviously inspired by HappyFunTimes, but with the following goals in m
 
 Code: [github.com/jtpio/twin-fusion](//github.com/jtpio/twin-fusion)
 
-Made at the [Arabic Game Jam 2014](http://arabicgamejam.org/game-concepts-2014/) in Malmo, Twin Fusion was originally implemented on top of **Happy Fun Times**. It was then rewritten with **jammer** to keep things simpler, reduce the code size, and make it possible to play on the Internet.
+Made at the [Arabic Game Jam 2014](http://arabicgamejam.org/game-concepts-2014/) in Malmo, Twin Fusion was originally implemented on top of **HappyFunTimes**. It was then rewritten with **jammer** to keep things simpler, reduce the code size, and make it possible to play on the Internet.
 
 ### Squame
 
@@ -97,6 +105,19 @@ Code: [github.com/jtpio/squame](//github.com/jtpio/squame)
 Made as a hobby project, a proof of concept to showcase **jammer**, [Squame](https://github.com/jtpio/squame) was first demoed at [DemoDag Copenhagen](http://demodag.org/) as a two-players game (refer to the branch [two-players](https://github.com/jtpio/squame/tree/two-players)).
 
 It was then [remastered](https://github.com/jtpio/squame/tree/master) and demoed at [DemoDag Malmo](https://twitter.com/demodag_malmo), allowing many more players to connect at the same time.
+
+The concept:
+
+- When a participant joins, it controls one area which has its own color.
+- On its phone, the player can move the area or swicth to another one.
+- The goal is to make everything straight, ordered as a grid (screenshot below).
+- One a level is completed, the game moves to the next one, containing more regions.
+
+<img class="center" src="//raw.githubusercontent.com/jtpio/squame/master/public/assets/screenshot3.png" alt="Twin Fusion">
+
+Check out the [code](//github.com/jtpio/squame) to learn more.
+
+It is a good example on how to **build everything together with Phaser, Require.js and jammer**. You can even use that example as a template for your game, and remove everything you don't need.
 
 ## That's it
 
