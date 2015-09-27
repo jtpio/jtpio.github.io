@@ -7,6 +7,149 @@
 		<atom:link href="http://www.jtp.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Tips for making a web based multiplayer game at a Game Jam</title>
+				<description>&lt;h2 id=&quot;at-a-game-jam&quot;&gt;At a Game Jam&lt;/h2&gt;
+
+&lt;p&gt;Suppose you go to a game jam and you want to create a multiplayer game. You talk about this idea with other people, and what you hear:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“Multiplayer games are too difficult to make”&lt;/li&gt;
+  &lt;li&gt;“You will waste time on technical details and won’t be able to focus on the gameplay”&lt;/li&gt;
+  &lt;li&gt;“You will fail”&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That’s right, multiplayer games are hard to implement, especially under time constraints and pressure. It is a &lt;strong&gt;crazy idea&lt;/strong&gt; to even consider it at a game jam.&lt;/p&gt;
+
+&lt;p&gt;However, the networking part of a game is similar to other aspects like graphics, physics and artificial intelligence. If you come with the right tools and frameworks (a game engine for example), getting started will become easier and will speed up the process of game creation.&lt;/p&gt;
+
+&lt;p&gt;This post will give an insight on how to tackle this challenge.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-web-based-multiplayer-game&quot;&gt;A web based multiplayer game?&lt;/h2&gt;
+
+&lt;p&gt;It’s &lt;strong&gt;web based&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Written in &lt;strong&gt;Javascript&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;The only thing players need is access to a &lt;strong&gt;web browser&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Which makes it relatively &lt;strong&gt;easy&lt;/strong&gt; for the player to &lt;strong&gt;get in the game&lt;/strong&gt;, jump in and out.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The types of interactions are illustrated below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;/res/jammer/setup.png&quot; alt=&quot;Jammer use case&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The Main Screen also talks to the players to assign a color or update a state for example.&lt;/p&gt;
+
+&lt;p&gt;It’s always nice when other participants at a game jam want to try your game. But it should be easy to setup, without requiring thousands of steps. Being web based has the big advantage of &lt;strong&gt;improving the accessibility&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;prepare-the-tools&quot;&gt;Prepare the tools&lt;/h2&gt;
+
+&lt;p&gt;The key point at a game jam is to save as much time as possible. &lt;strong&gt;Knowing the tech and the tools is crucial&lt;/strong&gt; to not waste effort on technical details.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;More generally and as a prerequisite, make sure to use a familiar &lt;strong&gt;game engine&lt;/strong&gt;. For 2D web based games, my preference goes to &lt;a href=&quot;//phaser.io&quot;&gt;Phaser&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;If you want to take the opportunity of the game jam to learn a new engine, spend some days before to at least cover the basics.&lt;/li&gt;
+  &lt;li&gt;Use a &lt;strong&gt;networking framework&lt;/strong&gt; to cover the communication layer. Refer to the &lt;a href=&quot;#what-to-use&quot;&gt;next section&lt;/a&gt; for suggestions. You can also make your own tech before and bring it in your tool box. Again, come familiar with the framework.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then at the jam:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Start by implementing a minimal prototype first. Make sure that the networking part work as intended, by exchanging some dummy messages between the players and the main game. Thi is especially important if the multiplayer aspect is at the core of the gameplay.&lt;/li&gt;
+  &lt;li&gt;Iterate and &lt;strong&gt;always keep the game playable&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Use a version control system to make it easy to try crazy things and concepts, still being able to revert the changes in case something goes wrong.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-networking-framework-to-use-a-idwhat-to-use-a&quot;&gt;What networking framework to use? &lt;a id=&quot;what-to-use&quot;&gt; &lt;/a&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;happyfuntimes&quot;&gt;HappyFunTimes&lt;/h3&gt;
+
+&lt;p&gt;Check it out here: &lt;a href=&quot;//github.com/greggman/HappyFunTimes&quot;&gt;github.com/greggman/HappyFunTimes&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;HappyFunTimes is a system for playing party games that are meant to be played with a bunch of people in the same room and 1 ideally large display.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I used HappyFunTimes once at a game jam. It helped us (the team) a lot to build what we wanted. However, we faced two difficulties:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;We &lt;strong&gt;spent quite some time to understand how everything works&lt;/strong&gt;. We wanted to modify the framework just a little bit to fit our needs better, but got lost by the big amount of files.&lt;/li&gt;
+  &lt;li&gt;It only worked on a local network. We wanted to share a link to the game after the jam, but it was impossible as everyone would have conflicted with each other (playing on the same instance).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;These two points led to the creation of jammer. See below.&lt;/p&gt;
+
+&lt;h3 id=&quot;jammer&quot;&gt;Jammer&lt;/h3&gt;
+
+&lt;p&gt;Check it out here: &lt;a href=&quot;//github.com/jtpio/jammer&quot;&gt;github.com/jtpio/jammer&lt;/a&gt; (with documentation and examples)&lt;/p&gt;
+
+&lt;p&gt;Jammer is obviously inspired by HappyFunTimes, but with the following goals in mind:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It should be possible to &lt;strong&gt;put the game online&lt;/strong&gt; and allow many players to connect to different game sessions simultaneously, without interferring with each other.&lt;/li&gt;
+  &lt;li&gt;Everything should be kept at the &lt;strong&gt;strict minimum&lt;/strong&gt;. Only the networking part is supported, but it is easy to interface it with a game engine like Phaser for example.&lt;/li&gt;
+  &lt;li&gt;Get things done quickly.&lt;/li&gt;
+  &lt;li&gt;Good for small projects like a game jam. Maybe too simple for a bigger project.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;how-it-works&quot;&gt;How it works&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;A server routes messages between players (phones) and the main shared screen. It is actually just a &lt;strong&gt;simple relay&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;The main game runs in the shared web browser (main screen), and phones are used as controllers.&lt;/li&gt;
+  &lt;li&gt;The system is event-based. Listen to events to take actions.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;examples&quot;&gt;Examples&lt;/h2&gt;
+
+&lt;h3 id=&quot;twin-fusion&quot;&gt;Twin Fusion&lt;/h3&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;//arabicgamejam.org/wp-content/uploads/2014/05/twinfusion2.png&quot; alt=&quot;Twin Fusion&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Code: &lt;a href=&quot;//github.com/jtpio/twin-fusion&quot;&gt;github.com/jtpio/twin-fusion&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Made at the &lt;a href=&quot;http://arabicgamejam.org/game-concepts-2014/&quot;&gt;Arabic Game Jam 2014&lt;/a&gt; in Malmö, Twin Fusion was originally implemented on top of &lt;strong&gt;HappyFunTimes&lt;/strong&gt;. It was then rewritten with &lt;strong&gt;jammer&lt;/strong&gt; to keep things simpler, reduce the code size, and make it possible to play on the Internet.&lt;/p&gt;
+
+&lt;h3 id=&quot;squame&quot;&gt;Squame&lt;/h3&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;//raw.githubusercontent.com/jtpio/squame/master/public/assets/screenshot2.png&quot; alt=&quot;Twin Fusion&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Code: &lt;a href=&quot;//github.com/jtpio/squame&quot;&gt;github.com/jtpio/squame&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Made as a hobby project, a proof of concept to showcase &lt;strong&gt;jammer&lt;/strong&gt;, &lt;a href=&quot;https://github.com/jtpio/squame&quot;&gt;Squame&lt;/a&gt; was first demoed at &lt;a href=&quot;http://demodag.org/&quot;&gt;DemoDag Copenhagen&lt;/a&gt; as a two-players game (refer to the branch &lt;a href=&quot;https://github.com/jtpio/squame/tree/two-players&quot;&gt;two-players&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;It was then &lt;a href=&quot;https://github.com/jtpio/squame/tree/master&quot;&gt;remastered&lt;/a&gt; and demoed at &lt;a href=&quot;https://twitter.com/demodag_malmo&quot;&gt;DemoDag Malmö&lt;/a&gt;, allowing many more players to connect at the same time.&lt;/p&gt;
+
+&lt;p&gt;The concept:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;When a participant joins, it controls one area which has its own color.&lt;/li&gt;
+  &lt;li&gt;On the phone, the player can move the area or swicth to another one.&lt;/li&gt;
+  &lt;li&gt;The goal is to make everything &lt;strong&gt;straight&lt;/strong&gt;, ordered as a grid (screenshot below).&lt;/li&gt;
+  &lt;li&gt;Once a level is completed, the game moves to the next one, containing more regions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;//raw.githubusercontent.com/jtpio/squame/master/public/assets/screenshot3.png&quot; alt=&quot;Twin Fusion&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;//github.com/jtpio/squame&quot;&gt;code&lt;/a&gt; to learn more.&lt;/p&gt;
+
+&lt;p&gt;It is a good example on how to &lt;strong&gt;build everything together with Phaser, Require.js and jammer&lt;/strong&gt;. You can even use that example as a template for your game, and remove everything you don’t need.&lt;/p&gt;
+
+&lt;h2 id=&quot;thats-it&quot;&gt;That’s it&lt;/h2&gt;
+
+&lt;p&gt;That was some tips, tools and examples, should you want to go for a multiplayer game at a game jam.&lt;/p&gt;
+
+&lt;p&gt;It is also possible to use the same tech for something that is not game, a cooperative experiment for example.&lt;/p&gt;
+
+&lt;p&gt;Let me know if you have any question!&lt;/p&gt;
+</description>
+				<pubDate>Sun, 27 Sep 2015 14:00:00 +0200</pubDate>
+				<link>http://www.jtp.io/2015/09/27/tips-multiplayer-game-jam.html</link>
+				<guid isPermaLink="true">http://www.jtp.io/2015/09/27/tips-multiplayer-game-jam.html</guid>
+			</item>
+		
+			<item>
 				<title>Puzzle: Pawns on a chessboard</title>
 				<description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;There are times when you need to change ideas and think about something else. In these situations, I like to find a little puzzle, so I can get my mind busy and hopefully solve it.
@@ -1246,74 +1389,6 @@ Any question, please let me know!
 				<pubDate>Tue, 14 Oct 2014 23:00:00 +0200</pubDate>
 				<link>http://www.jtp.io/2014/10/14/malmo-milen-post-analysis.html</link>
 				<guid isPermaLink="true">http://www.jtp.io/2014/10/14/malmo-milen-post-analysis.html</guid>
-			</item>
-		
-			<item>
-				<title>Rewriting our game backend in Go</title>
-				<description>&lt;p&gt;
-  A few month ago at a game jam, we (me and my team) made a multiplayer web-based game with the help of the library &lt;a href=&quot;https://github.com/greggman/HappyFunTimes&quot;&gt; HappyFunTimes &lt;/a&gt;. &lt;br /&gt;
-  Using HappyFunTimes was great, because we had the network part up and running very quickly, so we were able to put more time on the gameplay. But HappyFunTimes has one drawback: there can only be one session of the game on the same local network (which is totally fine in the context of a game jam). &lt;br /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-  This was one of the main reason to rewrite backend, so multiple sessions of the game can be playable online at the same time. The other reason is that I wanted to do something in Go.
-&lt;/p&gt;
-
-&lt;p&gt;
-You can find the code right there: &lt;a href=&quot;https://github.com/jtpio/twin-fusion&quot;&gt;https://github.com/jtpio/twin-fusion&lt;/a&gt;.&lt;br /&gt;
-Here is a very short summary of three  of the journey.
-&lt;/p&gt;
-
-&lt;h3&gt;1. Code is small and simple&lt;/h3&gt;
-&lt;p&gt;
-The entire server code fits in less than 350 lines of code. Go is simple and clean by nature.
-&lt;/p&gt;
-
-&lt;h3&gt;2. Using JSON&lt;/h3&gt;
-&lt;p&gt;
-One of the parts I got tricked by is the naming convention for variables and functions. I knew that in a module, a function name has to start with a capital letter in order for the function to be exported and be available from an other module. But this is also applied to the fields in structures: a field starting with a capital letter is public whereas starting with a lowercase letter will make it private.
-
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;kd&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;Cmd&lt;/span&gt;      &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;                 &lt;span class=&quot;c1&quot;&gt;// public&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;PlayerID&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint32&lt;/span&gt;                 &lt;span class=&quot;c1&quot;&gt;// public&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;     &lt;span class=&quot;kd&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// private&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;/p&gt;
-&lt;p&gt;Following that rule, private fields will not be passed along when encoded to JSON. &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Speaking of JSON, Go makes it possible to customize field names in a very neat way, using tags. It can be used to switch the first letter back to lowercase for example.&lt;/p&gt;
-
-&lt;p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;kd&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;Cmd&lt;/span&gt;      &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;                 &lt;span class=&quot;s&quot;&gt;`json:&amp;quot;cmd&amp;quot;`&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;PlayerID&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint32&lt;/span&gt;                 &lt;span class=&quot;s&quot;&gt;`json:&amp;quot;playerID&amp;quot;`&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;Data&lt;/span&gt;     &lt;span class=&quot;kd&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;`json:&amp;quot;data&amp;quot;`&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;/p&gt;
-
-&lt;h3&gt;3. Think with channels&lt;/h3&gt;
-&lt;p&gt;Node has callbacks, Go has channels. &lt;br /&gt;
-Need to run something asynchronously? Create a channel, pass that channel to the task and wait on that channel for the value to be returned. &lt;br /&gt;
-In the context of that game, channels are used to send commands from the players to the game instance and vice versa.&lt;/p&gt;
-
-&lt;h3&gt;State of the game&lt;/h3&gt;
-&lt;p&gt;
-Twin fusion is now quite stable. The idea is to polish it a bit more, especially on the controller UI. After that, it has all the elements to be available online and become a good and quick party game that anyone can reach quickly to play with friends!
-&lt;/p&gt;
-
-&lt;p&gt;
-This was mostly a reason for me to seize Go differences, as I come with a node.js background. In the end it was a good exercise.
-&lt;/p&gt;
-</description>
-				<pubDate>Sun, 05 Oct 2014 02:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/2014/10/05/rewriting-game-backend-go.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2014/10/05/rewriting-game-backend-go.html</guid>
 			</item>
 		
 	</channel>

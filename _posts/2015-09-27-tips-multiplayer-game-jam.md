@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Tips for making a web based multiplayer game at a Game Jam"
-date:   2015-09-26 14:00:00
+date:   2015-09-27 12:00:00
 categories:
 - game
 - javascript
@@ -42,7 +42,7 @@ It's always nice when other participants at a game jam want to try your game. Bu
 
 ## Prepare the tools
 
-The key point in a game jam is to save as much time as possible. **Knowing the tech and the tools is crucial** to not waste time on technical details.
+The key point at a game jam is to save as much time as possible. **Knowing the tech and the tools is crucial** to not waste effort on technical details.
 
 - More generally and as a prerequisite, make sure to use a familiar **game engine**. For 2D web based games, my preference goes to [Phaser](//phaser.io).
 - If you want to take the opportunity of the game jam to learn a new engine, spend some days before to at least cover the basics.
@@ -76,7 +76,7 @@ Check it out here: [github.com/jtpio/jammer](//github.com/jtpio/jammer) (with do
 Jammer is obviously inspired by HappyFunTimes, but with the following goals in mind:
 
 - It should be possible to **put the game online** and allow many players to connect to different game sessions simultaneously, without interferring with each other.
-- Everything should be kept at the **strict minimum**. Only the networking part is supported, but it is easy to interface with a game engine like Phaser for example.
+- Everything should be kept at the **strict minimum**. Only the networking part is supported, but it is easy to interface it with a game engine like Phaser for example.
 - Get things done quickly.
 - Good for small projects like a game jam. Maybe too simple for a bigger project.
 
@@ -94,7 +94,7 @@ Jammer is obviously inspired by HappyFunTimes, but with the following goals in m
 
 Code: [github.com/jtpio/twin-fusion](//github.com/jtpio/twin-fusion)
 
-Made at the [Arabic Game Jam 2014](http://arabicgamejam.org/game-concepts-2014/) in Malmo, Twin Fusion was originally implemented on top of **HappyFunTimes**. It was then rewritten with **jammer** to keep things simpler, reduce the code size, and make it possible to play on the Internet.
+Made at the [Arabic Game Jam 2014](http://arabicgamejam.org/game-concepts-2014/) in Malmö, Twin Fusion was originally implemented on top of **HappyFunTimes**. It was then rewritten with **jammer** to keep things simpler, reduce the code size, and make it possible to play on the Internet.
 
 ### Squame
 
@@ -104,14 +104,14 @@ Code: [github.com/jtpio/squame](//github.com/jtpio/squame)
 
 Made as a hobby project, a proof of concept to showcase **jammer**, [Squame](https://github.com/jtpio/squame) was first demoed at [DemoDag Copenhagen](http://demodag.org/) as a two-players game (refer to the branch [two-players](https://github.com/jtpio/squame/tree/two-players)).
 
-It was then [remastered](https://github.com/jtpio/squame/tree/master) and demoed at [DemoDag Malmo](https://twitter.com/demodag_malmo), allowing many more players to connect at the same time.
+It was then [remastered](https://github.com/jtpio/squame/tree/master) and demoed at [DemoDag Malmö](https://twitter.com/demodag_malmo), allowing many more players to connect at the same time.
 
 The concept:
 
 - When a participant joins, it controls one area which has its own color.
-- On its phone, the player can move the area or swicth to another one.
-- The goal is to make everything straight, ordered as a grid (screenshot below).
-- One a level is completed, the game moves to the next one, containing more regions.
+- On the phone, the player can move the area or swicth to another one.
+- The goal is to make everything **straight**, ordered as a grid (screenshot below).
+- Once a level is completed, the game moves to the next one, containing more regions.
 
 <img class="center" src="//raw.githubusercontent.com/jtpio/squame/master/public/assets/screenshot3.png" alt="Twin Fusion">
 
@@ -121,7 +121,7 @@ It is a good example on how to **build everything together with Phaser, Require.
 
 ## That's it
 
-That was some tips and recommendations, should you want to go for a multiplayer game at a game jam.
+That was some tips, tools and examples, should you want to go for a multiplayer game at a game jam.
 
 It is also possible to use the same tech for something that is not game, a cooperative experiment for example.
 
