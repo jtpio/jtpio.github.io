@@ -50,7 +50,7 @@ The key point at a game jam is to save as much time as possible. **Knowing the t
 
 Then at the jam:
 
-- Start by implementing a minimal prototype first. Make sure that the networking part work as intended, by exchanging some dummy messages between the players and the main game. Thi is especially important if the multiplayer aspect is at the core of the gameplay.
+- Start by implementing a minimal prototype first. Make sure that the networking part work as intended, by exchanging some dummy messages between the players and the main game. This is especially important if the multiplayer aspect is at the core of the gameplay.
 - Iterate and **always keep the game playable**.
 - Use a version control system to make it easy to try crazy things and concepts, still being able to revert the changes in case something goes wrong.
 
@@ -62,9 +62,11 @@ Check it out here: [github.com/greggman/HappyFunTimes](//github.com/greggman/Hap
 
 > HappyFunTimes is a system for playing party games that are meant to be played with a bunch of people in the same room and 1 ideally large display.
 
-I used HappyFunTimes once at a game jam. It helped us (the team) a lot to build what we wanted. However, we faced two difficulties:
+I used HappyFunTimes once at a game jam. It helped us (the team) a lot to build what we wanted.
 
-1. We **spent quite some time to understand how everything works**. We wanted to modify the framework just a little bit to fit our needs better, but got lost by the big amount of files.
+HappyFunTimes is a great and very complete framework. However, we faced two difficulties:
+
+1. We **spent quite some time to understand how everything works**. We wanted to modify the framework just a little bit to fit our needs better, but got lost by the big amount of files. Again, **try the framework out before the jam** to arrive more relaxed.
 2. It only worked on a local network. We wanted to share a link to the game after the jam, but it was impossible as everyone would have conflicted with each other (playing on the same instance).
 
 These two points led to the creation of jammer. See below.
@@ -75,10 +77,10 @@ Check it out here: [github.com/jtpio/jammer](//github.com/jtpio/jammer) (with do
 
 Jammer is obviously inspired by HappyFunTimes, but with the following goals in mind:
 
-- It should be possible to **put the game online** and allow many players to connect to different game sessions simultaneously, without interferring with each other.
+- It should be possible to **put the game online** and allow many players to connect to different game sessions simultaneously, without interfering with each other.
 - Everything should be kept at the **strict minimum**. Only the networking part is supported, but it is easy to interface it with a game engine like Phaser for example.
 - Get things done quickly.
-- Good for small projects like a game jam. Maybe too simple for a bigger project.
+- Good choice for small projects like a game jam. Maybe too simple for a bigger project.
 
 #### How it works
 
@@ -110,7 +112,7 @@ The concept:
 
 - When a participant joins, it controls one area which has its own color.
 - On the phone, the player can move the area or swicth to another one.
-- The goal is to make everything **straight**, ordered as a grid (screenshot below).
+- The goal is to make everything **straight** and look like a grid (screenshot below).
 - Once a level is completed, the game moves to the next one, containing more regions.
 
 <img class="center" src="//raw.githubusercontent.com/jtpio/squame/master/public/assets/screenshot3.png" alt="Twin Fusion">

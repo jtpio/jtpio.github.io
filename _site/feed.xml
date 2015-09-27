@@ -56,7 +56,7 @@
 &lt;p&gt;Then at the jam:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Start by implementing a minimal prototype first. Make sure that the networking part work as intended, by exchanging some dummy messages between the players and the main game. Thi is especially important if the multiplayer aspect is at the core of the gameplay.&lt;/li&gt;
+  &lt;li&gt;Start by implementing a minimal prototype first. Make sure that the networking part work as intended, by exchanging some dummy messages between the players and the main game. This is especially important if the multiplayer aspect is at the core of the gameplay.&lt;/li&gt;
   &lt;li&gt;Iterate and &lt;strong&gt;always keep the game playable&lt;/strong&gt;.&lt;/li&gt;
   &lt;li&gt;Use a version control system to make it easy to try crazy things and concepts, still being able to revert the changes in case something goes wrong.&lt;/li&gt;
 &lt;/ul&gt;
@@ -71,10 +71,12 @@
   &lt;p&gt;HappyFunTimes is a system for playing party games that are meant to be played with a bunch of people in the same room and 1 ideally large display.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;I used HappyFunTimes once at a game jam. It helped us (the team) a lot to build what we wanted. However, we faced two difficulties:&lt;/p&gt;
+&lt;p&gt;I used HappyFunTimes once at a game jam. It helped us (the team) a lot to build what we wanted.&lt;/p&gt;
+
+&lt;p&gt;HappyFunTimes is a great and very complete framework. However, we faced two difficulties:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;We &lt;strong&gt;spent quite some time to understand how everything works&lt;/strong&gt;. We wanted to modify the framework just a little bit to fit our needs better, but got lost by the big amount of files.&lt;/li&gt;
+  &lt;li&gt;We &lt;strong&gt;spent quite some time to understand how everything works&lt;/strong&gt;. We wanted to modify the framework just a little bit to fit our needs better, but got lost by the big amount of files. Again, &lt;strong&gt;try the framework out before the jam&lt;/strong&gt; to arrive more relaxed.&lt;/li&gt;
   &lt;li&gt;It only worked on a local network. We wanted to share a link to the game after the jam, but it was impossible as everyone would have conflicted with each other (playing on the same instance).&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -87,10 +89,10 @@
 &lt;p&gt;Jammer is obviously inspired by HappyFunTimes, but with the following goals in mind:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;It should be possible to &lt;strong&gt;put the game online&lt;/strong&gt; and allow many players to connect to different game sessions simultaneously, without interferring with each other.&lt;/li&gt;
+  &lt;li&gt;It should be possible to &lt;strong&gt;put the game online&lt;/strong&gt; and allow many players to connect to different game sessions simultaneously, without interfering with each other.&lt;/li&gt;
   &lt;li&gt;Everything should be kept at the &lt;strong&gt;strict minimum&lt;/strong&gt;. Only the networking part is supported, but it is easy to interface it with a game engine like Phaser for example.&lt;/li&gt;
   &lt;li&gt;Get things done quickly.&lt;/li&gt;
-  &lt;li&gt;Good for small projects like a game jam. Maybe too simple for a bigger project.&lt;/li&gt;
+  &lt;li&gt;Good choice for small projects like a game jam. Maybe too simple for a bigger project.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;how-it-works&quot;&gt;How it works&lt;/h4&gt;
@@ -126,7 +128,7 @@
 &lt;ul&gt;
   &lt;li&gt;When a participant joins, it controls one area which has its own color.&lt;/li&gt;
   &lt;li&gt;On the phone, the player can move the area or swicth to another one.&lt;/li&gt;
-  &lt;li&gt;The goal is to make everything &lt;strong&gt;straight&lt;/strong&gt;, ordered as a grid (screenshot below).&lt;/li&gt;
+  &lt;li&gt;The goal is to make everything &lt;strong&gt;straight&lt;/strong&gt; and look like a grid (screenshot below).&lt;/li&gt;
   &lt;li&gt;Once a level is completed, the game moves to the next one, containing more regions.&lt;/li&gt;
 &lt;/ul&gt;
 
