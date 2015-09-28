@@ -53,6 +53,7 @@ Then at the jam:
 - Start by implementing a minimal prototype first. Make sure that the networking part work as intended, by exchanging some dummy messages between the players and the main game. This is especially important if the multiplayer aspect is at the core of the gameplay.
 - Iterate and **always keep the game playable**.
 - Use a version control system to make it easy to try crazy things and concepts, still being able to revert the changes in case something goes wrong.
+- **Latency** might be a problem. When a message is sent from a controller, it will take some time to reach the main screen. If possible, try to build a game where latency is not critical and can be "ignored".
 
 ## What networking framework to use? <a id="what-to-use"> </a>
 
