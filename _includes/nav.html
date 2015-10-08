@@ -1,39 +1,18 @@
-<div class="navbar navbar-default">
-    <div class="container-fluid">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="/">JTP 1/0</a>
-  </div>
-  <div class="navbar-collapse navbar-responsive-collapse collapse" style="height: 1px;">
-    <ul class="nav navbar-nav">
-      {% for priority in (1..10) %}
-        {% for node in site.pages %}
-          {% if node.priority == priority %}
-            {% if page.url == node.url %}
-              <li class="active"><a href="{{node.url}}" class="active">{{node.title}}</a></li>
-            {% else %}
-              <li><a href="{{node.url}}">{{node.title}}</a></li>
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-      {% endfor %}
-    </ul>
+<div class="top">
+  <a href="/" class="btn btn-default" title="Home">JTP 1/0</a>
+  {% for priority in (1..10) %}
+    {% for node in site.pages %}
+      {% if node.priority == priority %}
+        {% if page.url == node.url %}
+          <a href="{{node.url}}" class="active btn btn-primary">{{node.title}}</a>
+        {% else %}
+          <a href="{{node.url}}" class="btn btn-primary">{{node.title}}</a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+  <a href="https://github.com/jtpio" class="btn btn-primary" title="Github"><i class="fa fa-github-square fa-1x"></i></a>
+  <a href="https://twitter.com/jtpio" class="btn btn-primary" title="Twitter"><i class="fa fa-twitter-square fa-1x"></i></a>
+  <a href="http://www.linkedin.com/in/jtuloup" class="btn btn-primary" title="LinkedIn"><i class="fa fa-linkedin-square fa-1x"></i></a>
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a href="https://github.com/jtpio" title="Github"><i class="fa fa-github-square fa-1x"></i></a>
-        </li>
-        <li>
-            <a href="https://twitter.com/jtpio" title="Twitter"><i class="fa fa-twitter-square fa-1x"></i></a>
-        </li>
-        <li>
-        <a href="http://www.linkedin.com/in/jtuloup" title="LinkedIn"><i class="fa fa-linkedin-square fa-1x"></i></a>
-        </li>
-    </ul>
-  </div>
-  </div>
 </div>
