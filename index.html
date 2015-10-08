@@ -1,28 +1,11 @@
 ---
 layout: main
-title: Hi
+title: Blog
 priority: 1
 ---
 
-        <p>
-          I'm <strong>Jeremy Tuloup</strong>, from France, currently living in Sweden. <br>
-        </p>
-        <p>
-          I'm a <strong>backend developer</strong> at Ubisoft Massive in Malmö Sweden on <a href="http://www.justdancenow.com/">Just Dance Now</a>.
-        </p>
-        <p>
-          I like <strong>learning</strong>, <strong>computer science</strong>, <strong>experiments</strong> and <strong>game jams</strong>.
-        </p>
-
-        <p>
-          Here is where you can find me:
-        </p>
-        <div class="pull-left social">
-        <!-- <ul class="social-links"> -->
-          <i class="fa fa-pencil-square"></i> <a href="//jtp.io/blog.html" title="Blog">Blog</a>
-          <i class="fa fa-github-square"></i> <a href="//github.com/jtpio" title="Github">Github</a>
-          <i class="fa fa-twitter-square"></i> <a href="//twitter.com/jtpio" title="Twitter">Twitter</a>
-          <i class="fa fa-linkedin-square fa"></i> <a href="//www.linkedin.com/in/jtuloup" title="LinkedIn"> LinkedIn</a>
-        <!-- </ul> -->
-        </div>
-
+{% for post in site.posts %}
+<h4>
+	<a href="{{ post.url }}">{{ post.title }}</a> &ndash; <small> {{ post.date | date: '%B %d, %Y'}} </small>
+<h4>
+{% endfor %}
