@@ -9,11 +9,11 @@ categories:
 ---
 
 <p>
-  <a href="http://meetup.com">Meetup</a> is a wonderful platform. It makes it super easy to find groups of people sharing common interests, and it also provides an API! <br>
+  <a href="//meetup.com">Meetup</a> is a wonderful platform. It makes it super easy to find groups of people sharing common interests, and it also provides an API! <br>
 </p>
 
 <p>
-  I have been several times to the <a href="http://www.meetup.com/intercambio3">Language Exchange group</a> events in Malmö. This is a group bringing people together so they can practice languages. There are events for a lot of languages: swedish, portuguese, spanish and more. And it's always a good opportunity to meet new people from all around the world. <br>
+  I have been several times to the <a href="//www.meetup.com/intercambio3">Language Exchange group</a> events in Malmö. This is a group bringing people together so they can practice languages. There are events for a lot of languages: swedish, portuguese, spanish and more. And it's always a good opportunity to meet new people from all around the world. <br>
 </p>
 
 <p>
@@ -24,18 +24,18 @@ categories:
 <h3>Links</h3>
 
 <p class="bigger">
-  Visualization: <a href="http://malmolanguage.jtp.io">malmolanguage.jtp.io</a>
+  Visualization: <a href="//malmolanguage.jtp.io">malmolanguage.jtp.io</a>
 </p>
 
 <p>
   The rest of the post focuses <strong> only on some specific parts </strong> of the code, that you can find on github:<br>
-  <a href="https://github.com/jtpio/meetup-malmo-language">https://github.com/jtpio/meetup-malmo-language</a>
+  <a href="//github.com/jtpio/meetup-malmo-language">github.com/jtpio/meetup-malmo-language</a>
 </p>
 
 <h3>Using the Meetup API</h3>
 
 <p>
-  Instead of browsing hundreds of profiles manually, there exists a better tool for that task: the Meetup API. The documentation can be found here: <a href="http://www.meetup.com/meetup_api">http://www.meetup.com/meetup_api</a> <br>
+  Instead of browsing hundreds of profiles manually, there exists a better tool for that task: the Meetup API. The documentation can be found here: <a href="//www.meetup.com/meetup_api">meetup.com/meetup_api</a> <br>
 
   In the code, we define variables for that meetup group, as well as the meetup API key that is placed in an environment variable. Here we use "/2/profiles" as the URL path to retrieve the profile details, since they contain the answers to the question.
 </p>
@@ -88,7 +88,7 @@ if (res.meta.hasOwnProperty('next') && res.meta.next !== '') {
 <p>
   Once the answer is retrieved, the next part is to extract one or several languages from it. <br>
   The problem is that some people answer that question using a plain sentence, or mispelling words ... Doing a dictionary lookup against a list of languages is not enough in that situation. <br>
-  Fortunately, Natural (<a href="https://github.com/NaturalNode/natural">https://github.com/NaturalNode/natural</a>) comes as a handy tool, as it makes it possible to tokenize the answer using natural language techniques. The two useful features used for this application are the <strong>tokenization</strong> and the <strong>JaroWinklerDistance distance</strong>. <br>
+  Fortunately, Natural (<a href="//github.com/NaturalNode/natural">github.com/NaturalNode/natural</a>) comes as a handy tool, as it makes it possible to tokenize the answer using natural language techniques. The two useful features used for this application are the <strong>tokenization</strong> and the <strong>JaroWinklerDistance distance</strong>. <br>
   The first step is to sanitize the data to get a proper array of tokens.
 </p>
 
