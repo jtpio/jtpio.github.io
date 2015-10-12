@@ -79,7 +79,7 @@ Which plots the following graph:
 </p>
 
 <div class="embed-responsive embed-responsive-16by9">
-  <img class="embed-responsive-item" src="{{ site.url }}/res/ipython/malmomilen-pre-start-group.png">
+  <img class="embed-responsive-item" src="/res/ipython/malmomilen-pre-start-group.png">
 </div>
 
 <p>
