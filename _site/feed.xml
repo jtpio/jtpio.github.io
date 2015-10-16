@@ -3,8 +3,8 @@
 	<channel>
 		<title>Jeremy Tuloup&#39;s Blog</title>
 		<description>Experiments, algorithms, data and game jams</description>
-		<link>http://www.jtp.io</link>
-		<atom:link href="http://www.jtp.io/feed.xml" rel="self" type="application/rss+xml" />
+		<link>https://www.jtp.io</link>
+		<atom:link href="https://www.jtp.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Tips for making a web based multiplayer game at a Game Jam</title>
@@ -148,8 +148,8 @@
 &lt;p&gt;Let me know if you have any question!&lt;/p&gt;
 </description>
 				<pubDate>Sun, 27 Sep 2015 14:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/2015/09/27/tips-multiplayer-game-jam.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2015/09/27/tips-multiplayer-game-jam.html</guid>
+				<link>https://www.jtp.io/2015/09/27/tips-multiplayer-game-jam.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2015/09/27/tips-multiplayer-game-jam.html</guid>
 			</item>
 		
 			<item>
@@ -309,8 +309,8 @@ Even though in the beginning I had no idea what probability to expect for a 8x8 
 It could be amusing to see if the predictions are close the real number or not.&lt;/p&gt;
 </description>
 				<pubDate>Sun, 09 Aug 2015 16:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/2015/08/09/puzzle-pawns-chessboard-square.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2015/08/09/puzzle-pawns-chessboard-square.html</guid>
+				<link>https://www.jtp.io/2015/08/09/puzzle-pawns-chessboard-square.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2015/08/09/puzzle-pawns-chessboard-square.html</guid>
 			</item>
 		
 			<item>
@@ -502,8 +502,8 @@ The best solution is a sum of 0 in 15 steps:
 &lt;p&gt;Hope you enjoyed it!&lt;/p&gt;
 </description>
 				<pubDate>Fri, 19 Jun 2015 17:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/2015/06/19/solving-schoenbrunn-math-puzzle.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2015/06/19/solving-schoenbrunn-math-puzzle.html</guid>
+				<link>https://www.jtp.io/2015/06/19/solving-schoenbrunn-math-puzzle.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2015/06/19/solving-schoenbrunn-math-puzzle.html</guid>
 			</item>
 		
 			<item>
@@ -527,8 +527,8 @@ The best solution is a sum of 0 in 15 steps:
 &lt;/p&gt;
 </description>
 				<pubDate>Tue, 02 Jun 2015 20:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/2015/06/02/malmo-milen-2015-pre-analysis.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2015/06/02/malmo-milen-2015-pre-analysis.html</guid>
+				<link>https://www.jtp.io/2015/06/02/malmo-milen-2015-pre-analysis.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2015/06/02/malmo-milen-2015-pre-analysis.html</guid>
 			</item>
 		
 			<item>
@@ -562,8 +562,8 @@ The best solution is a sum of 0 in 15 steps:
 &lt;p&gt;Happy reading.&lt;/p&gt;
 </description>
 				<pubDate>Mon, 11 May 2015 00:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/2015/05/11/trello-reading-stats.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2015/05/11/trello-reading-stats.html</guid>
+				<link>https://www.jtp.io/2015/05/11/trello-reading-stats.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2015/05/11/trello-reading-stats.html</guid>
 			</item>
 		
 			<item>
@@ -651,8 +651,8 @@ sys     0m0.003s&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Any idea? Feel free to share!&lt;/p&gt;
 </description>
 				<pubDate>Sat, 18 Apr 2015 00:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/2015/04/18/project-euler-57.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2015/04/18/project-euler-57.html</guid>
+				<link>https://www.jtp.io/2015/04/18/project-euler-57.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2015/04/18/project-euler-57.html</guid>
 			</item>
 		
 			<item>
@@ -1115,8 +1115,8 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
 &lt;/ul&gt;
 </description>
 				<pubDate>Tue, 24 Mar 2015 00:00:00 +0100</pubDate>
-				<link>http://www.jtp.io/2015/03/24/js1k-2015-postmortem.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2015/03/24/js1k-2015-postmortem.html</guid>
+				<link>https://www.jtp.io/2015/03/24/js1k-2015-postmortem.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2015/03/24/js1k-2015-postmortem.html</guid>
 			</item>
 		
 			<item>
@@ -1187,8 +1187,8 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
 &lt;/p&gt;
 </description>
 				<pubDate>Wed, 21 Jan 2015 20:00:00 +0100</pubDate>
-				<link>http://www.jtp.io/2015/01/21/global-game-jam-2015-preparation.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2015/01/21/global-game-jam-2015-preparation.html</guid>
+				<link>https://www.jtp.io/2015/01/21/global-game-jam-2015-preparation.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2015/01/21/global-game-jam-2015-preparation.html</guid>
 			</item>
 		
 			<item>
@@ -1345,7 +1345,7 @@ The visualization is done using &lt;strong&gt;d3&lt;/strong&gt;. Please have a l
 &lt;/p&gt;
 
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;img class=&quot;embed-responsive-item&quot; src=&quot;http://www.jtp.io/res/malmolanguage.png&quot; /&gt;
+  &lt;img class=&quot;embed-responsive-item&quot; src=&quot;https://www.jtp.io/res/malmolanguage.png&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;
@@ -1359,8 +1359,8 @@ In this post, I presented a way for retrieving and analyzing answers from Meetup
 &lt;/p&gt;
 </description>
 				<pubDate>Wed, 22 Oct 2014 23:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/2014/10/22/meetup-malmo-language.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2014/10/22/meetup-malmo-language.html</guid>
+				<link>https://www.jtp.io/2014/10/22/meetup-malmo-language.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2014/10/22/meetup-malmo-language.html</guid>
 			</item>
 		
 			<item>
@@ -1390,8 +1390,8 @@ Any question, please let me know!
 &lt;/p&gt;
 </description>
 				<pubDate>Tue, 14 Oct 2014 23:00:00 +0200</pubDate>
-				<link>http://www.jtp.io/2014/10/14/malmo-milen-post-analysis.html</link>
-				<guid isPermaLink="true">http://www.jtp.io/2014/10/14/malmo-milen-post-analysis.html</guid>
+				<link>https://www.jtp.io/2014/10/14/malmo-milen-post-analysis.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2014/10/14/malmo-milen-post-analysis.html</guid>
 			</item>
 		
 	</channel>

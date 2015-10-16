@@ -1,6 +1,7 @@
 name: "Jeremy Tuloup's Blog"
 description: "Experiments, algorithms, data and game jams"
-url: http://www.jtp.io
+url: https://www.jtp.io
+enforce_ssl: www.jtp.io
 markdown: kramdown
 kramdown:
   math_engine: mathjax
