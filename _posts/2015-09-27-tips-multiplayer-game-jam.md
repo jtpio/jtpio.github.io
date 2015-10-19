@@ -93,7 +93,7 @@ Jammer is obviously inspired by HappyFunTimes, but with the following goals in m
 
 ### Twin Fusion
 
-<img class="center" src="//arabicgamejam.org/wp-content/uploads/2014/05/twinfusion2.png" alt="Twin Fusion">
+<img class="center" src="/res/game_jams/agj14.png" alt="Twin Fusion">
 
 Code: [github.com/jtpio/twin-fusion](//github.com/jtpio/twin-fusion)
 
