@@ -7,6 +7,78 @@
 		<atom:link href="https://www.jtp.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Ant Colony Optimization Visualization for the Traveling Salesman Problem</title>
+				<description>&lt;h2 id=&quot;problem-statement&quot;&gt;Problem statement&lt;/h2&gt;
+
+&lt;p&gt;The Traveling Salesman Problem is fascinating.&lt;/p&gt;
+
+&lt;p&gt;The problem statement (from &lt;a href=&quot;//en.wikipedia.org/wiki/Travelling_salesman_problem&quot;&gt;Wikipedia&lt;/a&gt;) is as follows:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It might sound like a straightforward problem, but it appears to be hard to solve (find an exact solution) in a reasonable amount of time when the number of cities is large.&lt;/p&gt;
+
+&lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;A lot of work and research have already been done about this topic. Many algorithms exist to find an exact or an approximate solution to the problem.&lt;/p&gt;
+
+&lt;p&gt;Here are two good resources (among others) to get started:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The &lt;a href=&quot;//en.wikipedia.org/wiki/Travelling_salesman_problem&quot;&gt;Wikipedia page&lt;/a&gt; provides a clear overview.&lt;/li&gt;
+  &lt;li&gt;For a more in-depth analysis with real Python code: Peter Norvig made an &lt;a href=&quot;//nbviewer.ipython.org/url/norvig.com/ipython/TSPv3.ipynb&quot;&gt;excellent iPython notebook&lt;/a&gt;. This notebook contains the implementations of different techniques. A very interesting read.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Given these two resources, what I would like to present in this post is not another technical and exhaustive analysis, since it has already been done many times by experts in that field.&lt;/p&gt;
+
+&lt;p&gt;What I would like to show instead is more of a &lt;strong&gt;game oriented&lt;/strong&gt; approach.&lt;/p&gt;
+
+&lt;p&gt;Sometimes, in games, it is necessary to determine the shortest tour between n cities. And most of the time in games, an approximate (but still good enough) solution works fine.&lt;/p&gt;
+
+&lt;p&gt;There is one approach that can be integrated without too many complications. It is called the &lt;strong&gt;Ant Colony Optimization&lt;/strong&gt;, a genetic algorithm that gives an approximate solution to the problem. Starting with a generally bad tour (random), the solution keeps improving after a few iterations. By distributing this technique over several frames, it is possible to get a good result without blocking the game loop.&lt;/p&gt;
+
+&lt;h2 id=&quot;ant-colony-system&quot;&gt;Ant Colony System&lt;/h2&gt;
+
+&lt;p&gt;Here is what an Ant Colony System does (from the Wikipedia article):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ACS sends out a large number of virtual ant agents to explore many possible routes on the map. Each ant probabilistically chooses the next city to visit based on a heuristic combining the distance to the city and the amount of virtual pheromone deposited on the edge to the city. The ants explore, depositing pheromone on each edge that they cross, until they have all completed a tour. At this point the ant which completed the shortest tour deposits virtual pheromone along its complete tour route (global trail updating). The amount of pheromone deposited is inversely proportional to the tour length: the shorter the tour, the more it deposits.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The Ant Colony System is well explained in the book &lt;a href=&quot;//www.cleveralgorithms.com/&quot;&gt;Clever Algorithms&lt;/a&gt; by Jason Brownlee.&lt;/p&gt;
+
+&lt;p&gt;The implementation is based on the algorithm described in this book. Instead of paraphrasing the author, let’s just refer to the original web page for all the details and explanations:
+&lt;a href=&quot;//www.cleveralgorithms.com/nature-inspired/swarm/ant_colony_system.html&quot;&gt;cleveralgorithms.com/nature-inspired/swarm/ant_colony_system.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;visualization&quot;&gt;Visualization&lt;/h2&gt;
+
+&lt;p&gt;I implemented the algorithm described in the &lt;em&gt;Clever Algorithms&lt;/em&gt; book and made a visualization for it, to get a visual feedback and see how the solution evolves after a few iterations. Some parameters are tweakable.&lt;/p&gt;
+
+&lt;p class=&quot;bigger&quot;&gt;
+  &lt;a href=&quot;//jtpio.github.io/aco-tsp&quot;&gt;jtpio.github.io/aco-tsp&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;//jtpio.github.io/aco-tsp&quot;&gt;&lt;img class=&quot;center&quot; src=&quot;/res/aco-tsp/screenshot.png&quot; alt=&quot;Jammer use case&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;applications&quot;&gt;Applications&lt;/h2&gt;
+
+&lt;p&gt;The main idea behind this experiment was to implement a technique for solving the Traveling Salesman Problem when the exact solution is not essential, and an approximate approach is instead enough.&lt;/p&gt;
+
+&lt;p&gt;Playing with the visualization, I noticed that the number of iterations needed to find a &lt;em&gt;good enough&lt;/em&gt; solution was relatively low.&lt;/p&gt;
+
+&lt;p&gt;In the context of games, this iterative technique seems to be totally suitable because it can dynamically adapt to changes, yield a solution quickly (even though it is not the best), and improve on it over time.&lt;/p&gt;
+
+&lt;p&gt;There must already exist tons of work on how to solve the TSP in video games, and it would be interesting to learn more about it. If you know any tip, book or paper about that topic, feel free to share!&lt;/p&gt;
+
+</description>
+				<pubDate>Sun, 22 Nov 2015 13:00:00 +0100</pubDate>
+				<link>https://www.jtp.io/2015/11/22/ant-colony-tsp-visualization.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2015/11/22/ant-colony-tsp-visualization.html</guid>
+			</item>
+		
+			<item>
 				<title>Tips for making a web based multiplayer game at a Game Jam</title>
 				<description>&lt;h2 id=&quot;at-a-game-jam&quot;&gt;At a Game Jam&lt;/h2&gt;
 
@@ -1361,37 +1433,6 @@ In this post, I presented a way for retrieving and analyzing answers from Meetup
 				<pubDate>Wed, 22 Oct 2014 23:00:00 +0200</pubDate>
 				<link>https://www.jtp.io/2014/10/22/meetup-malmo-language.html</link>
 				<guid isPermaLink="true">https://www.jtp.io/2014/10/22/meetup-malmo-language.html</guid>
-			</item>
-		
-			<item>
-				<title>MalmöMilen post-analysis</title>
-				<description>&lt;p&gt;
-One of my previous posts was about the start group distribution for the MalmöMilen race that happened in June 2014. &lt;br /&gt;
-This time let&#39;s focus on the follow-up of this race.
-&lt;/p&gt;
-
-&lt;p&gt;
-I had a few questions in mind right after the race and told myself that I will do a &quot;post-race&quot; analysis one day. &lt;br /&gt;
-The results are available for free, and easy to retrieve with a few lines of code from this web page:&lt;br /&gt;
-&lt;a href=&quot;http://www.marathon.se/racetimer?v=%2Fsv%2Frace%2Fshow%2F1997%3Flayout%3Dmarathon&quot;&gt;http://www.marathon.se/racetimer?v=%2Fsv%2Frace%2Fshow%2F1997%3Flayout%3Dmarathon&lt;/a&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-So I finally took the time to answer the few questions that have been in my mind since. Those are simple stats and I am sure there is even more to mine from this data. &lt;br /&gt;
-
-This time again I used an iPython notebook, it is such a convenient tool for this kind of exercise! &lt;br /&gt;
-There it is: &lt;br /&gt;
-&lt;a href=&quot;http://nbviewer.ipython.org/github/jtpio/data-playground/blob/master/malmomilen/MalmoMilen_post.ipynb&quot;&gt;http://nbviewer.ipython.org/github/jtpio/data-playground/blob/master/malmomilen/MalmoMilen_post.ipynb&lt;/a&gt;
-
-&lt;/p&gt;
-
-&lt;p&gt;
-Any question, please let me know!
-&lt;/p&gt;
-</description>
-				<pubDate>Tue, 14 Oct 2014 23:00:00 +0200</pubDate>
-				<link>https://www.jtp.io/2014/10/14/malmo-milen-post-analysis.html</link>
-				<guid isPermaLink="true">https://www.jtp.io/2014/10/14/malmo-milen-post-analysis.html</guid>
 			</item>
 		
 	</channel>
