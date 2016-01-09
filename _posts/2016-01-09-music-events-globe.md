@@ -21,9 +21,17 @@ That tool shows the same data but in a more visual way.
 
 Go have a look there! **[music-globe.jtp.io](//music-globe.jtp.io)**
 
+## Showcase
+
 <a href="//music-globe.jtp.io"><img class="center" src="/res/music-globe/paulk.png" alt="Paul Kalkbrenner Live Performances"></a>
 
 <a href="//music-globe.jtp.io"><img class="center" src="/res/music-globe/ben_klock.png" alt="Ben Klock Live Performances"></a>
+
+Quick presentation at [Foo Café](//foocafe.org) for [Demo Dag Malmö](//twitter.com/demodag_malmo):
+
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ZjFKV0fyIgU" allowfullscreen></iframe>
+</div>
 
 ## That's it
 
