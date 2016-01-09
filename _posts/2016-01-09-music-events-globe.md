@@ -27,7 +27,7 @@ Go have a look there! **[music-globe.jtp.io](//music-globe.jtp.io)**
 
 <a href="//music-globe.jtp.io"><img class="center" src="/res/music-globe/ben_klock.png" alt="Ben Klock Live Performances"></a>
 
-Quick presentation at [Foo Café](//foocafe.org) for [Demo Dag Malmö](//twitter.com/demodag_malmo):
+Quick presentation at *Foo Café* for [Demo Dag Malmö](//twitter.com/demodag_malmo):
 
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ZjFKV0fyIgU" allowfullscreen></iframe>
@@ -43,4 +43,4 @@ The project is on [Github](//github.com/jtpio/music-globe), check it out for the
 
 You can also find it on the [Chrome Experiments](//www.chromeexperiments.com/globe) website, in the WebGL Globe section.
 
-Let me know if you like it, and feel free to contribute, fork, or give feedback!
+Let me know if you like it, and feel free to contribute or give feedback!

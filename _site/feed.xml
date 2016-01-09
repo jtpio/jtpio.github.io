@@ -28,7 +28,7 @@
 
 &lt;p&gt;&lt;a href=&quot;//music-globe.jtp.io&quot;&gt;&lt;img class=&quot;center&quot; src=&quot;/res/music-globe/ben_klock.png&quot; alt=&quot;Ben Klock Live Performances&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Quick presentation at &lt;a href=&quot;//foocafe.org&quot;&gt;Foo Café&lt;/a&gt; for &lt;a href=&quot;//twitter.com/demodag_malmo&quot;&gt;Demo Dag Malmö&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Quick presentation at &lt;em&gt;Foo Café&lt;/em&gt; for &lt;a href=&quot;//twitter.com/demodag_malmo&quot;&gt;Demo Dag Malmö&lt;/a&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;//www.youtube.com/embed/ZjFKV0fyIgU&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
@@ -44,7 +44,7 @@
 
 &lt;p&gt;You can also find it on the &lt;a href=&quot;//www.chromeexperiments.com/globe&quot;&gt;Chrome Experiments&lt;/a&gt; website, in the WebGL Globe section.&lt;/p&gt;
 
-&lt;p&gt;Let me know if you like it, and feel free to contribute, fork, or give feedback!&lt;/p&gt;
+&lt;p&gt;Let me know if you like it, and feel free to contribute or give feedback!&lt;/p&gt;
 </description>
 				<pubDate>Sat, 09 Jan 2016 15:00:00 +0100</pubDate>
 				<link>https://www.jtp.io/2016/01/09/music-events-globe.html</link>
