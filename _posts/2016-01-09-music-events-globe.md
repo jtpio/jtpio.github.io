@@ -9,13 +9,13 @@ categories:
 
 Here is a project called **[Music Globe](//music-globe.jtp.io)**.
 
-Search for an artist, a band or any entity giving concerts and it will show you the locations of where they performed on a 3D globe.
+Search for an artist, a band or any entity giving concerts and it will show you the locations of where they performed.
 
-Since I recently fixed a funny issue for that project, I wanted to *log* it to this blog.
+This project was made quite some time ago, but I wanted to *log* it to this blog.
 
 ## Context
 
-I wanted a tool to have an idea of where my favorite artists play live. The data is for most of them accessible on websites like [Bandsintown](//bandsintown.com) and [SongKick](//songkick.com), but it comes as a list of events sorted by date.
+I needed a tool to have an idea of where my favorite artists play live. The data is for most of them accessible on websites like [Bandsintown](//bandsintown.com) and [SongKick](//songkick.com), but it comes as a list of events sorted by date.
 
 That tool shows the same data but in a more visual way.
 
@@ -37,7 +37,7 @@ Quick presentation at [Foo Café](//foocafe.org) for [Demo Dag Malmö](//twitter
 
 That's all I got for today.
 
-I personally use it pretty often to look at the artists I would like to see live one day. It gives a better idea of where they play, which could be useful forplanning trips and vacation.
+I personally use it pretty often to look at the artists I would like to see live one day. It gives a better idea of where they play, which could be useful for planning trips and vacation.
 
 The project is on [Github](//github.com/jtpio/music-globe), check it out for the source code and technical details.
 
