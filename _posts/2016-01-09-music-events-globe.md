@@ -15,7 +15,7 @@ Since I recently fixed a funny issue for that project, I wanted to *log* it to t
 
 ## Context
 
-I wanted a tool to have an of idea where my favorite artists generally play live. The data is for most of them accessible on websites like [Bandsintown](//bandsintown.com) and [SongKick](//songkick.com), but it comes as a list of events sorted by date.
+I wanted a tool to have an idea of where my favorite artists play live. The data is for most of them accessible on websites like [Bandsintown](//bandsintown.com) and [SongKick](//songkick.com), but it comes as a list of events sorted by date.
 
 That tool shows the same data but in a more visual way.
 
