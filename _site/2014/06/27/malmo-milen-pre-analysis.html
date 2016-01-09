@@ -47,7 +47,7 @@
       
         
           
-            <a href="/index.html" class="btn btn-primary">Blog</a>
+            <a href="/" class="btn btn-primary">Blog</a>
           
         
       
@@ -59,7 +59,7 @@
       
         
           
-            <a href="/gameJams.html" class="btn btn-primary">Game Jams</a>
+            <a href="/gameJams" class="btn btn-primary">Game Jams</a>
           
         
       
@@ -69,7 +69,7 @@
       
         
           
-            <a href="/about.html" class="btn btn-primary">About</a>
+            <a href="/about" class="btn btn-primary">About</a>
           
         
       
@@ -186,7 +186,7 @@
 <p>
 
 
-<div class="highlight"><pre><code class="language-python3" data-lang="python3"><span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
+<figure class="highlight"><pre><code class="language-python3" data-lang="python3"><span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
@@ -203,7 +203,7 @@
         <span class="n">ps</span><span class="p">[</span><span class="n">time</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">ps</span><span class="p">[</span><span class="n">time</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s">&quot;There are &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">))</span> <span class="o">+</span> <span class="s">&quot; participants&quot;</span><span class="p">)</span></code></pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="s">&quot;There are &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">))</span> <span class="o">+</span> <span class="s">&quot; participants&quot;</span><span class="p">)</span></code></pre></figure>
 
 
 </p>
@@ -213,7 +213,7 @@ This is how we get the number of participant and group them by start time. <br /
 The following illustrates how to visualize the distribution on a nice graph.
 </p>
 
-<div class="highlight"><pre><code class="language-python3" data-lang="python3"><span class="o">%</span> <span class="n">matplotlib</span> <span class="n">inline</span>
+<figure class="highlight"><pre><code class="language-python3" data-lang="python3"><span class="o">%</span> <span class="n">matplotlib</span> <span class="n">inline</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span><span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcdefaults</span><span class="p">()</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -232,7 +232,7 @@ The following illustrates how to visualize the distribution on a nice graph.
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">rect</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rects</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.95</span> <span class="o">*</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">(),</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span> <span class="o">+</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">ps</span><span class="p">[</span><span class="n">groups</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">ha</span><span class="o">=</span><span class="s">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p>
 Which plots the following graph:

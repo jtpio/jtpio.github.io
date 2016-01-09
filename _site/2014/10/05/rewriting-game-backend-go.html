@@ -47,7 +47,7 @@
       
         
           
-            <a href="/index.html" class="btn btn-primary">Blog</a>
+            <a href="/" class="btn btn-primary">Blog</a>
           
         
       
@@ -59,7 +59,7 @@
       
         
           
-            <a href="/gameJams.html" class="btn btn-primary">Game Jams</a>
+            <a href="/gameJams" class="btn btn-primary">Game Jams</a>
           
         
       
@@ -69,7 +69,7 @@
       
         
           
-            <a href="/about.html" class="btn btn-primary">About</a>
+            <a href="/about" class="btn btn-primary">About</a>
           
         
       
@@ -192,11 +192,11 @@ The entire server code fits in less than 350 lines of code. Go is simple and cle
 One of the parts I got tricked by is the naming convention for variables and functions. I knew that in a module, a function name has to start with a capital letter in order for the function to be exported and be available from an other module. But this is also applied to the fields in structures: a field starting with a capital letter is public whereas starting with a lowercase letter will make it private.
 
 
-<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">command</span> <span class="kd">struct</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">command</span> <span class="kd">struct</span> <span class="p">{</span>
   <span class="nx">Cmd</span>      <span class="kt">string</span>                 <span class="c1">// public</span>
   <span class="nx">PlayerID</span> <span class="kt">uint32</span>                 <span class="c1">// public</span>
   <span class="nx">data</span>     <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span> <span class="c1">// private</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 
 </p>
@@ -206,11 +206,11 @@ One of the parts I got tricked by is the naming convention for variables and fun
 
 <p>
 
-<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">command</span> <span class="kd">struct</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-go" data-lang="go">  <span class="kd">type</span> <span class="nx">command</span> <span class="kd">struct</span> <span class="p">{</span>
   <span class="nx">Cmd</span>      <span class="kt">string</span>                 <span class="s">`json:&quot;cmd&quot;`</span>
   <span class="nx">PlayerID</span> <span class="kt">uint32</span>                 <span class="s">`json:&quot;playerID&quot;`</span>
   <span class="nx">Data</span>     <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span> <span class="s">`json:&quot;data&quot;`</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 
 </p>

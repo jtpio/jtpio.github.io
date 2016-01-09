@@ -47,7 +47,7 @@
       
         
           
-            <a href="/index.html" class="btn btn-primary">Blog</a>
+            <a href="/" class="btn btn-primary">Blog</a>
           
         
       
@@ -59,7 +59,7 @@
       
         
           
-            <a href="/gameJams.html" class="btn btn-primary">Game Jams</a>
+            <a href="/gameJams" class="btn btn-primary">Game Jams</a>
           
         
       
@@ -69,7 +69,7 @@
       
         
           
-            <a href="/about.html" class="btn btn-primary">About</a>
+            <a href="/about" class="btn btn-primary">About</a>
           
         
       
@@ -200,24 +200,22 @@ Now is time to try to solve it by yourself, if you want of course.
 <p>For the <a href="http://www.jtp.io/2015/06/19/solving-schoenbrunn-math-puzzle.html">last puzzle</a>, we first found a solution manually, and then worked out a computer program to find the answer faster.</p>
 
 <p>This time, we will find the correct answer <em>manually</em> (with maths, pen and paper), and use a program to experimentally verify the results.
-We will solve the general case for a <script type="math/tex"> n*m </script> board.</p>
+We will solve the general case for a <span class="MathJax_Preview">n*m</span><script type="math/tex">n*m</script> board.</p>
 
-<p>This puzzle involves counting the number of possible squares that can be formed when putting four random pawns on a <script type="math/tex"> n*m </script> board.
+<p>This puzzle involves counting the number of possible squares that can be formed when putting four random pawns on a <span class="MathJax_Preview">n*m</span><script type="math/tex">n*m</script> board.
 Knowing that value, it is possible to calculate the probability of forming square:</p>
 
-<script type="math/tex; mode=display">
-p_{square} = \frac{\text{number of ways to form a square in a n*m board}}{\text{number of ways to put 4 pawns on a n*m board}}
-</script>
+<div class="MathJax_Preview">p_{square} = \frac{\text{number of ways to form a square in a n*m board}}{\text{number of ways to put 4 pawns on a n*m board}}</div>
+<script type="math/tex; mode=display">p_{square} = \frac{\text{number of ways to form a square in a n*m board}}{\text{number of ways to put 4 pawns on a n*m board}}</script>
 
-<p>The denominator corresponds to the number of ways to choose four pawns on a chess <script type="math/tex"> n*m </script> chessboard: <script type="math/tex"> \binom{n*m}{4} </script>.</p>
+<p>The denominator corresponds to the number of ways to choose four pawns on a chess <span class="MathJax_Preview">n*m</span><script type="math/tex">n*m</script> chessboard: <span class="MathJax_Preview">\binom{n*m}{4}</span><script type="math/tex">\binom{n*m}{4}</script>.</p>
 
 <p>The nominator is the value we are looking for. Let’s call it <strong>S</strong>.</p>
 
 <p>The probability becomes:</p>
 
-<script type="math/tex; mode=display">
-p_{square} = \frac{S}{\binom{n*m}{4}}
-</script>
+<div class="MathJax_Preview">p_{square} = \frac{S}{\binom{n*m}{4}}</div>
+<script type="math/tex; mode=display">p_{square} = \frac{S}{\binom{n*m}{4}}</script>
 
 <h3 id="counting-the-squares">Counting the squares</h3>
 <p>The following approach will follow <strong>more an intuitive way than a rigorous proof</strong>. The idea is to see what is happening and to establish a formula based on observations.</p>
@@ -232,31 +230,34 @@ p_{square} = \frac{S}{\binom{n*m}{4}}
 
 <p><img class="center" alt="Problem statement" src="/res/puzzles/mjshout_2015_07/example_1.png" /></p>
 
-<p>By using <script type="math/tex"> n </script> for the width and <script type="math/tex"> m </script> for the height, and <script type="math/tex"> i </script> for the length of the side, we can rewrite it for the general case with one formula:</p>
+<p>By using <span class="MathJax_Preview">n</span><script type="math/tex">n</script> for the width and <span class="MathJax_Preview">m</span><script type="math/tex">m</script> for the height, and <span class="MathJax_Preview">i</span><script type="math/tex">i</script> for the length of the side, we can rewrite it for the general case with one formula:</p>
 
-<script type="math/tex; mode=display">
-S = \sum_{i=2}^{min(n,m)} (n-i+1)(m-i+1)(i-1)
-</script>
+<div class="MathJax_Preview">S = \sum_{i=2}^{min(n,m)} (n-i+1)(m-i+1)(i-1)</div>
+<script type="math/tex; mode=display">S = \sum_{i=2}^{min(n,m)} (n-i+1)(m-i+1)(i-1)</script>
 
-<p>The sum goes for <script type="math/tex"> i </script> from <script type="math/tex"> 2 </script> (not smaller otherwise we can’t define a square), up to <script type="math/tex"> min(n,m) </script>. If <script type="math/tex"> n > m </script> for example, the square of side <script type="math/tex"> n </script> will be too big for the board, so the maximum size has to be the minimum of <script type="math/tex"> n </script> and <script type="math/tex"> m </script>.</p>
+<p>The sum goes for <span class="MathJax_Preview">i</span><script type="math/tex">i</script> from <span class="MathJax_Preview">2</span><script type="math/tex">2</script> (not smaller otherwise we can’t define a square), up to <span class="MathJax_Preview">min(n,m)</span><script type="math/tex">min(n,m)</script>. If <span class="MathJax_Preview">n &gt; m</span><script type="math/tex">n > m</script> for example, the square of side <span class="MathJax_Preview">n</span><script type="math/tex">n</script> will be too big for the board, so the maximum size has to be the minimum of <span class="MathJax_Preview">n</span><script type="math/tex">n</script> and <span class="MathJax_Preview">m</span><script type="math/tex">m</script>.</p>
 
 <p>With the help of <a href="https://www.wolframalpha.com/">Wolfram Alpha</a>, we can simplify the formula for both cases:</p>
 
 <p>For <a href="http://www.wolframalpha.com/input/?i=sum+of+%28%28n-i%2B1%29*%28m-i%2B1%29*%28i-1%29%29+for+i+from+2+to+n">min(n, m) = n</a>:</p>
 
-<script type="math/tex; mode=display"> S = \frac{1}{12}n(n^2-1)(2m - n) </script>
+<div class="MathJax_Preview">S = \frac{1}{12}n(n^2-1)(2m - n)</div>
+<script type="math/tex; mode=display">S = \frac{1}{12}n(n^2-1)(2m - n)</script>
 
 <p>For <a href="http://www.wolframalpha.com/input/?i=sum+of+%28%28n-i%2B1%29*%28m-i%2B1%29*%28i-1%29%29+for+i+from+2+to+m">min(n, m) = m</a>:</p>
 
-<script type="math/tex; mode=display"> S = -\frac{1}{12}m(m^2-1)(m-2n) </script>
+<div class="MathJax_Preview">S = -\frac{1}{12}m(m^2-1)(m-2n)</div>
+<script type="math/tex; mode=display">S = -\frac{1}{12}m(m^2-1)(m-2n)</script>
 
-<p><a href="http://www.wolframalpha.com/input/?i=%28sum+of+%28%28n-i%2B1%29*%28n-i%2B1%29*%28i-1%29%29+for+i+from+2+to+n%29+%2F+%28n%5E2+choose+4%29">Putting it all together</a> for <script type="math/tex"> n = m </script> for the case of the chessboard:</p>
+<p><a href="http://www.wolframalpha.com/input/?i=%28sum+of+%28%28n-i%2B1%29*%28n-i%2B1%29*%28i-1%29%29+for+i+from+2+to+n%29+%2F+%28n%5E2+choose+4%29">Putting it all together</a> for <span class="MathJax_Preview">n = m</span><script type="math/tex">n = m</script> for the case of the chessboard:</p>
 
-<script type="math/tex; mode=display"> p_{square} = \frac{\frac{1}{12}n^2(n^2-1)}{\binom{n^2}{4}} = \frac{2}{(n^2-3)(n^2-2)}  </script>
+<div class="MathJax_Preview">p_{square} = \frac{\frac{1}{12}n^2(n^2-1)}{\binom{n^2}{4}} = \frac{2}{(n^2-3)(n^2-2)}</div>
+<script type="math/tex; mode=display">p_{square} = \frac{\frac{1}{12}n^2(n^2-1)}{\binom{n^2}{4}} = \frac{2}{(n^2-3)(n^2-2)}</script>
 
 <p>Applying for <a href="http://www.wolframalpha.com/input/?i=2%2F%28%28-3%2Bn%5E2%29+%28-2%2Bn%5E2%29%29+for+n+%3D+8">n = 8</a>:</p>
 
-<script type="math/tex; mode=display"> p_{square} = \frac{2}{(8^2-3)(8^2-2)} = \frac{1}{1891} \approx{0.0005288} \approx{0.053}\%   </script>
+<div class="MathJax_Preview">p_{square} = \frac{2}{(8^2-3)(8^2-2)} = \frac{1}{1891} \approx{0.0005288} \approx{0.053}\%</div>
+<script type="math/tex; mode=display">p_{square} = \frac{2}{(8^2-3)(8^2-2)} = \frac{1}{1891} \approx{0.0005288} \approx{0.053}\%</script>
 
 <h3 id="verifying-with-a-program">Verifying with a program</h3>
 <p>Now that we have a formula valid for the general case, it would be interesting to experimentally verify its validity with a program.</p>
@@ -271,7 +272,7 @@ S = \sum_{i=2}^{min(n,m)} (n-i+1)(m-i+1)(i-1)
 
 <p>This scenario can be easily implemented in Python.</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">random</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 
 <span class="c"># The size of the board</span>
@@ -305,11 +306,11 @@ S = \sum_{i=2}^{min(n,m)} (n-i+1)(m-i+1)(i-1)
     <span class="n">square</span> <span class="o">=</span> <span class="nb">round</span><span class="p">()</span>
     <span class="n">s</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">square</span> <span class="k">else</span> <span class="mi">0</span>
 
-<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Probablity to form a square:&#39;</span><span class="p">,</span> <span class="n">s</span> <span class="o">/</span> <span class="n">T</span><span class="p">)</span></code></pre></div>
+<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Probablity to form a square:&#39;</span><span class="p">,</span> <span class="n">s</span> <span class="o">/</span> <span class="n">T</span><span class="p">)</span></code></pre></figure>
 
 <p>Which outputs:</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">Probablity to form a square: 0.000518</code></pre></div>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">Probablity to form a square: 0.000518</code></pre></figure>
 
 <p>The value is pretty close to the calculated one. Of course it is not exactly equal, and running the program again would output a different value. But it is approximately equal, and it is a good way to verify that the <strong>order of magnitude is good correct</strong>.</p>
 
@@ -317,7 +318,7 @@ S = \sum_{i=2}^{min(n,m)} (n-i+1)(m-i+1)(i-1)
 <p>Once again, nice puzzle, without having to be too complicated.
 Even though in the beginning I had no idea what probability to expect for a 8x8 chess board, I have to admit I am a bit surprised by how low the value is.</p>
 
-<p>The formula says that the chances become smaller and smaller as <script type="math/tex"> n </script> and <script type="math/tex"> m </script> get bigger. This could be visualized by plotting a 3D representation of the formula and looking at the shape generated.</p>
+<p>The formula says that the chances become smaller and smaller as <span class="MathJax_Preview">n</span><script type="math/tex">n</script> and <span class="MathJax_Preview">m</span><script type="math/tex">m</script> get bigger. This could be visualized by plotting a 3D representation of the formula and looking at the shape generated.</p>
 
 <p>Still, it is once again enjoyable to mix both pure math and computer science for fun.</p>
 

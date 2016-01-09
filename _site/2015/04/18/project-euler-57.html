@@ -47,7 +47,7 @@
       
         
           
-            <a href="/index.html" class="btn btn-primary">Blog</a>
+            <a href="/" class="btn btn-primary">Blog</a>
           
         
       
@@ -59,7 +59,7 @@
       
         
           
-            <a href="/gameJams.html" class="btn btn-primary">Game Jams</a>
+            <a href="/gameJams" class="btn btn-primary">Game Jams</a>
           
         
       
@@ -69,7 +69,7 @@
       
         
           
-            <a href="/about.html" class="btn btn-primary">About</a>
+            <a href="/about" class="btn btn-primary">About</a>
           
         
       
@@ -178,17 +178,22 @@
 
 <p>It is possible to show that the square root of two can be expressed as an infinite continued fraction.</p>
 
+<div class="MathJax_Preview">\sqrt 2 = 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + ... }}} = 1.414213...</div>
 <script type="math/tex; mode=display">\sqrt 2 = 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + ... }}} = 1.414213...</script>
 
 <p>By expanding this for the first four iterations, we get:</p>
 
-<script type="math/tex; mode=display"> 1 + \frac{1}{2} = \frac{3}{2} = 1.5 </script>
+<div class="MathJax_Preview">1 + \frac{1}{2} = \frac{3}{2} = 1.5</div>
+<script type="math/tex; mode=display">1 + \frac{1}{2} = \frac{3}{2} = 1.5</script>
 
-<script type="math/tex; mode=display"> 1 + \frac{1}{2 + \frac{1}{2}} = \frac{7}{5} = 1.4 </script>
+<div class="MathJax_Preview">1 + \frac{1}{2 + \frac{1}{2}} = \frac{7}{5} = 1.4</div>
+<script type="math/tex; mode=display">1 + \frac{1}{2 + \frac{1}{2}} = \frac{7}{5} = 1.4</script>
 
-<script type="math/tex; mode=display"> 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}} = \frac{17}{12} = 1.41666... </script>
+<div class="MathJax_Preview">1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}} = \frac{17}{12} = 1.41666...</div>
+<script type="math/tex; mode=display">1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}} = \frac{17}{12} = 1.41666...</script>
 
-<script type="math/tex; mode=display"> 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}} = \frac{41}{29} = 1.41379... </script>
+<div class="MathJax_Preview">1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}} = \frac{41}{29} = 1.41379...</div>
+<script type="math/tex; mode=display">1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}} = \frac{41}{29} = 1.41379...</script>
 
 <p>The next three expansions are 99/70, 239/169, and 577/408, but the eighth expansion, 1393/985, is the first example where the number of digits in the numerator exceeds the number of digits in the denominator.</p>
 
@@ -199,11 +204,11 @@
 <p>I usually love using Python for solving these kind of problems, as the solution ends up being simple to read and very elegant.</p>
 
 <p>Python has support for fractions thanks to the <code>fractions</code> package, so let’s use it!
-Putting the <em>1</em> appart for now, we can see that the first term is <script type="math/tex"> a_0 = \frac{1}{2} </script>, and the second is <script type="math/tex"> a_1 = \frac{1}{2 + \frac{1}{2}} </script>, which is the same as <script type="math/tex"> a_1 = \frac{1}{ 2 + a_0 } </script>. Then by construction, <script type="math/tex"> a_{n+1} = \frac{1}{2 + a_n} </script></p>
+Putting the <em>1</em> appart for now, we can see that the first term is <span class="MathJax_Preview">a_0 = \frac{1}{2}</span><script type="math/tex">a_0 = \frac{1}{2}</script>, and the second is <span class="MathJax_Preview">a_1 = \frac{1}{2 + \frac{1}{2}}</span><script type="math/tex">a_1 = \frac{1}{2 + \frac{1}{2}}</script>, which is the same as <span class="MathJax_Preview">a_1 = \frac{1}{ 2 + a_0 }</span><script type="math/tex">a_1 = \frac{1}{ 2 + a_0 }</script>. Then by construction, <span class="MathJax_Preview">a_{n+1} = \frac{1}{2 + a_n}</span><script type="math/tex">a_{n+1} = \frac{1}{2 + a_n}</script></p>
 
 <p>With the fractions module, it is very easy to access the numerator and denominator.</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
 
 <span class="n">res</span><span class="p">,</span> <span class="n">an</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1001</span><span class="p">):</span>
@@ -212,36 +217,38 @@ Putting the <em>1</em> appart for now, we can see that the first term is <script
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">tmp</span><span class="o">.</span><span class="n">numerator</span><span class="p">))</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">tmp</span><span class="o">.</span><span class="n">denominator</span><span class="p">)):</span>
         <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></code></pre></figure>
 
 <p>Running time on machine:</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">real    0m0.462s
+<figure class="highlight"><pre><code class="language-text" data-lang="text">real    0m0.462s
 user    0m0.457s
-sys     0m0.003s</code></pre></div>
+sys     0m0.003s</code></pre></figure>
 
 <h2 id="improvement">Improvement</h2>
-<p>By analysing the pattern between the different (final) terms of the serie (<script type="math/tex"> \frac{3}{2}, \frac{7}{5}, \frac{17}{12}... </script>), we can notice that the numerators and denominators follow a simple relation (simultaneous update):</p>
+<p>By analysing the pattern between the different (final) terms of the serie (<span class="MathJax_Preview">\frac{3}{2}, \frac{7}{5}, \frac{17}{12}...</span><script type="math/tex">\frac{3}{2}, \frac{7}{5}, \frac{17}{12}...</script>), we can notice that the numerators and denominators follow a simple relation (simultaneous update):</p>
 
-<script type="math/tex; mode=display"> next\_numerator = 2 * prev\_denominator + prev\_numerator </script>
+<div class="MathJax_Preview">next\_numerator = 2 * prev\_denominator + prev\_numerator</div>
+<script type="math/tex; mode=display">next\_numerator = 2 * prev\_denominator + prev\_numerator</script>
 
-<script type="math/tex; mode=display"> next\_denominator = prev\_numerator + prev\_denominator </script>
+<div class="MathJax_Preview">next\_denominator = prev\_numerator + prev\_denominator</div>
+<script type="math/tex; mode=display">next\_denominator = prev\_numerator + prev\_denominator</script>
 
-<p>For instance, <script type="math/tex"> 7 = 2*2 + 3 </script> and <script type="math/tex"> 5 = 3 + 2 </script>.</p>
+<p>For instance, <span class="MathJax_Preview">7 = 2*2 + 3</span><script type="math/tex">7 = 2*2 + 3</script> and <span class="MathJax_Preview">5 = 3 + 2</span><script type="math/tex">5 = 3 + 2</script>.</p>
 
 <p>Written in Python:</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">res</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">res</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1001</span><span class="p">):</span>
     <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">d</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="n">d</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)):</span>
         <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">real    0m0.036s
+<figure class="highlight"><pre><code class="language-text" data-lang="text">real    0m0.036s
 user    0m0.030s
-sys     0m0.003s</code></pre></div>
+sys     0m0.003s</code></pre></figure>
 
 <p>This ends up being a pretty good speed boost!</p>
 

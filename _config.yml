@@ -9,4 +9,3 @@ kramdown:
     preview: true
 highlighter: pygments
 permalink: /:year/:month/:day/:title.html
-paginate: 50

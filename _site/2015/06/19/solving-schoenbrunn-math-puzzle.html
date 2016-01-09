@@ -47,7 +47,7 @@
       
         
           
-            <a href="/index.html" class="btn btn-primary">Blog</a>
+            <a href="/" class="btn btn-primary">Blog</a>
           
         
       
@@ -59,7 +59,7 @@
       
         
           
-            <a href="/gameJams.html" class="btn btn-primary">Game Jams</a>
+            <a href="/gameJams" class="btn btn-primary">Game Jams</a>
           
         
       
@@ -69,7 +69,7 @@
       
         
           
-            <a href="/about.html" class="btn btn-primary">About</a>
+            <a href="/about" class="btn btn-primary">About</a>
           
         
       
@@ -249,7 +249,7 @@ When there is more than one possibility, pick one and continue. If in the end it
 <p>Here is a Python implementation with comments that gives an answer. I also turned it into a gist:
 <a href="https://gist.github.com/jtpio/f4175e0c38d2be4b44c9">https://gist.github.com/jtpio/f4175e0c38d2be4b44c9</a></p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># read the input from a file</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># read the input from a file</span>
 <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)]</span>
 <span class="n">sx</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)]</span>
 <span class="n">ex</span><span class="p">,</span> <span class="n">ey</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)]</span>
@@ -330,7 +330,7 @@ When there is more than one possibility, pick one and continue. If in the end it
 <span class="n">best</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">solutions</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 <span class="k">print</span><span class="p">(</span><span class="s">&#39;The best solution is a sum of&#39;</span><span class="p">,</span> <span class="n">best</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">best</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#39;steps.&#39;</span><span class="p">)</span>
 <span class="n">sol</span> <span class="o">=</span> <span class="s">&#39; -&gt; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;, tile &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">best</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span></code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span></code></pre></figure>
 
 <p>Which outputs the solution:</p>
 
