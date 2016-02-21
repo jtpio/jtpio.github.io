@@ -30,7 +30,7 @@ Anyway, here are two puzzles with some kind of math aspect. For both of them, Py
 
 Sure many people have already worked on this since it is quite famous. Even [Bill Gates](//en.wikipedia.org/wiki/Pancake_sorting#The_original_pancake_problem) has apparently done some research on it.
 
-We imagined the problem as a **graph**, and the number of flips as **distances between nodes**. So we used the great [networkx](//networkx.github.io/) library to facilitate graph creation and shortest paths calcultations. Again, a super useful tool!
+We imagined the problem as a **graph**, and the number of flips as **distances between nodes**. So we used the great [networkx](//networkx.github.io/) library to facilitate graph creation and shortest paths calculations. Again, a super useful tool!
 
 Here is a notebook detailing the different steps, with the Python code and some explanations: [nbviewer.jupyter.org/gist/jtpio/7100232ffa745b27f7df](//nbviewer.jupyter.org/gist/jtpio/7100232ffa745b27f7df)
 

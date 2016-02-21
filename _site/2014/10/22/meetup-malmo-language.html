@@ -204,18 +204,18 @@
 
 <p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">malmo</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;question&#39;</span><span class="o">:</span> <span class="mi">2187832</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="o">:</span> <span class="s1">&#39;intercambio3&#39;</span><span class="p">};</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">malmo</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'question'</span><span class="p">:</span> <span class="mi">2187832</span><span class="p">,</span> <span class="s1">'url'</span><span class="p">:</span> <span class="s1">'intercambio3'</span><span class="p">};</span>
 <span class="kd">var</span> <span class="nx">MEETUP_KEY</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MEETUP_KEY</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">QUESTION_ID</span> <span class="o">=</span> <span class="nx">malmo</span><span class="p">.</span><span class="nx">question</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">urlObj</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">protocol</span><span class="o">:</span> <span class="s1">&#39;https&#39;</span><span class="p">,</span>
-    <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;api.meetup.com&#39;</span><span class="p">,</span>
-    <span class="nx">pathname</span><span class="o">:</span> <span class="s1">&#39;/2/profiles&#39;</span><span class="p">,</span>
-    <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">group_urlname</span><span class="o">:</span> <span class="nx">malmo</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span>
-        <span class="nx">sign</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nx">key</span><span class="o">:</span> <span class="nx">MEETUP_KEY</span>
+    <span class="na">protocol</span><span class="p">:</span> <span class="s1">'https'</span><span class="p">,</span>
+    <span class="na">host</span><span class="p">:</span> <span class="s1">'api.meetup.com'</span><span class="p">,</span>
+    <span class="na">pathname</span><span class="p">:</span> <span class="s1">'/2/profiles'</span><span class="p">,</span>
+    <span class="na">query</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">group_urlname</span><span class="p">:</span> <span class="nx">malmo</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span>
+        <span class="na">sign</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">key</span><span class="p">:</span> <span class="nx">MEETUP_KEY</span>
     <span class="p">}</span>
 <span class="p">};</span></code></pre></figure>
 
@@ -237,7 +237,7 @@
     <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;next&#39;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">next</span> <span class="o">!==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">'next'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">next</span> <span class="o">!==</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">crawl</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">next</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="nx">analyzer</span><span class="p">.</span><span class="nx">printResults</span><span class="p">();</span>
@@ -256,7 +256,7 @@
 
 <p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;lodash&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'lodash'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">tokens</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">uniq</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">tokenizer</span><span class="p">.</span><span class="nx">tokenize</span><span class="p">(</span><span class="nx">str</span><span class="p">),</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">_normalize</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
 <span class="p">}));</span></code></pre></figure>

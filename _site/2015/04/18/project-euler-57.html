@@ -203,7 +203,7 @@
 
 <p>I usually love using Python for solving these kind of problems, as the solution ends up being simple to read and very elegant.</p>
 
-<p>Python has support for fractions thanks to the <code>fractions</code> package, so let’s use it!
+<p>Python has support for fractions thanks to the <code class="highlighter-rouge">fractions</code> package, so let’s use it!
 Putting the <em>1</em> appart for now, we can see that the first term is <span class="MathJax_Preview">a_0 = \frac{1}{2}</span><script type="math/tex">a_0 = \frac{1}{2}</script>, and the second is <span class="MathJax_Preview">a_1 = \frac{1}{2 + \frac{1}{2}}</span><script type="math/tex">a_1 = \frac{1}{2 + \frac{1}{2}}</script>, which is the same as <span class="MathJax_Preview">a_1 = \frac{1}{ 2 + a_0 }</span><script type="math/tex">a_1 = \frac{1}{ 2 + a_0 }</script>. Then by construction, <span class="MathJax_Preview">a_{n+1} = \frac{1}{2 + a_n}</span><script type="math/tex">a_{n+1} = \frac{1}{2 + a_n}</script></p>
 
 <p>With the fractions module, it is very easy to access the numerator and denominator.</p>
@@ -213,7 +213,7 @@ Putting the <em>1</em> appart for now, we can see that the first term is <span c
 <span class="n">res</span><span class="p">,</span> <span class="n">an</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1001</span><span class="p">):</span>
     <span class="n">an</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">an</span><span class="p">)</span>
-    <span class="n">tmp</span> <span class="o">=</span> <span class="n">an</span> <span class="o">+</span> <span class="mi">1</span> <span class="c"># don&#39;t forget the first one</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">an</span> <span class="o">+</span> <span class="mi">1</span> <span class="c"># don't forget the first one</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">tmp</span><span class="o">.</span><span class="n">numerator</span><span class="p">))</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">tmp</span><span class="o">.</span><span class="n">denominator</span><span class="p">)):</span>
         <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
 

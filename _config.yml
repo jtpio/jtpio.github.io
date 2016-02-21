@@ -7,5 +7,5 @@ kramdown:
   math_engine: mathjax
   math_engine_opts:
     preview: true
-highlighter: pygments
+highlighter: rouge
 permalink: /:year/:month/:day/:title.html

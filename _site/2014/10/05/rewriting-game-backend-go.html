@@ -192,11 +192,11 @@ The entire server code fits in less than 350 lines of code. Go is simple and cle
 One of the parts I got tricked by is the naming convention for variables and functions. I knew that in a module, a function name has to start with a capital letter in order for the function to be exported and be available from an other module. But this is also applied to the fields in structures: a field starting with a capital letter is public whereas starting with a lowercase letter will make it private.
 
 
-<figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">command</span> <span class="kd">struct</span> <span class="p">{</span>
-  <span class="nx">Cmd</span>      <span class="kt">string</span>                 <span class="c1">// public</span>
-  <span class="nx">PlayerID</span> <span class="kt">uint32</span>                 <span class="c1">// public</span>
-  <span class="nx">data</span>     <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span> <span class="c1">// private</span>
-<span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="k">type</span><span class="x"> </span><span class="n">command</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="n">Cmd</span><span class="x">      </span><span class="kt">string</span><span class="x">                 </span><span class="c">// public</span><span class="x">
+  </span><span class="n">PlayerID</span><span class="x"> </span><span class="kt">uint32</span><span class="x">                 </span><span class="c">// public</span><span class="x">
+  </span><span class="n">data</span><span class="x">     </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}</span><span class="x"> </span><span class="c">// private</span><span class="x">
+</span><span class="p">}</span></code></pre></figure>
 
 
 </p>
@@ -206,11 +206,11 @@ One of the parts I got tricked by is the naming convention for variables and fun
 
 <p>
 
-<figure class="highlight"><pre><code class="language-go" data-lang="go">  <span class="kd">type</span> <span class="nx">command</span> <span class="kd">struct</span> <span class="p">{</span>
-  <span class="nx">Cmd</span>      <span class="kt">string</span>                 <span class="s">`json:&quot;cmd&quot;`</span>
-  <span class="nx">PlayerID</span> <span class="kt">uint32</span>                 <span class="s">`json:&quot;playerID&quot;`</span>
-  <span class="nx">Data</span>     <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span> <span class="s">`json:&quot;data&quot;`</span>
-<span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="x">  </span><span class="k">type</span><span class="x"> </span><span class="n">command</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="n">Cmd</span><span class="x">      </span><span class="kt">string</span><span class="x">                 </span><span class="s">`json:"cmd"`</span><span class="x">
+  </span><span class="n">PlayerID</span><span class="x"> </span><span class="kt">uint32</span><span class="x">                 </span><span class="s">`json:"playerID"`</span><span class="x">
+  </span><span class="n">Data</span><span class="x">     </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}</span><span class="x"> </span><span class="s">`json:"data"`</span><span class="x">
+</span><span class="p">}</span></code></pre></figure>
 
 
 </p>
