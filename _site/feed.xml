@@ -7,6 +7,64 @@
 		<atom:link href="https://www.jtp.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Pancakes and Triangles</title>
+				<description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;//twitter.com/MathsJam&quot;&gt;MathsJam&lt;/a&gt; is a good time to get to solve interesting puzzles with other people.&lt;/p&gt;
+
+&lt;p&gt;While the name suggests it is mostly focused on pure math, I prefer to approach the problems in a more pragmatic way, usually with the help of computer programs.&lt;/p&gt;
+
+&lt;p&gt;It’s funny because coming to the solution this way always makes the others raise eyebrows: “Nah it doesn’t really solve the problem, does it?” or “It’s not proper math”.&lt;/p&gt;
+
+&lt;p&gt;I came across this &lt;a href=&quot;https://youtu.be/1GKfEDvhWdY?t=441&quot;&gt;video&lt;/a&gt; by &lt;a href=&quot;//twitter.com/jamesgrime&quot;&gt;James Grime&lt;/a&gt; the other day, and found it amusing because this is exactly what he and &lt;a href=&quot;//twitter.com/standupmaths&quot;&gt;Matt Parker&lt;/a&gt; talked about.&lt;/p&gt;
+
+&lt;p&gt;Anyway, here are two puzzles with some kind of math aspect. For both of them, Python in conjunction with the &lt;a href=&quot;//jupyter.org&quot;&gt;Jupyter Notebook&lt;/a&gt; turned out to be &lt;strong&gt;incredibly powerful tools!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;investigating-pancakes-stacks&quot;&gt;Investigating Pancakes Stacks&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A stack of different sized pancakes can be sorted into size order by repeatedly inserting a spatula underneath one of the pancakes, and flipping the top section over.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;What’s the most flips you might need to sort a stack of four different sized pancakes?&lt;/li&gt;
+    &lt;li&gt;With 6 pancakes, exactly two stacks exist that need 7 flips. Can you find one?&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sure many people have already worked on this since it is quite famous. Even &lt;a href=&quot;//en.wikipedia.org/wiki/Pancake_sorting#The_original_pancake_problem&quot;&gt;Bill Gates&lt;/a&gt; has apparently done some research on it.&lt;/p&gt;
+
+&lt;p&gt;We imagined the problem as a &lt;strong&gt;graph&lt;/strong&gt;, and the number of flips as &lt;strong&gt;distances between nodes&lt;/strong&gt;. So we used the great &lt;a href=&quot;//networkx.github.io/&quot;&gt;networkx&lt;/a&gt; library to facilitate graph creation and shortest paths calcultations. Again, a super useful tool!&lt;/p&gt;
+
+&lt;p&gt;Here is a notebook detailing the different steps, with the Python code and some explanations: &lt;a href=&quot;//nbviewer.jupyter.org/gist/jtpio/7100232ffa745b27f7df&quot;&gt;nbviewer.jupyter.org/gist/jtpio/7100232ffa745b27f7df&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;triangle-fraction&quot;&gt;Triangle Fraction&lt;/h2&gt;
+
+&lt;p&gt;The original problem was found on Twitter, posted by &lt;a href=&quot;//twitter.com/math8_teacher/status/687639479457153025&quot;&gt;@math8_teacher&lt;/a&gt;, and looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;//gist.githubusercontent.com/jtpio/3f222251a25aa0b7898e/raw/7ed0f10212674f83ab6b4c5131cf38524fc8be7c/triangles_original.png&quot; alt=&quot;Triangle Fraction&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Three equilateral triangles. Which fraction is shaded?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;While it’s possible to solve it by hand with some time and geometry skills, it’s even more fun to state the problem and let Python do the calcultations. The other good thing about using a program is that it makes it easier to extend to four, five or more triangles.&lt;/p&gt;
+
+&lt;p&gt;Again, here is the notebook: &lt;a href=&quot;//nbviewer.jupyter.org/gist/jtpio/3f222251a25aa0b7898e/MathsJam-2016-01-19_Triangle_Fraction.ipynb&quot;&gt;nbviewer.jupyter.org/gist/jtpio/3f222251a25aa0b7898e/MathsJam-2016-01-19_Triangle_Fraction.ipynb&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;questions&quot;&gt;Questions?&lt;/h2&gt;
+
+&lt;p&gt;The notebook are concise but hopefully cover the main point. There might even be more extensions to these problems that will make them even more interesting.&lt;/p&gt;
+
+&lt;p&gt;So if after looking at the notebooks you have questions, suggestions or bug fixes, feel free to let me know!&lt;/p&gt;
+</description>
+				<pubDate>Sun, 21 Feb 2016 16:00:00 +0100</pubDate>
+				<link>https://www.jtp.io/2016/02/21/pancakes-and-triangles.html</link>
+				<guid isPermaLink="true">https://www.jtp.io/2016/02/21/pancakes-and-triangles.html</guid>
+			</item>
+		
+			<item>
 				<title>Plotting Music Events Locations on a Globe</title>
 				<description>&lt;p&gt;Here is a project called &lt;strong&gt;&lt;a href=&quot;//music-globe.jtp.io&quot;&gt;Music Globe&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
 
@@ -1242,78 +1300,6 @@ Source: &lt;a href=&quot;http://photos1.blogger.com/blogger/1648/2486/1600/Tube.
 				<pubDate>Tue, 24 Mar 2015 00:00:00 +0100</pubDate>
 				<link>https://www.jtp.io/2015/03/24/js1k-2015-postmortem.html</link>
 				<guid isPermaLink="true">https://www.jtp.io/2015/03/24/js1k-2015-postmortem.html</guid>
-			</item>
-		
-			<item>
-				<title>Preparing for the Global Game Jam 2015</title>
-				<description>&lt;p&gt;
-  It&#39;s this time of the year again! The &lt;a href=&quot;//globalgamejam.org/&quot; title=&quot;Global Game Jam 2015&quot;&gt;Global Game Jam&lt;/a&gt; is happening this weekend everywhere in the world. &lt;br /&gt;
-  For the third time in a raw I will be taking part of this BIG event, and it will be in &lt;a href=&quot;//www.malmojamstoo.com/&quot; title=&quot;Malmo Jams Too!&quot;&gt;Malmö&lt;/a&gt;, Sweden.
-&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;max-width: 100%;&quot; src=&quot;/res/malmojamstoo.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2&gt; Prepare your stuff &lt;/h2&gt;
-
-&lt;p&gt;
-  The key point to have fun and to not fail at a game jam is to come &lt;strong&gt;prepared&lt;/strong&gt;. &lt;br /&gt;
-  Being prepared means having all the tools ready before starting the game jam. It is also important to think about the logistic (food, sleep, transport ...) to be as comfortable as possible while jamming.
-&lt;/p&gt;
-
-&lt;p&gt;
-  There is a very good &lt;strong&gt; check list &lt;/strong&gt; on the malmojamstoo website that you should take a look at: &lt;br /&gt;
-  &lt;a href=&quot;//malmojamstoo.com/files/GGJ2015_MJT_Checklist.pdf&quot;&gt;malmojamstoo.com/files/GGJ2015_MJT_Checklist.pdf&lt;/a&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-  Here is a quick summary of the points I think are the most important for the preparation and on site:
-&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt; Check your hardware and make sure your computer can survive a 48 hours jam&lt;/li&gt;
-  &lt;li&gt; Check your programs and tools (Game Creation tools, IDEs, Audio, Graphics) &lt;/li&gt;
-  &lt;li&gt; Balance your team: programmers, artists, sound designer ... &lt;/li&gt;
-  &lt;li&gt; Get a prototype working quickly, start small and iterate &lt;/li&gt;
-  &lt;li&gt; Sleep, at least Friday night &lt;/li&gt;
-  &lt;li&gt; Keep a bottle of water / redbull and some snacks in case of starvation &lt;/li&gt;
-  &lt;li&gt; &lt;strong&gt; Keep it simple &lt;/strong&gt; &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt; How I prepared for the GGJ &lt;/h2&gt;
-
-&lt;h3&gt; Booting up the old Windows &lt;/h3&gt;
-
-&lt;p&gt;
-  It seems easy, but it wasn&#39;t that nice. A few seconds after startup, I was stuck with a BSOD right in the face. I hadn&#39;t used my Windows session (dual-boot) for more than 2 months, so it&#39;s hard to know why it just broke... &lt;br /&gt;
-  Rather than spending hours trying to fix that mess, I decided to reinstall Windows entirely. Since I don&#39;t have any Windows CD available, the easiest solution was to instal a fresh new copy of the Windows 10 tech preview. The install went well, I managed to install the classic tools, like Unity and Dropbox. Then followed several hours of normal usage and in the end everything felt pretty stable.
-&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;max-width: 100%;&quot; src=&quot;/res/20150120_BSOD.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt; Unity warm-up &lt;/h3&gt;
-
-&lt;p&gt;
-  I haven&#39;t used Unity since the last Global Game Jam, so it was the good occasion to do something very small to get familiar again with the environment. &lt;br /&gt;
-  Since I recently got a Google Carboard, I wanted to know how to get something running on that. The Cardboard seems to be a good support for originality and new game ideas so let&#39;s try a quick experiment on it.
-&lt;/p&gt;
-
-&lt;p&gt;
-  I gave myself two hours to come up with a small demo of &quot;something VR&quot;. I ended up doing a quick 3D demo of a snowman jumping on blocks in the sky (inspired by &lt;a href=&quot;//play.google.com/store/apps/details?id=com.gtomee.eatthatsnow&quot;&gt;Eat That Snow&lt;/a&gt; obviously), that is working pretty well with the cardboard.
-&lt;/p&gt;
-
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;//www.youtube.com/embed/om5FfYizq5Q&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;h3&gt; That&#39;s it &lt;/h3&gt;
-
-&lt;p&gt;
-  Now is time to rest before the long weekend. &lt;br /&gt;
-  If you are going to jam as well, have fun!
-&lt;/p&gt;
-</description>
-				<pubDate>Wed, 21 Jan 2015 20:00:00 +0100</pubDate>
-				<link>https://www.jtp.io/2015/01/21/global-game-jam-2015-preparation.html</link>
-				<guid isPermaLink="true">https://www.jtp.io/2015/01/21/global-game-jam-2015-preparation.html</guid>
 			</item>
 		
 	</channel>
