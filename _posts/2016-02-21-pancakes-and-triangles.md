@@ -48,6 +48,6 @@ Again, here is the notebook: [nbviewer.jupyter.org/gist/jtpio/3f222251a25aa0b789
 
 ## Questions?
 
-The notebook are concise but hopefully cover the main point. There might even be more extensions to these problems that will make them even more interesting.
+The notebooks are concise but hopefully cover the main point. There might even be more extensions to these problems that will make them even more interesting.
 
 So if after looking at the notebooks you have questions, suggestions or bug fixes, feel free to let me know!
