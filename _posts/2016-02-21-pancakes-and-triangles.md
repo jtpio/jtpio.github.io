@@ -32,7 +32,7 @@ Sure many people have already worked on this since it is quite famous. Even [Bil
 
 We imagined the problem as a **graph**, and the number of flips as **distances between nodes**. So we used the great [networkx](//networkx.github.io/) library to facilitate graph creation and shortest paths calculations. Again, a super useful tool!
 
-Here is a notebook detailing the different steps, with the Python code and some explanations: [nbviewer.jupyter.org/gist/jtpio/7100232ffa745b27f7df](//nbviewer.jupyter.org/gist/jtpio/7100232ffa745b27f7df)
+Here is a notebook detailing the different steps, with the Python code and some explanations: [Investigating pancake stacks Notebook](//nbviewer.jupyter.org/gist/jtpio/7100232ffa745b27f7df)
 
 ## Triangle Fraction
 
@@ -44,7 +44,7 @@ The original problem was found on Twitter, posted by [@math8_teacher](//twitter.
 
 While it's possible to solve it by hand with some time and geometry skills, it's even more fun to state the problem and let Python do the calcultations. The other good thing about using a program is that it makes it easier to extend to four, five or more triangles.
 
-Again, here is the notebook: [nbviewer.jupyter.org/gist/jtpio/3f222251a25aa0b7898e/MathsJam-2016-01-19_Triangle_Fraction.ipynb](//nbviewer.jupyter.org/gist/jtpio/3f222251a25aa0b7898e/MathsJam-2016-01-19_Triangle_Fraction.ipynb)
+Again, here is the notebook: [Triangle Fractions Notebook](//nbviewer.jupyter.org/gist/jtpio/3f222251a25aa0b7898e/MathsJam-2016-01-19_Triangle_Fraction.ipynb)
 
 ## Questions?
 

@@ -37,7 +37,7 @@
 
 &lt;p&gt;We imagined the problem as a &lt;strong&gt;graph&lt;/strong&gt;, and the number of flips as &lt;strong&gt;distances between nodes&lt;/strong&gt;. So we used the great &lt;a href=&quot;//networkx.github.io/&quot;&gt;networkx&lt;/a&gt; library to facilitate graph creation and shortest paths calculations. Again, a super useful tool!&lt;/p&gt;
 
-&lt;p&gt;Here is a notebook detailing the different steps, with the Python code and some explanations: &lt;a href=&quot;//nbviewer.jupyter.org/gist/jtpio/7100232ffa745b27f7df&quot;&gt;nbviewer.jupyter.org/gist/jtpio/7100232ffa745b27f7df&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here is a notebook detailing the different steps, with the Python code and some explanations: &lt;a href=&quot;//nbviewer.jupyter.org/gist/jtpio/7100232ffa745b27f7df&quot;&gt;Investigating pancake stacks Notebook&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;triangle-fraction&quot;&gt;Triangle Fraction&lt;/h2&gt;
 
@@ -51,7 +51,7 @@
 
 &lt;p&gt;While it’s possible to solve it by hand with some time and geometry skills, it’s even more fun to state the problem and let Python do the calcultations. The other good thing about using a program is that it makes it easier to extend to four, five or more triangles.&lt;/p&gt;
 
-&lt;p&gt;Again, here is the notebook: &lt;a href=&quot;//nbviewer.jupyter.org/gist/jtpio/3f222251a25aa0b7898e/MathsJam-2016-01-19_Triangle_Fraction.ipynb&quot;&gt;nbviewer.jupyter.org/gist/jtpio/3f222251a25aa0b7898e/MathsJam-2016-01-19_Triangle_Fraction.ipynb&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Again, here is the notebook: &lt;a href=&quot;//nbviewer.jupyter.org/gist/jtpio/3f222251a25aa0b7898e/MathsJam-2016-01-19_Triangle_Fraction.ipynb&quot;&gt;Triangle Fractions Notebook&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;questions&quot;&gt;Questions?&lt;/h2&gt;
 
