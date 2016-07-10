@@ -8,22 +8,14 @@ categories:
 - python
 ---
 
-<p>
-  As a pretext to write a meaningful blog post, I wanted to go back to one of my recent little hacks.
-</p>
+As a pretext to write a meaningful blog post, I wanted to go back to one of my recent little hacks.
 
-<p>
-  There was a race, <a href="//www.malmomilen.se/">MalmöMilen</a>, which happened on June 14, 2014. But before actually going to the race, I wanted to know what was the distribution of the participants into the different start groups. <br>
-  I had registered myself in the 50-55 minutes start group, but I knew I would do less than 44 minutes (yes that was a stupid choice). The question then was to know how many runners (roughly) will be positioned before and that I will have to overtake.
-</p>
+There was a race, [MalmöMilen](//www.malmomilen.se/), which happened on June 14, 2014. But before actually going to the race, I wanted to know what was the distribution of the participants into the different start groups. <br>
+I had registered myself in the 50-55 minutes start group, but I knew I would do less than 44 minutes (yes that was a stupid choice). The question then was to know how many runners (roughly) will be positioned before and that I will have to overtake.
 
-<p>
-  The simple solution was to use an <a href="//nbviewer.ipython.org/gist/jtuloup/bb218bf22605d56ab670">iPython notebook</a> and do some data scraping, directly using the data from their website. Code (pretty short and simple) and graph follow.
-</p>
+The simple solution was to use an [Jupyter Notebook](//nbviewer.ipython.org/gist/jtuloup/bb218bf22605d56ab670") and do some data scraping, directly using the data from their website. Code (pretty short and simple) and graph follow.
 
-<p>
-
-{% highlight python3 %}
+{% highlight python %}
 from bs4 import BeautifulSoup
 import requests
 import json
@@ -44,14 +36,11 @@ for line in table:
 print("There are " + str(len(table)) + " participants")
 {%endhighlight%}
 
-</p>
+This is how we get the number of participant and group them by start time.
 
-<p>
-This is how we get the number of participant and group them by start time. <br>
 The following illustrates how to visualize the distribution on a nice graph.
-</p>
 
-{% highlight python3 %}
+{% highlight python %}
 % matplotlib inline
 
 import matplotlib.pyplot as plt; plt.rcdefaults()
@@ -74,15 +63,12 @@ for i, rect in enumerate(rects):
 plt.show()
 {%endhighlight%}
 
-<p>
 Which plots the following graph:
-</p>
 
 <div class="embed-responsive embed-responsive-16by9">
   <img class="embed-responsive-item" src="/res/ipython/malmomilen-pre-start-group.png">
 </div>
 
-<p>
-Now that the race is finished and results are out, I really want to play with the available data and make it say something. <br>
+Now that the race is finished and results are out, I really want to play with the available data and make it say something.
+
 Next time!
-</p>

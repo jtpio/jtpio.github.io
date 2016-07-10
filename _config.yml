@@ -1,5 +1,5 @@
 name: "Jeremy Tuloup"
-description: "Experiments, algorithms, data and game jams"
+description: "math, puzzles, data science, visualization and game jams"
 url: https://www.jtp.io
 enforce_ssl: www.jtp.io
 markdown: kramdown
@@ -7,5 +7,5 @@ kramdown:
   math_engine: mathjax
   math_engine_opts:
     preview: true
-highlighter: rouge
+  highlighter: rouge
 permalink: /:year/:month/:day/:title.html

@@ -16,10 +16,10 @@ Recently I have decided to compile a list of stats to learn more about myself, m
 
 The first part of the analysis focuses on visualizing and understanding the data.
 
-Everything is explained in the following iPython notebook. Go and check it out!
+Everything is explained in the following Jupyter Notebook. Go and check it out!
 
 <p class="bigger">
-	<a href="http://nbviewer.ipython.org/github/jtpio/data-playground/blob/master/trello/personal-trello-stats.ipynb">Finding out what I like using Trello - Part 1 (iPython notebook)</a>
+	<a href="http://nbviewer.jupyter.org/github/jtpio/data-playground/blob/master/trello/personal-trello-stats.ipynb">Finding out what I like using Trello - Part 1 (Jupyter Notebook)</a>
 </p>
 
 ## Next steps

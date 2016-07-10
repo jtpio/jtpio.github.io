@@ -19,7 +19,7 @@ categories:
 </p>
 
 <p>
-   The stats are compiled in the following <a class="bigger" href="http://nbviewer.ipython.org/gist/jtuloup/bb218bf22605d56ab670">iPython notebook</a>.
+   The stats are compiled in the following <a class="bigger" href="http://nbviewer.jupyter.org/gist/jtuloup/bb218bf22605d56ab670">Jupyter Notebook</a>.
 </p>
 
 <p>
