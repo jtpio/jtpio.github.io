@@ -65,7 +65,7 @@ img.center {
   margin-top: 10px;
 }
 
-.highlight pre {
+.highlight pre, .highlighter-rouge {
 	background-color: #111111;
 	color: #eeeeee;
 }
