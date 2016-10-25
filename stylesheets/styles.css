@@ -1,8 +1,9 @@
 body {
   margin: auto;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
   background-color: #222222;
-  color: #dddddd;
+  color: #eeeeee;
 }
 
 a, a:hover {
@@ -65,9 +66,14 @@ img.center {
   margin-top: 10px;
 }
 
-.highlight pre, .highlighter-rouge {
-	background-color: #111111;
+.highlight pre {
+	background-color: #222222;
 	color: #eeeeee;
+}
+
+.highlighter-rouge {
+  background-color: #ffffff;
+  color: #111111;
 }
 
 pre code{

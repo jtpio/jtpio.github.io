@@ -1,0 +1,136 @@
+.ace_editor,
+.highlight {
+    background-color: #2b2b2b!important;
+    color: #f4f1ed!important;
+    font-family: monospace;
+}
+
+/* Generic unstyled attribute */
+.highlight .g,
+.highlight .gd,
+.highlight .gr,
+.highlight .gi,
+.highlight .gp,
+.highlight .gt,
+{
+    color: #fff!important
+}
+
+/* Comments */
+.highlight .c,
+.highlight .cm,
+.highlight .cp,
+.highlight .c1,
+.highlight .cs
+{
+    color: #bc9458!important;
+    font-style: italic!important
+}
+
+/* Keywords */
+.highlight .k,
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt
+{
+    color: #da4939!important;
+    font-weight: bold;
+}
+
+/* Strings */
+.highlight .s,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s2,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .s1,
+.highlight .ss
+{
+    color: #ffc66d!important;
+}
+
+/* Numbers */
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il  /* long integer */
+{
+    color: #b6b3eb!important;
+}
+
+/* Literals */
+.highlight .l ,
+.highlight .ld
+{
+    color: #fff!important;
+}
+
+/* Variables / function names */
+.highlight .n,
+.highlight .na,
+.highlight .nb,
+.highlight .nc,
+.highlight .no,
+.highlight .nd,
+.highlight .ni,
+.highlight .ne,
+.highlight .nf,
+.highlight .nl,
+.highlight .nn,
+.highlight .nx,
+.highlight .nt,
+.highlight .nv,
+.highlight .py, /* name property */
+.highlight .vg, /* global variable */
+.highlight .vi  /* instance variable */
+{
+    color: #a5b261;
+}
+
+/* Operator */
+.highlight .o,
+.highlight .ow
+{
+    color: #bc9458!important
+}
+
+/* Punctuation */
+.highlight .p {
+    color: #fff!important
+}
+
+/* Whitespace */
+.highlight .w {
+    color: #fff!important
+}
+
+/* Errors */
+.highlight .err {
+    background: #da4939!important;
+    color: #d4cfc9!important
+}
+
+/* Other */
+.highlight .x {
+    color: #fff!important
+}
+
+/* Built-in pseudo code */
+.highlight .bp {
+    color: #fff!important
+}
+
+/* Class variables */
+.highlight .vc {
+    color: #fff!important
+}

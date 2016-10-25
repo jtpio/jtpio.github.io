@@ -151,7 +151,7 @@ Which outputs:
 Probablity to form a square: 0.000518
 {% endhighlight %}
 
-The value is pretty close to the calculated one. Of course it is not exactly equal, and running the program again would output a different value. But it is approximately equal, and it is a good way to verify that the **order of magnitude is good correct**.
+The value is pretty close to the calculated one. Of course it is not exactly equal, and running the program again would output a different value. But it is approximately equal, and it is a good way to verify that the **order of magnitude is correct**.
 
 ## Conclusion
 Once again, nice puzzle, without having to be too complicated.
