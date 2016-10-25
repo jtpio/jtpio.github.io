@@ -70,6 +70,10 @@ img.center {
 	color: #eeeeee;
 }
 
+pre code{
+	white-space: pre;
+}
+
 .list-group-item {
 	background-color: #333333;
 }
