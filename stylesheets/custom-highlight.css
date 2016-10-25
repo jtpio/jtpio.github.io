@@ -34,6 +34,7 @@
 .highlight .kn,
 .highlight .kp,
 .highlight .kr,
+.highlight .bp, /* Built-in pseudo code */
 .highlight .kt
 {
     color: #da4939!important;
@@ -81,7 +82,6 @@
 .highlight .nb,
 .highlight .nc,
 .highlight .no,
-.highlight .nd,
 .highlight .ni,
 .highlight .ne,
 .highlight .nf,
@@ -95,6 +95,11 @@
 .highlight .vi  /* instance variable */
 {
     color: #a5b261;
+}
+
+.highlight .nd
+{
+    color: #23b3eb;
 }
 
 /* Operator */
@@ -122,11 +127,6 @@
 
 /* Other */
 .highlight .x {
-    color: #fff!important
-}
-
-/* Built-in pseudo code */
-.highlight .bp {
     color: #fff!important
 }
 
