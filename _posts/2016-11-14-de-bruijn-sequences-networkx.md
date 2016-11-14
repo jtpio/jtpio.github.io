@@ -8,6 +8,7 @@ categories:
 - programming
 ---
 
+([Link to the corresponding Jupyter Notebook](//nbviewer.jupyter.org/github/jtpio/jtpio.github.io/blob/master/notebooks/de_bruijn_sequences/De_Bruijn_Sequences.ipynb))
 
 De Bruijn sequences are an interesting concept to study, with many real life applications.
 
