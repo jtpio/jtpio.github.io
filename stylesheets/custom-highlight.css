@@ -79,12 +79,10 @@
 /* Variables / function names */
 .highlight .n,
 .highlight .na,
-.highlight .nb,
 .highlight .nc,
 .highlight .no,
 .highlight .ni,
 .highlight .ne,
-.highlight .nf,
 .highlight .nl,
 .highlight .nn,
 .highlight .nx,
@@ -95,6 +93,17 @@
 .highlight .vi  /* instance variable */
 {
     color: #a5b261;
+}
+
+/* Name Built-in */
+.highlight .nb {
+    color: #b6b3eb;
+}
+
+/* Function name */
+.highlight .nf
+{
+    color: #cc7833;
 }
 
 .highlight .nd
