@@ -565,6 +565,6 @@ Using the simulated annealing approach, we found one solution and stopped the pr
 
 The second approach has the advantage of finding all the solutions rather quickly. It requires a bit more analysis and a better representation of the problem, but speeds up the search significantly.
 
-Regarding the execution speed, the Python program takes 12 seconds to output the 12 solutions, which is reasonnable. I implemented the same logic in C++ just by curiosity (available [here](//gist.githubusercontent.com/jtpio/2d80fce07761e783a88146722625e2ad/raw/314978bdbee355372d440ffa7977d7bb67c544c6/solver.cpp)), and the program terminates in a fraction of a second. If we want blazing fast programs, it is always possible to use a more adequate programming language for that!
+Regarding the execution speed, the Python program takes a bit more than 10 seconds to output the 12 solutions, which is reasonnable. I implemented the same logic in C++ just by curiosity (available [here](//gist.githubusercontent.com/jtpio/2d80fce07761e783a88146722625e2ad/raw/314978bdbee355372d440ffa7977d7bb67c544c6/solver.cpp)), and the program terminates in a fraction of a second. If we want blazing fast programs, it is always possible to use a more adequate programming language for that!
 
 And that concludes it, for another toy puzzle shamelessly solved with code :)
