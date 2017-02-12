@@ -83,3 +83,8 @@ pre code{
 .list-group-item {
 	background-color: #333333;
 }
+
+table td, table th {
+	text-align: center;
+	font-size: 16px;
+}
