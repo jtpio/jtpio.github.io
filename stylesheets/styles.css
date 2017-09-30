@@ -72,8 +72,8 @@ img.center {
 }
 
 .highlighter-rouge {
-  background-color: #ffffff;
-  color: #111111;
+  background-color: #000;
+  color: #fff;
 }
 
 pre code{
