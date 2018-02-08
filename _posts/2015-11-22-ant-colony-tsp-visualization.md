@@ -25,7 +25,7 @@ A lot of work and research have already been done about this topic. Many algorit
 Here are two good resources (among others) to get started:
 
 1. The [Wikipedia page](//en.wikipedia.org/wiki/Travelling_salesman_problem) provides a clear overview.
-2. For a more in-depth analysis with real Python code: Peter Norvig made an [excellent iPython notebook](//nbviewer.ipython.org/url/norvig.com/ipython/TSPv3.ipynb). This notebook contains the implementations of different techniques. A very interesting read.
+2. For a more in-depth analysis with real Python code: Peter Norvig made an [excellent Jupyter Notebook](//nbviewer.ipython.org/github/norvig/pytudes/blob/master/ipynb/TSP.ipynb). This notebook contains the implementations of different techniques. A very interesting read.
 
 Given these two resources, what I would like to present in this post is not another technical and exhaustive analysis, since it has already been done many times by experts in that field.
 
