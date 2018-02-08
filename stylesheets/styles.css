@@ -89,8 +89,12 @@ table td, table th {
 	font-size: 16px;
 }
 
-pre code {
+pre code, code {
   font-family: 'Ubuntu Mono', monospace;
   font-size: 15px;
 }
 
+.content-heading img {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
