@@ -18,7 +18,7 @@ I have recently been experimenting with [p5.js](https://p5js.org), the Jupyter N
 
 The end result looks like the following:
 
-![animation-gif](https://raw.githubusercontent.com/jtpio/p5-jupyter-notebook/master/img/animation.gif)
+<img class="center" src="https://raw.githubusercontent.com/jtpio/p5-jupyter-notebook/master/img/animation.gif" alt="Animation Gif" />
 
 ## Try it
 
