@@ -4,11 +4,11 @@ comments: true
 ---
 
 <h2> <strong> {{ page.title }} </strong> &ndash; {{ page.date | date: '%B %d, %Y' }} </h2>
-<h4>
+<h5>
 {% for cat in page.categories %}
-	<span class="label label-default">{{cat}}</span>
+	<span class="badge badge-secondary">{{cat}}</span>
 {% endfor %}
-</h4>
+</h5>
 
 {{ content }}
 

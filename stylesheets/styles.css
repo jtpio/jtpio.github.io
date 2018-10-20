@@ -1,7 +1,6 @@
 body {
   margin: auto;
   font-family: 'Open Sans', sans-serif;
-  font-size: 15px;
   background-color: #222222;
   color: #eeeeee;
 }
@@ -17,10 +16,6 @@ a, a:hover {
 .social a {
   display: inline-block;
   margin-right: 10px;
-}
-
-.labels {
-  font-size: 24px;
 }
 
 .smaller {
@@ -68,7 +63,9 @@ img.center {
 
 .highlight pre {
 	background-color: #222222;
-	color: #eeeeee;
+  color: #eeeeee;
+  border: solid white 1px;
+  padding: 10px;
 }
 
 .highlighter-rouge {
@@ -97,4 +94,19 @@ pre code, code {
 .content-heading img {
 	margin-left: 10px;
 	margin-bottom: 10px;
+}
+
+hr {
+  margin-bottom: 10px;
+}
+
+blockquote {
+  padding: 10.5px 21px;
+  margin: 0 0 21px;
+  font-size: 18.75px;
+  border-left: 5px solid #4e5d6c;
+}
+
+blockquote footer:before, blockquote small:before, blockquote .small:before {
+  content: '\2014 \00A0';
 }
