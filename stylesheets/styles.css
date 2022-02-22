@@ -5,6 +5,10 @@ body {
   color: #eeeeee;
 }
 
+iframe {
+  border: none;
+}
+
 a, a:hover {
 	color: #df831a;
 }
