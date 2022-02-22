@@ -12,13 +12,13 @@ Long time no see!
 
 For the past years I have been pretty busy contributing to open source projects within the Jupyter ecosystem on <a href="https://github.com/jtpio">GitHub</a>.
 
-Most of my blog post have then be published on the <a href="https://medium.com/@jeremy.tuloup">Jupyter Blog on Medium</a>.
+Most of my blog posts have then been published on the <a href="https://medium.com/@jeremy.tuloup">Jupyter Blog on Medium</a>.
 
 Here is a quick update of one the most recent Jupyter projects.
 
 ## JupyterLite - Wasm powered Jupyter running in the browser 💡
 
-One of the projects I have been busy with recently is JupyterLite.
+One of the projects I have been busy with recently is <a href="https://github.com/jupyterlite/jupyterlite/">JupyterLite</a>.
 
 JupyterLite is a JupyterLab distribution that runs entirely in the browser built from the ground-up using JupyterLab components and extensions.
 
@@ -34,7 +34,7 @@ JupyterLite is a JupyterLab distribution that runs entirely in the browser built
 
 ## The case for a standalone REPL
 
-With JupyterLite you can create fully interactive static website with the JupyterLab and RetroLab interfaces.
+With JupyterLite you can create fully interactive static websites with the JupyterLab and RetroLab interfaces.
 
 What makes it interesting is that you can also create custom applications with other JupyterLab widgets and extensions.
 
