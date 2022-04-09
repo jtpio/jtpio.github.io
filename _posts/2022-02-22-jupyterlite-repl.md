@@ -53,7 +53,7 @@ This is for example the case on the <a href="https://numpy.org">numpy.org</a> we
 Since it is easy to embed, you can add the REPL to almost any website with an IFrame. For example in this post:
 
 <iframe
-  src="https://replite.vercel.app/repl?toolbar=1&kernel=python&theme=JupyterLab Dark"
+  src="https://jtpio.github.io/lit/repl?toolbar=1&kernel=python&theme=JupyterLab Dark"
   width="100%"
   height="600px"
 >
