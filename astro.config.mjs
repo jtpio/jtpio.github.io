@@ -26,95 +26,95 @@ export default defineConfig({
     },
     "/2022/02/22/jupyterlite-repl.html": {
       status: 302,
-      destination: "/jupyterlite-repl",
+      destination: "/blog/jupyterlite-repl",
     },
     "/2018/02/22/p5js-jupyter-notebook-widgets.html": {
       status: 302,
-      destination: "/p5js-jupyter-notebook-widgets",
+      destination: "/blog/p5js-jupyter-notebook-widgets",
     },
     "/2017/05/10/nine-color-cube.html": {
       status: 302,
-      destination: "/nine-color-cube",
+      destination: "/blog/nine-color-cube",
     },
     "/2017/02/12/tmb-2016-analysis.html": {
       status: 302,
-      destination: "/tmb-2016-analysis",
+      destination: "/blog/tmb-2016-analysis",
     },
     "/2017/01/12/aristotle-number-puzzle.html": {
       status: 302,
-      destination: "/aristotle-number-puzzle",
+      destination: "/blog/aristotle-number-puzzle",
     },
     "/2016/11/14/de-bruijn-sequences-networkx.html": {
       status: 302,
-      destination: "/de-bruijn-sequences-networkx",
+      destination: "/blog/de-bruijn-sequences-networkx",
     },
     "/2016/07/26/dynamic-programming-python.html": {
       status: 302,
-      destination: "/dynamic-programming-python",
+      destination: "/blog/dynamic-programming-python",
     },
     "/2016/02/21/pancakes-and-triangles.html": {
       status: 302,
-      destination: "/pancakes-and-triangles",
+      destination: "/blog/pancakes-and-triangles",
     },
     "/2016/01/09/music-events-globe.html": {
       status: 302,
-      destination: "/music-events-globe",
+      destination: "/blog/music-events-globe",
     },
     "/2015/11/22/ant-colony-tsp-visualization.html": {
       status: 302,
-      destination: "/ant-colony-tsp-visualization",
+      destination: "/blog/ant-colony-tsp-visualization",
     },
     "/2015/09/27/tips-multiplayer-game-jam.html": {
       status: 302,
-      destination: "/tips-multiplayer-game-jam",
+      destination: "/blog/tips-multiplayer-game-jam",
     },
     "/2015/08/09/puzzle-pawns-chessboard-square.html": {
       status: 302,
-      destination: "/puzzle-pawns-chessboard-square",
+      destination: "/blog/puzzle-pawns-chessboard-square",
     },
     "/2015/06/19/solving-schoenbrunn-math-puzzle.html": {
       status: 302,
-      destination: "/solving-schoenbrunn-math-puzzle",
+      destination: "/blog/solving-schoenbrunn-math-puzzle",
     },
     "/2015/06/02/malmo-milen-2015-pre-analysis.html": {
       status: 302,
-      destination: "/malmo-milen-2015-pre-analysis",
+      destination: "/blog/malmo-milen-2015-pre-analysis",
     },
     "/2015/05/11/trello-reading-stats.html": {
       status: 302,
-      destination: "/trello-reading-stats",
+      destination: "/blog/trello-reading-stats",
     },
     "/2015/04/18/project-euler-57.html": {
       status: 302,
-      destination: "/project-euler-57",
+      destination: "/blog/project-euler-57",
     },
     "/2015/03/24/js1k-2015-postmortem.html": {
       status: 302,
-      destination: "/js1k-2015-postmortem",
+      destination: "/blog/js1k-2015-postmortem",
     },
     "/2015/01/21/global-game-jam-2015-preparation.html": {
       status: 302,
-      destination: "/global-game-jam-2015-preparation",
+      destination: "/blog/global-game-jam-2015-preparation",
     },
     "/2014/10/22/meetup-malmo-language.html": {
       status: 302,
-      destination: "/meetup-malmo-language",
+      destination: "/blog/meetup-malmo-language",
     },
     "/2014/10/14/malmo-milen-post-analysis.html": {
       status: 302,
-      destination: "/malmo-milen-post-analysis",
+      destination: "/blog/malmo-milen-post-analysis",
     },
     "/2014/10/05/rewriting-game-backend-go.html": {
       status: 302,
-      destination: "/rewriting-game-backend-go",
+      destination: "/blog/rewriting-game-backend-go",
     },
     "/2014/06/27/malmo-milen-pre-analysis.html": {
       status: 302,
-      destination: "/malmo-milen-pre-analysis",
+      destination: "/blog/malmo-milen-pre-analysis",
     },
     "/2014/06/27/hi.html": {
       status: 302,
-      destination: "/hello-world",
+      destination: "/blog/hello-world",
     },
   },
 });
