@@ -27,9 +27,7 @@ export async function GET(context: Context) {
     items: filtered.map((item) => ({
       title: item.data.title,
       pubDate: item.data.date,
-      link: item.slug.startsWith("blog")
-        ? `/blog/${item.slug}/`
-        : `/jupyter/${item.slug}/`,
+      link: `/blog/${item.slug}/`,
     })),
   });
 }
