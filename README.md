@@ -1,12 +1,10 @@
-jtp.io
-=================
+🌐 jtp.io
+=========
 
 Source for [jtp.io](https://jtp.io).
 
-Some posts are directly written in Jupyter Notebooks, and automatically exported to Markdown.
+## ✨ Acknowledgements
 
-## Powered by
+This site is built with [Astro](https://astro.build/)
 
-- [Jekyll](https://jekyllrb.com/)
-- [Bootswatch](https://bootswatch.com/) for the styling, with a few custom tweaks
-- [Jupyter](https://jupyter.org)
+The theme was bootstrapped from [Astro Sphere](https://github.com/markhorn-dev/astro-sphere).

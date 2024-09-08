@@ -1,0 +1,8 @@
+name: "Voilà Dashboards"
+summary: ""
+draft: false
+tags:
+  - Jupyter
+  - Voilà
+repoUrl: https://github.com/voila-dashboards/voila
+weight: 700

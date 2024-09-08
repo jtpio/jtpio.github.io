@@ -1,0 +1,30 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import TopLayout from "@layouts/TopLayout.astro";
+import BottomLayout from "@layouts/BottomLayout.astro";
+import GameJams from "@components/GameJams";
+import { GAME_JAMS } from "@consts";
+---
+
+<PageLayout title={GAME_JAMS.TITLE} description={GAME_JAMS.DESCRIPTION}>
+  <TopLayout>
+    <div class="animate page-heading" style="padding-bottom: 20px;">
+      {GAME_JAMS.TITLE}
+    </div>
+    <p class="animate">
+      Here is a list of the games I made at game jams. Keeping the idea of
+      learning something at every game jam, I always try to focus on a <strong
+        >new concept</strong
+      > I want to implement and learn.
+    </p>
+    <p class="animate mt-4 text-orange-500">
+      <strong>Note:</strong> I haven't been participating in game jams recently.
+      The list of games is kept here as reference.
+    </p>
+  </TopLayout>
+  <BottomLayout>
+    <div class="animate">
+      <GameJams client:load />
+    </div>
+  </BottomLayout>
+</PageLayout>

@@ -1,0 +1,9 @@
+name: "Jupyter Notebook"
+summary: ""
+draft: false
+tags:
+  - Jupyter
+  - Jupyter
+  - Notebook
+repoUrl: https://github.com/jupyter/notebook
+weight: 800

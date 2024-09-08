@@ -1,0 +1,111 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import TopLayout from "@layouts/TopLayout.astro";
+import BottomLayout from "@layouts/BottomLayout.astro";
+import { VIDEOS } from "@consts";
+import YouTubeVideo from "@components/YouTubeVideo";
+
+const talks = await getCollection("talks");
+const tutorials = await getCollection("tutorials");
+
+// Sort the talks by descending date
+talks.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+tutorials.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<PageLayout title={VIDEOS.TITLE} description={VIDEOS.DESCRIPTION}>
+  <TopLayout>
+    <div class="animate page-heading">
+      {VIDEOS.TITLE}
+    </div>
+    <p class="animate mt-4">
+      {VIDEOS.DESCRIPTION}
+    </p>
+  </TopLayout>
+  <BottomLayout>
+    <!-- Talks -->
+    <div class="animate">
+      <h3 class="font-bold">
+        <svg
+          class="size-4 inline-block fill-current group-hover:fill-black group-hover:dark:fill-white blend"
+        >
+          <use href={`/social.svg#youtube`}></use>
+        </svg>
+        Talks and Presentations
+      </h3>
+      <p class="mt-2">
+        I regularly give talks and presentations at conferences, meetups, and
+        workshops. They are currently mostly focused on Jupyter and open source.
+      </p>
+      <p class="mt-2">
+        You can find the full playlist on my
+        <a
+          class="link"
+          target="_blank"
+          href="https://www.youtube.com/playlist?list=PLLYI0gJkfZCWJ98gglNQDjSGH48UyXJnN"
+          >YouTube channel</a
+        >.
+      </p>
+
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+        {
+          talks.map((talk) => (
+            <YouTubeVideo
+              client:only="solid-js"
+              title={talk.data.title}
+              date={talk.data.date}
+              location={talk.data.location}
+              videoUrl={talk.data.videoUrl ?? ""}
+              description={talk.data.description ?? ""}
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Tutorial -->
+    <div class="animate mt-4">
+      <h3 class="font-bold">
+        <svg
+          class="size-4 inline-block fill-current group-hover:fill-black group-hover:dark:fill-white blend"
+        >
+          <use href={`/social.svg#youtube`}></use>
+        </svg>
+        Tutorials
+      </h3>
+      <p class="mt-2">
+        The list of tutorials I have given at conferences and posted on my
+        YouTube channel.
+      </p>
+      <p class="mt-2">
+        You can find the full playlist on my
+        <a
+          class="link"
+          target="_blank"
+          href="https://www.youtube.com/playlist?list=PLLYI0gJkfZCWlM1QNAUqAzrF-ANzWw3C3"
+          >YouTube channel</a
+        >.
+      </p>
+
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+        {
+          tutorials.map((talk) => (
+            <YouTubeVideo
+              client:only="solid-js"
+              title={talk.data.title}
+              date={talk.data.date}
+              location={talk.data.location}
+              videoUrl={talk.data.videoUrl ?? ""}
+              description={talk.data.description ?? ""}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </BottomLayout>
+</PageLayout>
