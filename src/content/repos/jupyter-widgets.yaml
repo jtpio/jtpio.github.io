@@ -1,0 +1,8 @@
+name: "Jupyter Widgets"
+summary: ""
+draft: false
+tags:
+  - Jupyter
+  - Jupyter Widgets
+repoUrl: https://github.com/jupyter-widgets/ipywidgets
+weight: 600

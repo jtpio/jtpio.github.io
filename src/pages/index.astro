@@ -1,0 +1,86 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import TopLayout from "@layouts/TopLayout.astro";
+import { SITE, SOCIALS } from "@consts";
+---
+
+<PageLayout title="Home" description={SITE.DESCRIPTION}>
+  <TopLayout>
+    <section class="animate flex flex-col gap-2">
+      <p>Hi, I'm Jeremy Tuloup 👋</p>
+      <p>
+        I'm a Scientific Software Engineer at <a
+          class="link"
+          href="https://quantstack.net"
+          target="_blank">QuantStack</a
+        >, <a class="link" href="https://jupyter.org" target="_blank">Jupyter</a
+        > Core Developer and <a
+          class="link"
+          href="https://jupyter.org/about#2020-cohort"
+          target="_blank">Distinguished Contributor</a
+        >.
+      </p>
+      <p>
+        This site is a log of posts about Project Jupyter as well as experiments
+        about math, puzzles, computer science, thoughts and other topics of
+        interest. I hope you find some of them interesting!
+      </p>
+
+      <p>
+        The blog on this site also contains links to posts published on other
+        platforms such as <a
+          class="link"
+          href="https://medium.com/@jeremy.tuloup">Medium</a
+        >.
+      </p>
+
+      <p>
+        In addition to my day-to-day work on Jupyter, I also make videos and
+        give presentations about Jupyter and the latest developments in the
+        Jupyter ecosystem, and share tips and tricks.
+      </p>
+    </section>
+
+    <section class="animate flex flex-wrap gap-4 justify-center mt-5">
+      <a
+        href="/blog"
+        class="py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend"
+      >
+        Read my blog
+      </a>
+      <a
+        href="/work"
+        class="py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend"
+      >
+        View my work
+      </a>
+    </section>
+
+    <section class="animate flex flex-wrap justify-center mt-5">
+      <div class="space-y-4">
+        <p>
+          If you have any question or want to discuss a topic, please do not
+          hesitate to contact me on any of the following mediums:
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-5">
+          {
+            SOCIALS.map((SOCIAL) => (
+              <a
+                href={SOCIAL.HREF}
+                target="_blank"
+                aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
+                title={`${SOCIAL.NAME}`}
+                class="group flex rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend"
+              >
+                <svg class="size-4 fill-current group-hover:fill-black group-hover:dark:fill-white blend">
+                  <use href={`/social.svg#${SOCIAL.ICON}`} />
+                </svg>
+                <span class="pl-2">{SOCIAL.NAME}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </TopLayout>
+</PageLayout>

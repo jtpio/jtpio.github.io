@@ -1,0 +1,8 @@
+name: "p5 notebook"
+summary: ""
+draft: false
+tags:
+  - JupyterLite
+  - p5.js
+repoUrl: https://github.com/jtpio/p5-notebook
+weight: 100

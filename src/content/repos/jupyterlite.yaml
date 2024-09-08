@@ -1,0 +1,8 @@
+name: "JupyterLite"
+summary: ""
+draft: false
+tags:
+  - JupyterLite
+  - WebAssembly
+repoUrl: https://github.com/jupyterlite/jupyterlite
+weight: 1000
