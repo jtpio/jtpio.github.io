@@ -3,8 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      # TODO: rename
-      - master
+      - main
   pull_request:
     branches:
       - "*"
