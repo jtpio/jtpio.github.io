@@ -37,6 +37,18 @@ const tutorials = defineCollection({
   }),
 });
 
+const jupyterTips = defineCollection({
+  type: "data",
+  schema: z.object({
+    date: z.coerce.date(),
+    title: z.string(),
+    location: z.string().optional(),
+    tags: z.array(z.string()),
+    videoUrl: z.string().optional(),
+    description: z.string().optional(),
+  }),
+});
+
 const blog = defineCollection({
   type: "content",
   schema: z.object({
@@ -61,4 +73,11 @@ const legal = defineCollection({
   }),
 });
 
-export const collections = { blog, legal, repos, talks, tutorials };
+export const collections = {
+  blog,
+  jupyterTips,
+  legal,
+  repos,
+  talks,
+  tutorials,
+};
