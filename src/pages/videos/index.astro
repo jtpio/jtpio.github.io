@@ -17,6 +17,9 @@ talks.sort(
 tutorials.sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
+jupyterTips.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
 ---
 
 <PageLayout title={VIDEOS.TITLE} description={VIDEOS.DESCRIPTION}>
