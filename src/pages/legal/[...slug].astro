@@ -5,6 +5,7 @@ import TopLayout from "@layouts/TopLayout.astro";
 import BottomLayout from "@layouts/BottomLayout.astro";
 import { formatDate } from "@lib/utils";
 import { SITE } from "@consts";
+import Prose from "../../components/Prose.astro";
 
 // Create the static pages for legal docs
 export async function getStaticPaths() {
@@ -35,7 +36,9 @@ const { Content } = await doc.render();
   </TopLayout>
   <BottomLayout>
     <article class="animate">
-      <Content />
+      <Prose>
+        <Content />
+      </Prose>
     </article>
   </BottomLayout>
 </PageLayout>

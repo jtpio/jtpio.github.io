@@ -1,9 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
-:root{
-  --copy-btn-margin:10px;
+@config '../../tailwind.config.js';
+
+:root {
+  --copy-btn-margin: 10px;
 }
 
 @layer base {
@@ -36,8 +37,7 @@ html.dark {
   background-color: black;
 }
 
-html,
-body {
+html, body {
   @apply h-full w-full antialiased;
   @apply bg-white dark:bg-black;
   @apply text-black/75 dark:text-white/75;
@@ -74,7 +74,7 @@ article {
   @apply font-semibold text-black dark:text-white;
 }
 
-.blend {
+@utility blend {
   @apply transition-all duration-300 ease-in-out;
 }
 
@@ -82,9 +82,7 @@ article {
 .animate {
   opacity: 0;
   transform: translateY(50px);
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .animate.show {
@@ -99,7 +97,7 @@ article img {
   margin: 0 auto;
 }
 
-a.link {
+@utility base-link {
   @apply underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend;
 }
 
@@ -135,13 +133,13 @@ article
   max-width: 100%;
 } */
 
-.copy-cnt{
+.copy-cnt {
   @apply absolute w-full;
-  top:var(--copy-btn-margin);
+  top: var(--copy-btn-margin);
 }
 .copy-btn {
-  @apply  w-[16px] fixed;
-  left:calc(100% - var(--copy-btn-margin));
+  @apply w-[16px] fixed;
+  left: calc(100% - var(--copy-btn-margin));
   transform: translateX(-100%);
 }
 
@@ -151,6 +149,6 @@ article
 
 .copied-text {
   @apply fixed text-xs text-white/70;
-  left:calc(100% - var(--copy-btn-margin));
+  left: calc(100% - var(--copy-btn-margin));
   transform: translateX(-100%);
 }
