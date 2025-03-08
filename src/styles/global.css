@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
-@config '../../tailwind.config.js';
-
 :root {
   --copy-btn-margin: 10px;
 }
