@@ -28,7 +28,7 @@ export default function GameJams() {
           <h4 class="text-lg font-semibold mb-2">Achievement</h4>
           <p class="mb-4">
             First use of the{" "}
-            <a href="https://p5js.org/" class="text-blue-500 underline">
+            <a href="https://p5js.org/" class="base-link">
               p5.js
             </a>{" "}
             framework, which is very easy to use to make graphics.
@@ -45,10 +45,7 @@ export default function GameJams() {
           <ul class="list-disc pl-5">
             <li>
               itch.io entry page:
-              <a
-                href="//jtzp4.itch.io/super-square"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//jtzp4.itch.io/super-square" class="base-link pl-2">
                 jtzp4.itch.io/super-square
               </a>
             </li>
@@ -89,7 +86,7 @@ export default function GameJams() {
           <p class="mb-4">
             This time, the goal for me was to exclusively focus on the{" "}
             <strong>audio</strong>. I created the main track with{" "}
-            <a href="http://sonic-pi.net" class="text-blue-500 underline">
+            <a href="http://sonic-pi.net" class="base-link">
               Sonic Pi
             </a>{" "}
             as well as a few other sound effects.
@@ -105,10 +102,7 @@ export default function GameJams() {
           <ul class="list-disc pl-5">
             <li>
               Source code:
-              <a
-                href="//github.com/madeso/wave-ohoy"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//github.com/madeso/wave-ohoy" class="base-link pl-2">
                 github.com/madeso/wave-ohoy
               </a>
             </li>
@@ -116,7 +110,7 @@ export default function GameJams() {
               Global Game Jam entry page:
               <a
                 href="//globalgamejam.org/2017/games/wave-ohoy"
-                class="text-blue-500 underline pl-2"
+                class="base-link pl-2"
               >
                 globalgamejam.org/2017/games/wave-ohoy
               </a>
@@ -149,7 +143,7 @@ export default function GameJams() {
           <p class="mb-4">
             <strong>L3-AK</strong> is a chatbot based game, fully playable
             within the messaging app{" "}
-            <a href="//telegram.org/" class="text-blue-500 underline">
+            <a href="//telegram.org/" class="base-link">
               Telegram
             </a>
             .
@@ -186,19 +180,13 @@ export default function GameJams() {
           <ul class="list-disc pl-5">
             <li>
               Source code:
-              <a
-                href="//github.com/jtpio/ngj16"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//github.com/jtpio/ngj16" class="base-link pl-2">
                 github.com/jtpio/ngj16
               </a>
             </li>
             <li>
               itch.io entry page
-              <a
-                href="//jtzp4.itch.io/l3-ak"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//jtzp4.itch.io/l3-ak" class="base-link pl-2">
                 jtzp4.itch.io/l3-ak
               </a>
             </li>
@@ -256,7 +244,7 @@ export default function GameJams() {
             Players join the game by just scanning a QR code. The same QR is
             then used to generate the map. Use of a homemade network library
             called{" "}
-            <a href="//github.com/jtpio/jammer" class="text-blue-500 underline">
+            <a href="//github.com/jtpio/jammer" class="base-link">
               jammer
             </a>{" "}
             to handle the networking part of the game. In the end, we delivered
@@ -276,17 +264,14 @@ export default function GameJams() {
               Arabic Game Jam 2015 game concepts
               <a
                 href="//arabicgamejam.org/glyph-hunters/"
-                class="text-blue-500 underline pl-2"
+                class="base-link pl-2"
               >
                 arabicgamejam.org/glyph-hunters/
               </a>
             </li>
             <li>
               itch.io entry page
-              <a
-                href="//jtzp4.itch.io/glyph"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//jtzp4.itch.io/glyph" class="base-link pl-2">
                 jtzp4.itch.io/glyph
               </a>
             </li>
@@ -325,10 +310,7 @@ export default function GameJams() {
 
           <p class="mb-4">
             Check the game webpage for more details!{" "}
-            <a
-              href="//ref-used.itch.io/bomb-the-giraf"
-              class="text-blue-500 underline"
-            >
+            <a href="//ref-used.itch.io/bomb-the-giraf" class="base-link">
               ref-used.itch.io/bomb-the-giraf
             </a>
           </p>
@@ -351,10 +333,7 @@ export default function GameJams() {
           <ul class="list-disc pl-5">
             <li>
               Source code
-              <a
-                href="//github.com/jtpio/giraf"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//github.com/jtpio/giraf" class="base-link pl-2">
                 github.com/jtpio/giraf
               </a>
             </li>
@@ -362,7 +341,7 @@ export default function GameJams() {
               itch.io entry page
               <a
                 href="//ref-used.itch.io/bomb-the-giraf"
-                class="text-blue-500 underline pl-2"
+                class="base-link pl-2"
               >
                 ref-used.itch.io/bomb-the-giraf
               </a>
@@ -438,10 +417,7 @@ export default function GameJams() {
           <ul class="list-disc pl-5">
             <li>
               Source code
-              <a
-                href="//github.com/jtpio/piper"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//github.com/jtpio/piper" class="base-link pl-2">
                 github.com/jtpio/piper
               </a>
             </li>
@@ -449,7 +425,7 @@ export default function GameJams() {
               Global Game Jam entry page
               <a
                 href="//globalgamejam.org/2015/games/piper-escape-box"
-                class="text-blue-500 underline pl-2"
+                class="base-link pl-2"
               >
                 globalgamejam.org/2015/games/piper-escape-box
               </a>
@@ -526,10 +502,7 @@ export default function GameJams() {
           <ul class="list-disc pl-5">
             <li>
               Source code
-              <a
-                href="//github.com/dkapila/aurora"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//github.com/dkapila/aurora" class="base-link pl-2">
                 github.com/dkapila/aurora
               </a>
             </li>
@@ -537,7 +510,7 @@ export default function GameJams() {
               Arabic Game Jam 2014 game concepts
               <a
                 href="//arabicgamejam.org/game-concepts-2014/"
-                class="text-blue-500 underline pl-2"
+                class="base-link pl-2"
               >
                 arabicgamejam.org/game-concepts-2014/
               </a>
@@ -594,10 +567,7 @@ export default function GameJams() {
           <ul class="list-disc pl-5">
             <li>
               Source code
-              <a
-                href="//github.com/jtpio/karma"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//github.com/jtpio/karma" class="base-link pl-2">
                 github.com/jtpio/karma
               </a>
             </li>
@@ -605,7 +575,7 @@ export default function GameJams() {
               Global Game Jam entry page
               <a
                 href="//globalgamejam.org/2014/games/douche-wall-street"
-                class="text-blue-500 underline pl-2"
+                class="base-link pl-2"
               >
                 globalgamejam.org/2014/games/douche-wall-street
               </a>
@@ -666,7 +636,7 @@ export default function GameJams() {
             crazy concept. And people seem to like it! <br></br>
             <a
               href="//indiestatik.com/2013/10/08/bus-stop-boredom-mundane/"
-              class="text-blue-500 underline"
+              class="base-link"
             >
               Here
             </a>{" "}
@@ -689,10 +659,7 @@ export default function GameJams() {
           <ul class="list-disc pl-5">
             <li>
               Source code
-              <a
-                href="//github.com/jtpio/revolution"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//github.com/jtpio/revolution" class="base-link pl-2">
                 github.com/jtpio/revolution
               </a>
             </li>
@@ -700,7 +667,7 @@ export default function GameJams() {
               Indie Speed Run entry page
               <a
                 href="//www.escapistmagazine.com/content/indie-speed-run/?game=582"
-                class="text-blue-500 underline pl-2"
+                class="base-link pl-2"
               >
                 www.escapistmagazine.com/content/indie-speed-run/?game=582
               </a>
@@ -756,10 +723,7 @@ export default function GameJams() {
           <ul class="list-disc pl-5">
             <li>
               Source code
-              <a
-                href="//github.com/jtpio/chinese-chips"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//github.com/jtpio/chinese-chips" class="base-link pl-2">
                 github.com/jtpio/chinese-chips
               </a>
             </li>
@@ -767,7 +731,7 @@ export default function GameJams() {
               Unicorn7 entry page
               <a
                 href="//www.unicorn7.org/games/game/195/"
-                class="text-blue-500 underline pl-2"
+                class="base-link pl-2"
               >
                 www.unicorn7.org/games/game/195/
               </a>
@@ -836,10 +800,7 @@ export default function GameJams() {
           <ul class="list-disc pl-5">
             <li>
               Source code
-              <a
-                href="//github.com/jtpio/jackD"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//github.com/jtpio/jackD" class="base-link pl-2">
                 github.com/jtpio/jackD
               </a>
             </li>
@@ -847,7 +808,7 @@ export default function GameJams() {
               Arabic Game Jam 2013 game concepts
               <a
                 href="//arabicgamejam.org/game-concepts-2013/"
-                class="text-blue-500 underline pl-2"
+                class="base-link pl-2"
               >
                 arabicgamejam.org/game-concepts-2013/
               </a>
@@ -908,10 +869,7 @@ export default function GameJams() {
           <ul class="list-disc pl-5">
             <li>
               Source code
-              <a
-                href="//github.com/jtpio/TooManyItems"
-                class="text-blue-500 underline pl-2"
-              >
+              <a href="//github.com/jtpio/TooManyItems" class="base-link pl-2">
                 github.com/jtpio/TooManyItems
               </a>
             </li>
@@ -968,7 +926,7 @@ export default function GameJams() {
               Global Game Jam entry page (including source code)
               <a
                 href="//2013.globalgamejam.org/2013/lune-29"
-                class="text-blue-500 underline pl-2"
+                class="base-link pl-2"
               >
                 2013.globalgamejam.org/2013/lune-29
               </a>
