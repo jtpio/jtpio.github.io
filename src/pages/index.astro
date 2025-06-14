@@ -2,30 +2,55 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import TopLayout from "@layouts/TopLayout.astro";
 import { SITE, SOCIALS } from "@consts";
+import profileImage from "@assets/images/jtp.jpg";
 ---
 
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
   <TopLayout>
-    <section class="animate flex flex-col gap-2">
-      <p>Hi, I'm Jeremy Tuloup 👋</p>
-      <p>
-        I'm a Scientific Software Engineer at <a
-          class="base-link"
-          href="https://quantstack.net"
-          target="_blank">QuantStack</a
-        >, <a class="base-link" href="https://jupyter.org" target="_blank">Jupyter</a
-        > Core Developer and <a
-          class="base-link"
-          href="https://jupyter.org/about#2020-cohort"
-          target="_blank">Distinguished Contributor</a
-        >.
-      </p>
-      <p>
-        This site is a log of posts about Project Jupyter as well as experiments
-        about math, puzzles, computer science, thoughts and other topics of
-        interest. I hope you find some of them interesting!
-      </p>
+    <!-- Hero Section with Profile Image -->
+    <section class="animate flex flex-col md:flex-row items-center gap-8 mb-8">
+      <!-- Profile Image with Bubble Effect -->
+      <div class="flex-shrink-0">
+        <div class="relative">
+          <img
+            src={profileImage.src}
+            alt="Jeremy Tuloup Profile Picture"
+            class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-lg ring-4 ring-white/20 dark:ring-gray-800/50 transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+          />
+          <!-- Subtle glow effect -->
+          <div
+            class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-400/20 to-purple-400/20 blur-sm -z-10 opacity-75"
+          >
+          </div>
+        </div>
+      </div>
 
+      <!-- Intro Text -->
+      <div class="flex flex-col gap-2 text-center md:text-left">
+        <p class="text-lg font-semibold">Hi, I'm Jeremy Tuloup 👋</p>
+        <p>
+          I'm a Scientific Software Engineer at <a
+            class="base-link"
+            href="https://quantstack.net"
+            target="_blank">QuantStack</a
+          >, <a class="base-link" href="https://jupyter.org" target="_blank"
+            >Jupyter</a
+          > Core Developer and <a
+            class="base-link"
+            href="https://jupyter.org/about#2020-cohort"
+            target="_blank">Distinguished Contributor</a
+          >.
+        </p>
+        <p>
+          This site is a log of posts about Project Jupyter as well as
+          experiments about math, puzzles, computer science, thoughts and other
+          topics of interest. I hope you find some of them interesting!
+        </p>
+      </div>
+    </section>
+
+    <!-- Additional Content -->
+    <section class="animate flex flex-col gap-2">
       <p>
         The blog on this site also contains links to posts published on other
         platforms such as <a
