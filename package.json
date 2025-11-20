@@ -22,7 +22,7 @@
     "@astrojs/solid-js": "^5.0.5",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.9",
-    "astro": "^5.15.6",
+    "astro": "^5.15.9",
     "clsx": "^2.1.0",
     "fuse.js": "^7.0.0",
     "rehype-katex": "^7.0.1",
