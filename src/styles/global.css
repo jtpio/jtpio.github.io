@@ -84,7 +84,7 @@ article {
   @apply transition-all duration-300 ease-in-out;
 }
 
-/** styles for public /animation.js */
+/** styles for public/js/animate.js */
 .animate {
   opacity: 0;
   transform: translateY(50px);
@@ -123,21 +123,76 @@ article
   content: "";
 }
 
-/* Animate the top left site name on hover */
+/* Animate the top left site name on scroll */
 
 .animateTitleLetters {
   display: inline-block;
-  max-width: 0%;
+  max-width: 100%;
   vertical-align: bottom;
   overflow: hidden;
   white-space: nowrap;
-  transition: max-width 0.4s ease-in;
+  transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* TODO: re-enable */
-/* .siteTitle:hover .animateTitleLetters {
-  max-width: 100%;
-} */
+/* Collapse to JTP when scrolled */
+header.scrolled .animateTitleLetters {
+  max-width: 0%;
+}
+
+/* Smoothly swap the last letter from "p" to "P" when collapsed */
+.siteTitleP {
+  display: inline-grid;
+  vertical-align: baseline;
+}
+
+.siteTitleP-lower,
+.siteTitleP-upper {
+  grid-area: 1 / 1;
+}
+
+.siteTitleP-lower {
+  opacity: 1;
+  /* Delay the fade out so it stays visible during most of the collapse */
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+}
+
+.siteTitleP-upper {
+  opacity: 0;
+  /* Delay the fade in and make it quick at the end */
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+}
+
+header.scrolled .siteTitleP-lower {
+  opacity: 0;
+  /* On collapse, fade out quickly at the end */
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+header.scrolled .siteTitleP-upper {
+  opacity: 1;
+  /* On collapse, fade in quickly at the end */
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+/* Make the J, T, p letters brighter/flashing on hover */
+.siteTitleMark {
+  display: inline-block;
+  transition: filter 150ms ease;
+}
+
+.siteTitle:hover .siteTitleMark {
+  animation: siteTitleFlash 0.85s ease-in-out infinite;
+}
+
+@keyframes siteTitleFlash {
+  0%,
+  100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.55) saturate(1.2);
+  }
+}
 
 .copy-cnt {
   @apply absolute w-full;

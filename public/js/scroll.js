@@ -1,10 +1,12 @@
 function onScroll() {
   const header = document.getElementById("header")
-  if (window.scrollY > 0) {
-    header.classList.add("scrolled")
-  } else {
-    header.classList.remove("scrolled")
+  if (!header) {
+    return
   }
+
+  header.classList.toggle("scrolled", window.scrollY > 0)
 }
 
-document.addEventListener("scroll", onScroll)
+document.addEventListener("scroll", onScroll, { passive: true })
+document.addEventListener("DOMContentLoaded", onScroll)
+document.addEventListener("astro:after-swap", onScroll)
