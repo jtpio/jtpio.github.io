@@ -1,15 +1,37 @@
 ---
-import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import TopLayout from "@layouts/TopLayout.astro";
 import BottomLayout from "@layouts/BottomLayout.astro";
-import ThemedStat from "@components/ThemedStat";
 import { WORK } from "@consts";
 
-const repos = await getCollection("repos");
-
-// Sort repos by weight to highlight the most important ones
-repos.sort((a, b) => (b.data.weight || 0) - (a.data.weight || 0));
+const projects = [
+  {
+    name: "Jupyter Notebook",
+    logo: {
+      light: "/projects/jupyter.svg",
+      dark: "/projects/jupyter-dark.svg",
+    },
+    url: "https://github.com/jupyter/notebook",
+  },
+  {
+    name: "JupyterLab",
+    logo: {
+      light: "/projects/jupyterlab.svg",
+      dark: "/projects/jupyterlab-dark.svg",
+    },
+    url: "https://github.com/jupyterlab/jupyterlab",
+  },
+  {
+    name: "JupyterLite",
+    logo: "/projects/jupyterlite.svg",
+    url: "https://github.com/jupyterlite/jupyterlite",
+  },
+  {
+    name: "Voila",
+    logo: "/projects/voila.svg",
+    url: "https://github.com/voila-dashboards/voila",
+  },
+];
 ---
 
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
@@ -22,7 +44,7 @@ repos.sort((a, b) => (b.data.weight || 0) - (a.data.weight || 0));
     </p>
   </TopLayout>
   <BottomLayout>
-    <!-- Repos -->
+    <!-- Open Source -->
     <div class="animate bottomBorder">
       <h3 class="font-bold">
         <svg class="size-4 inline-block fill-current">
@@ -31,24 +53,40 @@ repos.sort((a, b) => (b.data.weight || 0) - (a.data.weight || 0));
         Open Source
       </h3>
       <p class="mt-2">
-        As part of my work at QuantStack, I contribute to open source projects
-        in the Jupyter ecosystem and maintain a few of my own. Below are some
-        notable repositories I've contributed on. You can find the full list on
-        my <a class="base-link" target="_blank" href="https://github.com/jtpio"
-          >GitHub profile</a
-        >.
+        As part of my work at <a class="base-link" target="_blank" href="https://quantstack.net">QuantStack</a>,
+        I contribute to open source projects in the Jupyter ecosystem. I'm a core
+        developer on <a class="base-link" target="_blank" href="https://github.com/jupyter">@jupyter</a>,
+        <a class="base-link" target="_blank" href="https://github.com/jupyterlab">@jupyterlab</a>,
+        <a class="base-link" target="_blank" href="https://github.com/jupyterlite">@jupyterlite</a>, and
+        <a class="base-link" target="_blank" href="https://github.com/voila-dashboards">@voila-dashboards</a>.
       </p>
-      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-6 justify-items-center">
         {
-          repos.map((repo) => (
-            <ThemedStat
-              client:only="solid-js"
-              repoUrl={repo.data.repoUrl ?? ""}
-              alt={repo.data.name}
-            />
+          projects.map((project) => (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="transition-transform hover:scale-110"
+            >
+              {
+                typeof project.logo === "string" ? (
+                  <img src={project.logo} alt={project.name} class="w-24 h-24" />
+                ) : (
+                  <>
+                    <img src={project.logo.light} alt={project.name} class="w-24 h-24 dark:hidden" />
+                    <img src={project.logo.dark} alt={project.name} class="w-24 h-24 hidden dark:block" />
+                  </>
+                )
+              }
+            </a>
           ))
         }
       </div>
+      <p class="mt-6">
+        I also contribute to many other projects across the Jupyter ecosystem. You can find the full list on
+        my <a class="base-link" target="_blank" href="https://github.com/jtpio">GitHub profile</a>.
+      </p>
     </div>
 
     <!-- Video Games -->
