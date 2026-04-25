@@ -13,7 +13,7 @@ export default function Search({ data }: Props) {
 
   const fuse = new Fuse(data, {
     // TODO: add body to search?
-    keys: ["slug", "data.title", "data.tags"],
+    keys: ["id", "data.title", "data.tags"],
     includeMatches: true,
     minMatchCharLength: 2,
     threshold: 0.4,
