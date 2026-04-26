@@ -9,7 +9,7 @@ type Props = {
 export default function ArrowCard({ entry, pill }: Props) {
   return (
     <a
-      href={entry.data.external ? entry.data.external.url : `/${entry.collection}/${entry.slug}`}
+      href={entry.data.external ? entry.data.external.url : `/${entry.collection}/${entry.id}`}
       target={entry.data.external ? "_blank" : "_self"}
       title={entry.data.external ? `Read on ${entry.data.external.name}` : ''}
       class="group py-2 px-4 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out"
