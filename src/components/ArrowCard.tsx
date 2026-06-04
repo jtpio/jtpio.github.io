@@ -1,3 +1,4 @@
+import { For } from "solid-js";
 import { formatDate } from "@lib/utils";
 import type { CollectionEntry } from "astro:content";
 
@@ -6,36 +7,38 @@ type Props = {
   pill?: boolean;
 };
 
-export default function ArrowCard({ entry, pill }: Props) {
+export default function ArrowCard(props: Props) {
   return (
     <a
-      href={entry.data.external ? entry.data.external.url : `/${entry.collection}/${entry.id}`}
-      target={entry.data.external ? "_blank" : "_self"}
-      title={entry.data.external ? `Read on ${entry.data.external.name}` : ''}
+      href={props.entry.data.external ? props.entry.data.external.url : `/${props.entry.collection}/${props.entry.id}`}
+      target={props.entry.data.external ? "_blank" : "_self"}
+      title={props.entry.data.external ? `Read on ${props.entry.data.external.name}` : ''}
       class="group py-2 px-4 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out"
     >
       <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
         <div class="flex flex-wrap items-center gap-2">
-          {pill && (
+          {props.pill && (
             <div class="text-sm capitalize px-2 py-0.5 rounded-full border border-black/15 dark:border-white/25">
               post
             </div>
           )}
-          <div class="text-sm uppercase">{formatDate(entry.data.date)}</div>
+          <div class="text-sm uppercase">{formatDate(props.entry.data.date)}</div>
         </div>
         <div class="font-semibold mt-1 text-black dark:text-white">
-          {entry.data.title}
+          {props.entry.data.title}
         </div>
 
         <ul class="flex flex-wrap mt-2 gap-1">
-          {entry.data.tags.map((tag: string) => (
-            <li class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
-              {tag}
-            </li>
-          ))}
+          <For each={props.entry.data.tags}>
+            {(tag) => (
+              <li class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                {tag}
+              </li>
+            )}
+          </For>
         </ul>
       </div>
-      {!entry.data.external && (
+      {!props.entry.data.external && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -60,7 +63,7 @@ export default function ArrowCard({ entry, pill }: Props) {
           />
         </svg>
       )}
-      {entry.data.external && (
+      {props.entry.data.external && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

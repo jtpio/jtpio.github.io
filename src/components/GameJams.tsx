@@ -39,7 +39,7 @@ export default function GameJams() {
               class="w-full h-80 aspect-w-16 aspect-h-9 rounded-lg shadow-lg"
               src="//www.youtube.com/embed/ncs2PQBiRJk"
               allowfullscreen
-            ></iframe>
+             />
           </div>
 
           <ul class="list-disc pl-5">
@@ -96,7 +96,7 @@ export default function GameJams() {
             <iframe
               class="w-full h-80 aspect-w-16 aspect-h-9 rounded-lg shadow-lg"
               src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/303947857&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"
-            ></iframe>
+             />
           </div>
 
           <ul class="list-disc pl-5">
@@ -175,7 +175,7 @@ export default function GameJams() {
               class="w-full h-80 aspect-w-16 aspect-h-9 rounded-lg shadow-lg"
               src="//www.youtube.com/embed/Kv-s9MLqcfo"
               allowfullscreen
-            ></iframe>
+             />
           </div>
           <ul class="list-disc pl-5">
             <li>
@@ -375,8 +375,8 @@ export default function GameJams() {
           <p class="mb-4">
             <strong>Piper: Escape The Box</strong> is a 3D puzzle game, using{" "}
             <strong>virtual reality</strong> mechanics and made to be played on
-            Android with a <strong>Google Cardboard</strong>.<br></br>
-            It is also possible to play the game on pc with the mouse. <br></br>
+            Android with a <strong>Google Cardboard</strong>.<br />
+            It is also possible to play the game on pc with the mouse. <br />
             You are in a box, with a lot of cubes. Most of the cubes are
             blocking your way out, but one of them seems anxious to get out. So
             the question is: what do you do now?
@@ -464,7 +464,7 @@ export default function GameJams() {
             We made a social party game that can be played by 4-24 players
             simultaneously. It is playable on a web browser which acts as a
             shared screen for all the players. The players use their smartphones
-            or tablets as game controllers. <br></br>
+            or tablets as game controllers. <br />
             Once the game starts each player is represented by a tiny “djinn”
             on-screen. The players do not know which djinn belongs to them and
             must start moving around to figure out who they are. Once their
@@ -496,7 +496,7 @@ export default function GameJams() {
               class="w-full h-80 aspect-w-16 aspect-h-9 rounded-lg shadow-lg"
               src="//www.youtube.com/embed/-SOMJZIldHY?rel=0"
               allowfullscreen
-            ></iframe>
+             />
           </div>
 
           <ul class="list-disc pl-5">
@@ -561,7 +561,7 @@ export default function GameJams() {
               class="w-full h-80 aspect-w-16 aspect-h-9 rounded-lg shadow-lg"
               src="//www.youtube.com/embed/hQTqRxSGdQY"
               allowfullscreen
-            ></iframe>
+             />
           </div>
 
           <ul class="list-disc pl-5">
@@ -633,7 +633,7 @@ export default function GameJams() {
 
           <p class="mb-4">
             Once again, this game jam was the perfect occasion to try out a
-            crazy concept. And people seem to like it! <br></br>
+            crazy concept. And people seem to like it! <br />
             <a
               href="//indiestatik.com/2013/10/08/bus-stop-boredom-mundane/"
               class="base-link"
@@ -701,7 +701,7 @@ export default function GameJams() {
 
           <p class="mb-4">
             Smuggler's End is a mobile game where you play the part of a
-            smuggler collecting cash to repair their truck-ship. <br></br>
+            smuggler collecting cash to repair their truck-ship. <br />
             It can be viewed as a <strong>reverse tower defense game</strong>,
             where you drive along a <strong>procedurally generated</strong>{" "}
             track, collecting cash and avoiding turrets.
@@ -771,7 +771,7 @@ export default function GameJams() {
 
           <p class="mb-4">
             A 3D runner game, playable on mobile devices using the
-            accelerometer. <br></br>
+            accelerometer. <br />
             Team up with your plant and collect the items to gather culture!
           </p>
 
@@ -794,7 +794,7 @@ export default function GameJams() {
               class="w-full h-80 aspect-w-16 aspect-h-9 rounded-lg shadow-lg"
               src="//player.vimeo.com/video/67514936"
               allowfullscreen
-            ></iframe>
+             />
           </div>
 
           <ul class="list-disc pl-5">

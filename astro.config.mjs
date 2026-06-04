@@ -3,20 +3,20 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import solidJs from "@astrojs/solid-js";
+import { unified } from "@astrojs/markdown-remark";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://jtp.io",
-  integrations: [
-    mdx({
-      rehypePlugins: [rehypeKatex],
+  markdown: {
+    processor: unified({
       remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
     }),
-    sitemap(),
-    solidJs(),
-  ],
+  },
+  integrations: [mdx(), sitemap(), solidJs()],
   vite: { plugins: [tailwindcss()] },
   redirects: {
     // handle previous version of the blog built with Jekyll
