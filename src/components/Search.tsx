@@ -1,5 +1,5 @@
 import type { CollectionEntry } from "astro:content";
-import { createEffect, createSignal } from "solid-js";
+import { createEffect, createMemo, createSignal, For } from "solid-js";
 import Fuse from "fuse.js";
 import ArrowCard from "@components/ArrowCard";
 
@@ -7,23 +7,26 @@ type Props = {
   data: CollectionEntry<"blog">[];
 };
 
-export default function Search({ data }: Props) {
+export default function Search(props: Props) {
   const [query, setQuery] = createSignal("");
   const [results, setResults] = createSignal<CollectionEntry<"blog">[]>([]);
 
-  const fuse = new Fuse(data, {
-    // TODO: add body to search?
-    keys: ["id", "data.title", "data.tags"],
-    includeMatches: true,
-    minMatchCharLength: 2,
-    threshold: 0.4,
-  });
+  const fuse = createMemo(
+    () =>
+      new Fuse(props.data, {
+        // TODO: add body to search?
+        keys: ["id", "data.title", "data.tags"],
+        includeMatches: true,
+        minMatchCharLength: 2,
+        threshold: 0.4,
+      })
+  );
 
   createEffect(() => {
     if (query().length < 2) {
       setResults([]);
     } else {
-      setResults(fuse.search(query()).map((result) => result.item));
+      setResults(fuse().search(query()).map((result) => result.item));
     }
   });
 
@@ -55,11 +58,13 @@ export default function Search({ data }: Props) {
             Found {results().length} results for {`'${query()}'`}
           </div>
           <ul class="flex flex-col gap-3">
-            {results().map((result) => (
-              <li>
-                <ArrowCard entry={result} pill={true} />
-              </li>
-            ))}
+            <For each={results()}>
+              {(result) => (
+                <li>
+                  <ArrowCard entry={result} pill={true} />
+                </li>
+              )}
+            </For>
           </ul>
         </div>
       )}
