@@ -4,14 +4,27 @@ import BaseHead from "@components/BaseHead.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Drawer from "@components/Drawer.astro";
-const { title } = Astro.props;
 import { SITE } from "@consts";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  hasMath?: boolean;
+}
+
+const { title, description, image, hasMath } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={`${title} | ${SITE.AUTHOR}`} />
+    <BaseHead
+      title={`${title} | ${SITE.AUTHOR}`}
+      description={description}
+      image={image}
+      hasMath={hasMath}
+    />
   </head>
   <body>
     <Header />

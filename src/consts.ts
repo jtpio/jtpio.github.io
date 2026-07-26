@@ -5,6 +5,7 @@ export const SITE: Site = {
   TITLE: "JTP",
   DESCRIPTION: "Welcome to Jeremy Tuloup's personal blog and website",
   AUTHOR: "Jeremy Tuloup",
+  OG_IMAGE: "/og.png",
 };
 
 // Work Page
