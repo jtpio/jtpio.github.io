@@ -11,6 +11,10 @@ import { remarkHasMath } from "./src/plugins/remark-has-math";
 // https://astro.build/config
 export default defineConfig({
   site: "https://jtp.io",
+  // Astro 7 defaults this to "jsx", which drops whitespace next to tags the way
+  // JSX does. These templates are plain HTML, where that whitespace is a space:
+  // it separates icons from headings and links from the text around them.
+  compressHTML: true,
   markdown: {
     processor: unified({
       // `remarkHasMath` reads the nodes `remarkMath` produces, so it runs after it
