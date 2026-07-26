@@ -1,7 +1,11 @@
 import type { RemarkPlugin } from "@astrojs/markdown-remark";
-import { visit, EXIT } from "unist-util-visit";
-// registers the `math` and `inlineMath` node types on mdast
-import type {} from "mdast-util-math";
+
+type Node = { type: string; children?: Node[] };
+
+const containsMath = (node: Node): boolean =>
+  node.type === "math" ||
+  node.type === "inlineMath" ||
+  (node.children?.some(containsMath) ?? false);
 
 /**
  * Flag entries that contain math, so the KaTeX stylesheet is only loaded on the
@@ -12,14 +16,11 @@ import type {} from "mdast-util-math";
  * flag surfaces as `remarkPluginFrontmatter.hasMath` on the rendered entry.
  */
 export const remarkHasMath: RemarkPlugin = () => (tree, file) => {
-  visit(tree, (node) => {
-    if (node.type !== "math" && node.type !== "inlineMath") {
-      return;
-    }
+  if (!containsMath(tree)) {
+    return;
+  }
 
-    const astro = (file.data.astro ??= {});
-    astro.frontmatter ??= {};
-    astro.frontmatter.hasMath = true;
-    return EXIT;
-  });
+  const astro = (file.data.astro ??= {});
+  astro.frontmatter ??= {};
+  astro.frontmatter.hasMath = true;
 };
