@@ -1,5 +1,6 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import { excerpt } from "@lib/utils";
 import PageLayout from "@layouts/PageLayout.astro";
 import TopLayout from "@layouts/TopLayout.astro";
 import BottomLayout from "@layouts/BottomLayout.astro";
@@ -20,10 +21,20 @@ export async function getStaticPaths() {
 // Get the requested post
 type Props = CollectionEntry<"blog">;
 const post = Astro.props;
-const { title } = post.data;
+const { title, external } = post.data;
+
+// external posts are a stub page pointing at the original, so there's no body to summarise
+const description =
+  post.data.description ||
+  (external ? `Published on ${external.name}` : excerpt(post.body ?? "")) ||
+  undefined;
+
+// set by the `remarkHasMath` plugin on posts that actually render math
+const { remarkPluginFrontmatter } = await render(post);
+const hasMath = Boolean(remarkPluginFrontmatter.hasMath);
 ---
 
-<PageLayout title={title}>
+<PageLayout title={title} description={description} hasMath={hasMath}>
   <TopLayout>
     <div class="animate">
       <ArticleTopLayout entry={post} />

@@ -1,4 +1,5 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 
 const repos = defineCollection({
@@ -61,10 +62,12 @@ const blog = defineCollection({
     date: z.coerce.date(),
     tags: z.array(z.string()),
     draft: z.boolean().optional(),
+    // used as the meta description; falls back to an excerpt of the post
+    description: z.string().optional(),
     external: z
       .object({
         name: z.string(),
-        url: z.string().url(),
+        url: z.url(),
       })
       .optional(),
   }),

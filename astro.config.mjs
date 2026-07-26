@@ -6,13 +6,19 @@ import solidJs from "@astrojs/solid-js";
 import { unified } from "@astrojs/markdown-remark";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
+import { remarkHasMath } from "./src/plugins/remark-has-math";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://jtp.io",
+  // Astro 7 defaults this to "jsx", which drops whitespace next to tags the way
+  // JSX does. These templates are plain HTML, where that whitespace is a space:
+  // it separates icons from headings and links from the text around them.
+  compressHTML: true,
   markdown: {
     processor: unified({
-      remarkPlugins: [remarkMath],
+      // `remarkHasMath` reads the nodes `remarkMath` produces, so it runs after it
+      remarkPlugins: [remarkMath, remarkHasMath],
       rehypePlugins: [rehypeKatex],
     }),
   },

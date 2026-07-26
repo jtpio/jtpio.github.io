@@ -20,10 +20,15 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"legal">;
 const doc = Astro.props;
 const { title, date } = doc.data;
-const { Content } = await render(doc);
+const { Content, remarkPluginFrontmatter } = await render(doc);
+const hasMath = Boolean(remarkPluginFrontmatter.hasMath);
 ---
 
-<PageLayout title={title} description={`${title} for ${SITE.TITLE}`}>
+<PageLayout
+  title={title}
+  description={`${title} for ${SITE.TITLE}`}
+  hasMath={hasMath}
+>
   <TopLayout>
     <div class="animate">
       <div class="page-heading">
