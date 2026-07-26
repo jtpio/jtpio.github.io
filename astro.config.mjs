@@ -6,13 +6,15 @@ import solidJs from "@astrojs/solid-js";
 import { unified } from "@astrojs/markdown-remark";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
+import { remarkHasMath } from "./src/plugins/remark-has-math";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://jtp.io",
   markdown: {
     processor: unified({
-      remarkPlugins: [remarkMath],
+      // `remarkHasMath` reads the nodes `remarkMath` produces, so it runs after it
+      remarkPlugins: [remarkMath, remarkHasMath],
       rehypePlugins: [rehypeKatex],
     }),
   },
